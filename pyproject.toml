@@ -8,7 +8,7 @@ build-backend = "setuptools.build_meta"
 name = "ramanspy"
 version = "0.0.1"
 description = "RamanSPy: An open-source Python package for integrative Raman spectroscopy data analysis"
-readme = "README.rst"
+readme = "README.md"
 authors = [{ name = "Dimitar Georgiev", email = "d.georgiev21@imperial.ac.uk" }]
 license = { file = "LICENSE" }
 classifiers = [
@@ -23,7 +23,7 @@ keywords = [
     "preprocessing pipeline",
     "artificial intelligence",
     "machine learning",
-    "Python package"
+    "Python package",
 ]
 dependencies = [
     "numpy",
