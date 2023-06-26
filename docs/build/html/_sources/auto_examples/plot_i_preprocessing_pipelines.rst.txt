@@ -82,13 +82,30 @@ Define color palette.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-36
+.. GENERATED FROM PYTHON SOURCE LINES 33-34
+
+Set up global figure size.
+
+.. GENERATED FROM PYTHON SOURCE LINES 34-36
+
+.. code-block:: default
+
+    plt.rcParams['figure.figsize'] = [4, 2]
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 37-40
 
 Data loading
 ---------------------
 Loading the data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-41
+.. GENERATED FROM PYTHON SOURCE LINES 40-45
 
 .. code-block:: default
 
@@ -104,11 +121,11 @@ Loading the data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-43
+.. GENERATED FROM PYTHON SOURCE LINES 46-47
 
 Grab 2 random spectra from the volume
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-46
+.. GENERATED FROM PYTHON SOURCE LINES 47-50
 
 .. code-block:: default
 
@@ -122,11 +139,11 @@ Grab 2 random spectra from the volume
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-48
+.. GENERATED FROM PYTHON SOURCE LINES 51-52
 
 Plot the raw spectra
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-50
+.. GENERATED FROM PYTHON SOURCE LINES 52-54
 
 .. code-block:: default
 
@@ -156,11 +173,11 @@ Plot the raw spectra
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-52
+.. GENERATED FROM PYTHON SOURCE LINES 55-56
 
 Plot the fingerprint region
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-56
+.. GENERATED FROM PYTHON SOURCE LINES 56-60
 
 .. code-block:: default
 
@@ -192,13 +209,13 @@ Plot the fingerprint region
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-60
+.. GENERATED FROM PYTHON SOURCE LINES 61-64
 
 Pipelines
 -------------
 Below, we will investigate a series of preprocessing pipelines and their effect on the spectra.
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-71
+.. GENERATED FROM PYTHON SOURCE LINES 66-75
 
 Pipeline I
 ''''''''''''''
@@ -210,11 +227,11 @@ Applying a preprocessing protocol which consists of:
     - baseline correction with Asymmetric Least Squares;
     - Area under the curve normalisation (pixelwise).
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-74
+.. GENERATED FROM PYTHON SOURCE LINES 77-78
 
 Define the pipeline
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-89
+.. GENERATED FROM PYTHON SOURCE LINES 78-93
 
 .. code-block:: default
 
@@ -257,7 +274,7 @@ Define the pipeline
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 90-99
+.. GENERATED FROM PYTHON SOURCE LINES 94-103
 
 Pipeline II
 ''''''''''''''
@@ -269,7 +286,7 @@ Applying a preprocessing protocol which consists of:
     - baseline correction with Adaptive Smoothness Penalized Least Squares (asPLS);
     - MinMax normalisation (pixelwise).
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-114
+.. GENERATED FROM PYTHON SOURCE LINES 103-118
 
 .. code-block:: default
 
@@ -312,7 +329,7 @@ Applying a preprocessing protocol which consists of:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 115-123
+.. GENERATED FROM PYTHON SOURCE LINES 119-127
 
 Pipeline III
 ''''''''''''''
@@ -323,7 +340,7 @@ Applying a preprocessing protocol inspired from [2]_ which consists of:
     - baseline correction with polynomial fitting of order 2;
     - (Unit) Vector normalisation (pixelwise).
 
-.. GENERATED FROM PYTHON SOURCE LINES 123-136
+.. GENERATED FROM PYTHON SOURCE LINES 127-140
 
 .. code-block:: default
 
@@ -364,7 +381,7 @@ Applying a preprocessing protocol inspired from [2]_ which consists of:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 137-142
+.. GENERATED FROM PYTHON SOURCE LINES 141-146
 
 References
 ----------
@@ -375,7 +392,7 @@ References
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.894 seconds)
+   **Total running time of the script:** ( 0 minutes  0.701 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_i_preprocessing_pipelines.py:

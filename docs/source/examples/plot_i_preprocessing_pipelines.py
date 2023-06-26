@@ -30,6 +30,10 @@ random.seed(42)
 colors = plt.cm.get_cmap()(np.linspace(0, 1, 4))
 
 # %%
+# Set up global figure size.
+plt.rcParams['figure.figsize'] = [4, 2]
+
+# %%
 # Data loading
 # ---------------------
 # Loading the data.

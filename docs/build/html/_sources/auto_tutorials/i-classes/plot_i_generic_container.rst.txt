@@ -268,7 +268,7 @@ Some of the main features and functionalities of the :class:`ramanspy.SpectralCo
  .. code-block:: none
 
 
-    array(0.4730316, dtype=float32)
+    array(0.8285266, dtype=float32)
 
 
 
@@ -440,7 +440,7 @@ IO
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.067 seconds)
+   **Total running time of the script:** ( 0 minutes  6.363 seconds)
 
 
 .. _sphx_glr_download_auto_tutorials_i-classes_plot_i_generic_container.py:

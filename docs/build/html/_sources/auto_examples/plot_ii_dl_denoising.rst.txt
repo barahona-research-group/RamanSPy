@@ -34,12 +34,13 @@ Prerequisites
 
 Imports
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-26
+.. GENERATED FROM PYTHON SOURCE LINES 17-27
 
 .. code-block:: default
 
     import numpy as np
     import pandas as pd
+    import matplotlib
     import matplotlib.pyplot as plt
     from matplotlib.colors import LinearSegmentedColormap
     from statannotations.Annotator import Annotator
@@ -54,15 +55,24 @@ Imports
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-28
+.. GENERATED FROM PYTHON SOURCE LINES 28-29
 
-Setting constants
+Setting up constants and plotting parameters.
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-32
+.. GENERATED FROM PYTHON SOURCE LINES 29-42
 
 .. code-block:: default
 
     SEED = 19
+
+    matplotlib.rc_file_defaults()
+    plt.rc('font', size=16)          # controls default text sizes
+    plt.rc('axes', titlesize=24)     # fontsize of the axes title
+    plt.rc('xtick', labelsize=16)    # fontsize of the tick labels
+    plt.rc('ytick', labelsize=16)    # fontsize of the tick labels
+    plt.rc('legend', fontsize=16)    # legend fontsize
+    plt.rc('figure', titlesize=24)  # fontsize of the figure title
+
     METRICS = ['MSE', 'SAD', 'SID']
     colors = list(plt.cm.get_cmap()(np.linspace(0, 1, 4)))
 
@@ -73,13 +83,13 @@ Setting constants
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-36
+.. GENERATED FROM PYTHON SOURCE LINES 43-46
 
 Create denoisers
 ----------------
 We will start by defining the denoisers we will use.
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-43
+.. GENERATED FROM PYTHON SOURCE LINES 48-53
 
 AI-based denoiser
 '''''''''''''''''
@@ -87,7 +97,7 @@ First, we will define and load the AI-based denoiser. This is based on the deep 
 is pretrained on pairs of low-signal-to-noise (SNR) and high-SNR spectra. The trained model has been deposited by the authors
 on `GitHub <https://github.com/conor-horgan/DeepeR/blob/master/Raman%20Spectral%20Denoising/model.py>`_.
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-172
+.. GENERATED FROM PYTHON SOURCE LINES 53-182
 
 .. code-block:: default
 
@@ -227,11 +237,11 @@ on `GitHub <https://github.com/conor-horgan/DeepeR/blob/master/Raman%20Spectral%
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 173-174
+.. GENERATED FROM PYTHON SOURCE LINES 183-184
 
 Load the pretrained model.
 
-.. GENERATED FROM PYTHON SOURCE LINES 174-178
+.. GENERATED FROM PYTHON SOURCE LINES 184-188
 
 .. code-block:: default
 
@@ -252,11 +262,11 @@ Load the pretrained model.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 179-180
+.. GENERATED FROM PYTHON SOURCE LINES 189-190
 
 To use it, we define a preprocessing step based on the pretrained model by wrapping it as a PreprocessingStep instance.
 
-.. GENERATED FROM PYTHON SOURCE LINES 180-193
+.. GENERATED FROM PYTHON SOURCE LINES 190-203
 
 .. code-block:: default
 
@@ -280,14 +290,14 @@ To use it, we define a preprocessing step based on the pretrained model by wrapp
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 194-198
+.. GENERATED FROM PYTHON SOURCE LINES 204-208
 
 Baseline denoisers
 ''''''''''''''''''''
 
 Next, we define a set of baseline correction denoisers based on Savitzky-Golay filtering [3]_ with different parameters.
 
-.. GENERATED FROM PYTHON SOURCE LINES 198-207
+.. GENERATED FROM PYTHON SOURCE LINES 208-217
 
 .. code-block:: default
 
@@ -307,17 +317,17 @@ Next, we define a set of baseline correction denoisers based on Savitzky-Golay f
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 208-211
+.. GENERATED FROM PYTHON SOURCE LINES 218-221
 
 Utility methods
 ''''''''''''''''''''
 We will also define a set of utility methods to help us extract and compare the results of the different denoisers.
 
-.. GENERATED FROM PYTHON SOURCE LINES 213-214
+.. GENERATED FROM PYTHON SOURCE LINES 223-224
 
 Define a MinMax scalar.
 
-.. GENERATED FROM PYTHON SOURCE LINES 214-217
+.. GENERATED FROM PYTHON SOURCE LINES 224-227
 
 .. code-block:: default
 
@@ -331,11 +341,11 @@ Define a MinMax scalar.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 218-219
+.. GENERATED FROM PYTHON SOURCE LINES 228-229
 
 Define a method that extracts the results achieved by a denoiser with respect to the defined metrics.
 
-.. GENERATED FROM PYTHON SOURCE LINES 219-231
+.. GENERATED FROM PYTHON SOURCE LINES 229-241
 
 .. code-block:: default
 
@@ -358,11 +368,11 @@ Define a method that extracts the results achieved by a denoiser with respect to
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 232-233
+.. GENERATED FROM PYTHON SOURCE LINES 242-243
 
 Define a small utility method to plot the results of comparing the baseline and the AI-based denoiser across the defined metrics.
 
-.. GENERATED FROM PYTHON SOURCE LINES 233-268
+.. GENERATED FROM PYTHON SOURCE LINES 243-278
 
 .. code-block:: default
 
@@ -408,20 +418,20 @@ Define a small utility method to plot the results of comparing the baseline and 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 269-273
+.. GENERATED FROM PYTHON SOURCE LINES 279-283
 
 Original data (MDA_MB_231 cells)
 --------------------------------
 We will use the MDA_MB_231 cells dataset from the original paper [1]_ to investigate the performance of the proposed
 AI-based denoiser.
 
-.. GENERATED FROM PYTHON SOURCE LINES 275-278
+.. GENERATED FROM PYTHON SOURCE LINES 285-288
 
 Load data
 ''''''''''''''''''''''''''
 We will use the test set of the MDA_MB_231 cells dataset.
 
-.. GENERATED FROM PYTHON SOURCE LINES 278-281
+.. GENERATED FROM PYTHON SOURCE LINES 288-291
 
 .. code-block:: default
 
@@ -435,13 +445,13 @@ We will use the test set of the MDA_MB_231 cells dataset.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 282-285
+.. GENERATED FROM PYTHON SOURCE LINES 292-295
 
 Example spectrum
 ''''''''''''''''''''''''''
 Denoising results on an example spectrum.
 
-.. GENERATED FROM PYTHON SOURCE LINES 285-302
+.. GENERATED FROM PYTHON SOURCE LINES 295-312
 
 .. code-block:: default
 
@@ -474,13 +484,13 @@ Denoising results on an example spectrum.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 303-306
+.. GENERATED FROM PYTHON SOURCE LINES 313-316
 
 Results on entire dataset
 ''''''''''''''''''''''''''
 Denoising results on the entire testing dataset.
 
-.. GENERATED FROM PYTHON SOURCE LINES 306-316
+.. GENERATED FROM PYTHON SOURCE LINES 316-326
 
 .. code-block:: default
 
@@ -569,14 +579,14 @@ Denoising results on the entire testing dataset.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 317-321
+.. GENERATED FROM PYTHON SOURCE LINES 327-331
 
 Transfer data (THP-1 cells)
 --------------------------------
 To showcase transferability and study generalisation, we will repeat the same experiment on a different unseen dataset.
 We will use the THP-1 cells dataset from [2]_.
 
-.. GENERATED FROM PYTHON SOURCE LINES 323-328
+.. GENERATED FROM PYTHON SOURCE LINES 333-338
 
 Load data
 ''''''''''''''''''''''''''
@@ -584,7 +594,7 @@ Here, we will load the fifth image layer of the first THP-1 cell sample. Note th
 following the same preprocessing steps as in [1]_ for consistency. This included spectral cropping to the 500-1800 cm :sup:`-1` range,
 followed by baseline correction using the 'shape' method in the WITec Project FIVE software with :math:`\alpha = 500`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 328-332
+.. GENERATED FROM PYTHON SOURCE LINES 338-342
 
 .. code-block:: default
 
@@ -599,12 +609,12 @@ followed by baseline correction using the 'shape' method in the WITec Project FI
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 333-335
+.. GENERATED FROM PYTHON SOURCE LINES 343-345
 
 A simple method to add normal noise to a spectrum that we will use to generate noisy spectra for each spectrum in the
 THP-1 cells data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 335-345
+.. GENERATED FROM PYTHON SOURCE LINES 345-355
 
 .. code-block:: default
 
@@ -625,13 +635,13 @@ THP-1 cells data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 346-349
+.. GENERATED FROM PYTHON SOURCE LINES 356-359
 
 Example spectrum
 ''''''''''''''''''''''''''
 Denoising results on an example spectrum.
 
-.. GENERATED FROM PYTHON SOURCE LINES 349-367
+.. GENERATED FROM PYTHON SOURCE LINES 359-377
 
 .. code-block:: default
 
@@ -665,13 +675,13 @@ Denoising results on an example spectrum.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 368-371
+.. GENERATED FROM PYTHON SOURCE LINES 378-381
 
 Results on transfer data
 ''''''''''''''''''''''''''
 Denoising results on the entire transfer dataset.
 
-.. GENERATED FROM PYTHON SOURCE LINES 371-382
+.. GENERATED FROM PYTHON SOURCE LINES 381-392
 
 .. code-block:: default
 
@@ -761,7 +771,7 @@ Denoising results on the entire transfer dataset.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 383-390
+.. GENERATED FROM PYTHON SOURCE LINES 393-400
 
 References
 ----------
@@ -774,7 +784,7 @@ References
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  27.608 seconds)
+   **Total running time of the script:** ( 1 minutes  18.610 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_ii_dl_denoising.py:

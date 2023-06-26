@@ -309,7 +309,7 @@ We can also add more informative title, legend, axis labels, etc.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.099 seconds)
+   **Total running time of the script:** ( 0 minutes  1.068 seconds)
 
 
 .. _sphx_glr_download_auto_tutorials_iv-viz_plot_ii_spectra_mean.py:

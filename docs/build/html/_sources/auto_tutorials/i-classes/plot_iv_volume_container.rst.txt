@@ -202,7 +202,7 @@ as well as access individual layers from it and plot them
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.675 seconds)
+   **Total running time of the script:** ( 0 minutes  0.665 seconds)
 
 
 .. _sphx_glr_download_auto_tutorials_i-classes_plot_iv_volume_container.py:

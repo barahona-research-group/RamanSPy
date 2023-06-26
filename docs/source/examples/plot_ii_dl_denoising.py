@@ -16,6 +16,7 @@ Applied to the original data from [1]_ and a slice from [2]_.
 # Imports
 import numpy as np
 import pandas as pd
+import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 from statannotations.Annotator import Annotator
@@ -24,8 +25,17 @@ import ramanspy
 
 
 # %%
-# Setting constants
+# Setting up constants and plotting parameters.
 SEED = 19
+
+matplotlib.rc_file_defaults()
+plt.rc('font', size=16)          # controls default text sizes
+plt.rc('axes', titlesize=24)     # fontsize of the axes title
+plt.rc('xtick', labelsize=16)    # fontsize of the tick labels
+plt.rc('ytick', labelsize=16)    # fontsize of the tick labels
+plt.rc('legend', fontsize=16)    # legend fontsize
+plt.rc('figure', titlesize=24)  # fontsize of the figure title
+
 METRICS = ['MSE', 'SAD', 'SID']
 colors = list(plt.cm.get_cmap()(np.linspace(0, 1, 4)))
 
