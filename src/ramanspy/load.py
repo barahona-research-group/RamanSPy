@@ -1,3 +1,5 @@
+import numbers
+
 import numpy as np
 import scipy.io as spio
 from renishawWiRE import WDFReader
@@ -50,7 +52,7 @@ def _todict(matobj):
     return dict
 
 
-def witec(filename: str, preprocess: Pipeline = None) -> core.Spectrum or core.SpectralImage:
+def witec(filename: str, *, preprocess: Pipeline = None, laser_excitation: numbers.Number = 532) -> core.Spectrum or core.SpectralImage:
     """
     Loads MATLAB files exported from `WITec's WITec Suite software <https://raman.oxinst.com/products/software/witec-software-suite>`_.
 
@@ -60,6 +62,8 @@ def witec(filename: str, preprocess: Pipeline = None) -> core.Spectrum or core.S
         The name of the MATLAB file to load. Full path or relative to working directory.
     preprocess : :class:`~ramanspy.preprocessing.Pipeline`, optional
         A preprocessing pipeline to apply to the loaded data. If not specified (default), no preprocessing is applied.
+    laser_excitation : numeric, optional
+        The excitation wavelength of the laser (in nm). Default is 532 nm.
 
     Returns
     ---------
@@ -93,7 +97,7 @@ def witec(filename: str, preprocess: Pipeline = None) -> core.Spectrum or core.S
     raman_matlab_struct = matlab_dict[struct_key]
 
     axis = raman_matlab_struct['axisscale'][1]
-    shift_values = utils.wavelength_to_wavenumber(axis[0]) if axis[1] != 'rel. 1/cm' else axis[0]
+    shift_values = utils.wavelength_to_wavenumber(axis[0], laser_excitation) if axis[1] != 'rel. 1/cm' else axis[0]
 
     spectral_data = raman_matlab_struct['data']
 
@@ -126,7 +130,7 @@ def witec(filename: str, preprocess: Pipeline = None) -> core.Spectrum or core.S
     return obj
 
 
-def ocean_insight(filename: str, preprocess: Pipeline = None) -> core.Spectrum:
+def ocean_insight(filename: str, *, preprocess: Pipeline = None, laser_excitation: numbers.Number = 532) -> core.Spectrum:
     """
     Loads spectra data from `Ocean Insight's OceanView software <https://www.oceaninsight.com/products/software/>`_ .txt files.
 
@@ -136,6 +140,8 @@ def ocean_insight(filename: str, preprocess: Pipeline = None) -> core.Spectrum:
         The name of the .txt file to load. Full path or relative to working directory.
     preprocess : :class:`~ramanspy.preprocessing.Pipeline`, optional
         A preprocessing pipeline to apply to the loaded data. If not specified (default), no preprocessing is applied.
+    laser_excitation : numeric, optional
+        The excitation wavelength of the laser (in nm). Default is 532 nm.
 
     Returns
     ---------
@@ -177,7 +183,7 @@ def ocean_insight(filename: str, preprocess: Pipeline = None) -> core.Spectrum:
     shift_values = data[:, 0]
 
     if metadata["XAxis mode"].lower() == "wavelengths":
-        shift_values = utils.wavelength_to_wavenumber(shift_values)
+        shift_values = utils.wavelength_to_wavenumber(shift_values, laser_excitation)
 
     spectrum = core.Spectrum(spectral_data, shift_values)
 
@@ -187,7 +193,7 @@ def ocean_insight(filename: str, preprocess: Pipeline = None) -> core.Spectrum:
     return spectrum
 
 
-def renishaw(filename: str, preprocess: Pipeline = None) -> core.SpectralContainer or core.Spectrum or core.SpectralImage:
+def renishaw(filename: str, *, preprocess: Pipeline = None) -> core.SpectralContainer or core.Spectrum or core.SpectralImage:
     """
     Loads spectra data from `Ranishaw's WiRE software <https://www.renishaw.com/en/raman-software--9450>`_ .wdf  files.
 
@@ -231,7 +237,7 @@ def renishaw(filename: str, preprocess: Pipeline = None) -> core.SpectralContain
     return obj
 
 
-def opus(filename: str, preprocess: Pipeline = None) -> core.Spectrum:
+def opus(filename: str, *, preprocess: Pipeline = None) -> core.Spectrum:
     """
     Loads spectra data from `Bruker's OPUS software <https://www.bruker.com/en/products-and-solutions/infrared-and-raman/opus-spectroscopy-software.html>`_ files.
 
@@ -263,7 +269,7 @@ def opus(filename: str, preprocess: Pipeline = None) -> core.Spectrum:
     raise NotImplemented()
 
 
-def labspec(filename: str, preprocess: Pipeline = None) -> core.SpectralContainer or core.Spectrum:
+def labspec(filename: str, *, preprocess: Pipeline = None) -> core.SpectralContainer or core.Spectrum:
     """
     Loads spectra data from `HORIBA's LabSpec software <https://www.horiba.com/int/scientific/products/detail/action/show/Product/labspec-6-spectroscopy-suite-software-1843/>`_ .txt files.
 
