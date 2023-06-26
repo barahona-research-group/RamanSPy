@@ -5,5 +5,5 @@ build:
     tools:
       python: "3.8"
     commands:
-      - mkdir --parents $READTHEDOCS_OUTPUT/html/
-      - cp --recursive docs/build/* $READTHEDOCS_OUTPUT/html/
+      - mkdir --parents _readthedocs/html/
+      - cp --recursive docs/build/html/* _readthedocs/html/
