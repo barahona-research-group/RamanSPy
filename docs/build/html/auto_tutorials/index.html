@@ -1,0 +1,466 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Storing generic data" href="i-classes/plot_i_generic_container.html" /><link rel="prev" title="Analysis" href="../analysis.html" />
+
+    <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
+        <title>Tutorials - ramanspy 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --color-brand-primary: #7C4DFF;
+  --color-brand-content: #7C4DFF;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">ramanspy 0.0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../_static/raman_logo_transparent.png" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Quick start:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_classes.html">Data containers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../loading.html">Data loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metrics.html">Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plot.html">Data visualisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preprocessing.html">Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analysis.html">Analysis</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Tutorials</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="i-classes/plot_i_generic_container.html">Storing generic data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i-classes/plot_ii_spectrum_container.html">Storing spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i-classes/plot_iii_image_container.html">Storing imaging data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i-classes/plot_iv_volume_container.html">Storing volumetric data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ii-instrumental/i_witec.html">Loading WITec data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ii-instrumental/ii_renishaw.html">Loading Renishaw data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ii-instrumental/iii_ocean_insight.html">Loading Ocean Insight data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ii-instrumental/iv_other.html">Loading other data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iii-datasets/ii_rruff.html">Loading the RRUFF dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iii-datasets/plot_i_bacteria.html">Loading the Bacteria dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iii-datasets/plot_ii_metrics.html">Using built-in metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iv-viz/plot_i_spectra.html">Visualising spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iv-viz/plot_ii_peaks.html">Visualising peaks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iv-viz/plot_ii_spectra_mean.html">Visualising spectral distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iv-viz/plot_iii_image.html">Visualising imaging data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iv-viz/plot_iv_volume.html">Visualising volumetric data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iv-viz/plot_v_peak_dist.html">Visualising peak distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iv-viz/plot_vi_customisation.html">Customising plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v-preprocessing/plot_i_predefined_methods.html">Built-in methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v-preprocessing/plot_ii_custom_method.html">Custom methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v-preprocessing/plot_iii_custom_pipeline.html">Custom pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v-preprocessing/plot_iv_predefined_pipeline.html">Built-in protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vi-analysis/plot_i_decomposition.html">Built-in decomposition methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vi-analysis/plot_ii_kmeans.html">Built-in clustering methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vi-analysis/plot_iii_unmixing.html">Built-in unmixing methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vi-analysis/plot_iv_integrative_svm.html">Integrative analysis: Support Vector Machine (SVM) classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vi-analysis/plot_v_integrative_nn.html">Integrative analysis: Neural Network (NN) classification</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/plot_i_package_overview.html">Cell phenotyping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/plot_i_preprocessing_pipelines.html">Preprocessing pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/plot_ii_dl_denoising.html">AI-based denoising</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/plot_iii_bacteria_classification.html">Bacteria classification</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/barahona-research-group/RamanSPy">GitHub repository</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="tutorials">
+<h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this heading"></a></h1>
+<p>In this section, different code snippets are provided to illustrate how to use some of the main features of <cite>raman</cite>,
+including data loading, preprocessing and analysis, and visualisation.</p>
+<div class="sphx-glr-thumbnails"></div><section id="data-containers">
+<h2>Data containers<a class="headerlink" href="#data-containers" title="Permalink to this heading"></a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="The backbone of RamanSPy&#x27;s data management core is the ramanspy.SpectralContainer class. It ser..."><img alt="" src="../_images/sphx_glr_plot_i_generic_container_thumb.png" />
+<p><a class="reference internal" href="i-classes/plot_i_generic_container.html#sphx-glr-auto-tutorials-i-classes-plot-i-generic-container-py"><span class="std std-ref">Storing generic data</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Storing generic data</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The management of single Raman spectra in RamanSPy is guided through the ramanspy.Spectrum clas..."><img alt="" src="../_images/sphx_glr_plot_ii_spectrum_container_thumb.png" />
+<p><a class="reference internal" href="i-classes/plot_ii_spectrum_container.html#sphx-glr-auto-tutorials-i-classes-plot-ii-spectrum-container-py"><span class="std std-ref">Storing spectra</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Storing spectra</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The management of imaging Raman spectroscopic data in RamanSPy is guided through the ramanspy.S..."><img alt="" src="../_images/sphx_glr_plot_iii_image_container_thumb.png" />
+<p><a class="reference internal" href="i-classes/plot_iii_image_container.html#sphx-glr-auto-tutorials-i-classes-plot-iii-image-container-py"><span class="std std-ref">Storing imaging data</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Storing imaging data</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The management of volumetric Raman spectroscopic data in RamanSPy is guided through the ramansp..."><img alt="" src="../_images/sphx_glr_plot_iv_volume_container_thumb.png" />
+<p><a class="reference internal" href="i-classes/plot_iv_volume_container.html#sphx-glr-auto-tutorials-i-classes-plot-iv-volume-container-py"><span class="std std-ref">Storing volumetric data</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Storing volumetric data</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="data-loading">
+<h2>Data loading<a class="headerlink" href="#data-loading" title="Permalink to this heading"></a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Users can use RamanSPy to load MATLAB files as exported from WITec&#x27;s Suite FIVE software."><img alt="" src="../_images/sphx_glr_i_witec_thumb.png" />
+<p><a class="reference internal" href="ii-instrumental/i_witec.html#sphx-glr-auto-tutorials-ii-instrumental-i-witec-py"><span class="std std-ref">Loading WITec data</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Loading WITec data</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Users can use RamanSPy to load .wdf files as exported from Renishaw&#x27;s WiRE software. This can b..."><img alt="" src="../_images/sphx_glr_ii_renishaw_thumb.png" />
+<p><a class="reference internal" href="ii-instrumental/ii_renishaw.html#sphx-glr-auto-tutorials-ii-instrumental-ii-renishaw-py"><span class="std std-ref">Loading Renishaw data</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Loading Renishaw data</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Users can use RamanSPy to load single spectra .txt files acquired using Ocean Insight Raman ins..."><img alt="" src="../_images/sphx_glr_iii_ocean_insight_thumb.png" />
+<p><a class="reference internal" href="ii-instrumental/iii_ocean_insight.html#sphx-glr-auto-tutorials-ii-instrumental-iii-ocean-insight-py"><span class="std std-ref">Loading Ocean Insight data</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Loading Ocean Insight data</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Users can use RamanSPy to load other data files, too. To do so, one simply has to parse the fil..."><img alt="" src="../_images/sphx_glr_iv_other_thumb.png" />
+<p><a class="reference internal" href="ii-instrumental/iv_other.html#sphx-glr-auto-tutorials-ii-instrumental-iv-other-py"><span class="std std-ref">Loading other data</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Loading other data</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="datasets-and-metrics">
+<h2>Datasets and metrics<a class="headerlink" href="#datasets-and-metrics" title="Permalink to this heading"></a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we will see how to load the RRUFF data using RamanSPy."><img alt="" src="../_images/sphx_glr_ii_rruff_thumb.png" />
+<p><a class="reference internal" href="iii-datasets/ii_rruff.html#sphx-glr-auto-tutorials-iii-datasets-ii-rruff-py"><span class="std std-ref">Loading the RRUFF dataset</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Loading the RRUFF dataset</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we will see how to load the Bacteria data available in RamanSPy."><img alt="" src="../_images/sphx_glr_plot_i_bacteria_thumb.png" />
+<p><a class="reference internal" href="iii-datasets/plot_i_bacteria.html#sphx-glr-auto-tutorials-iii-datasets-plot-i-bacteria-py"><span class="std std-ref">Loading the Bacteria dataset</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Loading the Bacteria dataset</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we will see how to access and use the built-in metrics available in RamanSPy."><img alt="" src="../_images/sphx_glr_plot_ii_metrics_thumb.png" />
+<p><a class="reference internal" href="iii-datasets/plot_ii_metrics.html#sphx-glr-auto-tutorials-iii-datasets-plot-ii-metrics-py"><span class="std std-ref">Using built-in metrics</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Using built-in metrics</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="data-visualisation">
+<h2>Data visualisation<a class="headerlink" href="#data-visualisation" title="Permalink to this heading"></a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="RamanSPy provides a broad selection of visualisation tools for the visualisation of Raman spect..."><img alt="" src="../_images/sphx_glr_plot_i_spectra_thumb.png" />
+<p><a class="reference internal" href="iv-viz/plot_i_spectra.html#sphx-glr-auto-tutorials-iv-viz-plot-i-spectra-py"><span class="std std-ref">Visualising spectra</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Visualising spectra</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="We can visualise the peaks in a spectrum by using the ramanspy.plot.peaks method."><img alt="" src="../_images/sphx_glr_plot_ii_peaks_thumb.png" />
+<p><a class="reference internal" href="iv-viz/plot_ii_peaks.html#sphx-glr-auto-tutorials-iv-viz-plot-ii-peaks-py"><span class="std std-ref">Visualising peaks</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Visualising peaks</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Sometimes, we have plenty of spectra we wish to visualise. To appropriately do that, it is more..."><img alt="" src="../_images/sphx_glr_plot_ii_spectra_mean_thumb.png" />
+<p><a class="reference internal" href="iv-viz/plot_ii_spectra_mean.html#sphx-glr-auto-tutorials-iv-viz-plot-ii-spectra-mean-py"><span class="std std-ref">Visualising spectral distributions</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Visualising spectral distributions</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="RamanSPy allows the visualisation of Raman imaging data. Visualising imaging data can be achiev..."><img alt="" src="../_images/sphx_glr_plot_iii_image_thumb.png" />
+<p><a class="reference internal" href="iv-viz/plot_iii_image.html#sphx-glr-auto-tutorials-iv-viz-plot-iii-image-py"><span class="std std-ref">Visualising imaging data</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Visualising imaging data</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="RamanSPy aids the visualisation of volumetric Raman spectroscopic data. This can be done by usi..."><img alt="" src="../_images/sphx_glr_plot_iv_volume_thumb.png" />
+<p><a class="reference internal" href="iv-viz/plot_iv_volume.html#sphx-glr-auto-tutorials-iv-viz-plot-iv-volume-py"><span class="std std-ref">Visualising volumetric data</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Visualising volumetric data</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="One of the data visualisation tools RamanSPy offers is the ramanspy.plot.peak_dist - a method i..."><img alt="" src="../_images/sphx_glr_plot_v_peak_dist_thumb.png" />
+<p><a class="reference internal" href="iv-viz/plot_v_peak_dist.html#sphx-glr-auto-tutorials-iv-viz-plot-v-peak-dist-py"><span class="std std-ref">Visualising peak distributions</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Visualising peak distributions</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="RamanSPy&#x27;s plotting methods are built on top of matplotlib and so inherit most of matplotlib&#x27;s ..."><img alt="" src="../_images/sphx_glr_plot_vi_customisation_thumb.png" />
+<p><a class="reference internal" href="iv-viz/plot_vi_customisation.html#sphx-glr-auto-tutorials-iv-viz-plot-vi-customisation-py"><span class="std std-ref">Customising plots</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Customising plots</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="preprocessing">
+<h2>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this heading"></a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="RamanSPy provides a collection of various preprocessing methods, which users can directly acces..."><img alt="" src="../_images/sphx_glr_plot_i_predefined_methods_thumb.png" />
+<p><a class="reference internal" href="v-preprocessing/plot_i_predefined_methods.html#sphx-glr-auto-tutorials-v-preprocessing-plot-i-predefined-methods-py"><span class="std std-ref">Built-in methods</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Built-in methods</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Users can use RamanSPy to also define their own preprocessing methods, which can then be direct..."><img alt="" src="../_images/sphx_glr_plot_ii_custom_method_thumb.png" />
+<p><a class="reference internal" href="v-preprocessing/plot_ii_custom_method.html#sphx-glr-auto-tutorials-v-preprocessing-plot-ii-custom-method-py"><span class="std std-ref">Custom methods</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Custom methods</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="RamanSPy makes the construction and execution of diverse preprocessing pipelines significantly ..."><img alt="" src="../_images/sphx_glr_plot_iii_custom_pipeline_thumb.png" />
+<p><a class="reference internal" href="v-preprocessing/plot_iii_custom_pipeline.html#sphx-glr-auto-tutorials-v-preprocessing-plot-iii-custom-pipeline-py"><span class="std std-ref">Custom pipelines</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Custom pipelines</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="To further ease the preprocessing workflow, RamanSPy provides a selection of established prepro..."><img alt="" src="../_images/sphx_glr_plot_iv_predefined_pipeline_thumb.png" />
+<p><a class="reference internal" href="v-preprocessing/plot_iv_predefined_pipeline.html#sphx-glr-auto-tutorials-v-preprocessing-plot-iv-predefined-pipeline-py"><span class="std std-ref">Built-in protocols</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Built-in protocols</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="analysis">
+<h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading"></a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In this example, we will use RamanSPy to perform Principal Component Analysis (PCA) to decompos..."><img alt="" src="../_images/sphx_glr_plot_i_decomposition_thumb.png" />
+<p><a class="reference internal" href="vi-analysis/plot_i_decomposition.html#sphx-glr-auto-tutorials-vi-analysis-plot-i-decomposition-py"><span class="std std-ref">Built-in decomposition methods</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Built-in decomposition methods</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Below, we will use RamanSPy&#x27;s built-in clustering methods to perform KMeans clustering and clus..."><img alt="" src="../_images/sphx_glr_plot_ii_kmeans_thumb.png" />
+<p><a class="reference internal" href="vi-analysis/plot_ii_kmeans.html#sphx-glr-auto-tutorials-vi-analysis-plot-ii-kmeans-py"><span class="std std-ref">Built-in clustering methods</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Built-in clustering methods</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we will use the RamanSPy&#x27;s built-in methods for spectral unmixing to perform ..."><img alt="" src="../_images/sphx_glr_plot_iii_unmixing_thumb.png" />
+<p><a class="reference internal" href="vi-analysis/plot_iii_unmixing.html#sphx-glr-auto-tutorials-vi-analysis-plot-iii-unmixing-py"><span class="std std-ref">Built-in unmixing methods</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Built-in unmixing methods</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In this example, we will showcase RamanSPy&#x27;s integrability by integrating a Support Vector Mach..."><img alt="" src="../_images/sphx_glr_plot_iv_integrative_svm_thumb.png" />
+<p><a class="reference internal" href="vi-analysis/plot_iv_integrative_svm.html#sphx-glr-auto-tutorials-vi-analysis-plot-iv-integrative-svm-py"><span class="std std-ref">Integrative analysis: Support Vector Machine (SVM) classification</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Integrative analysis: Support Vector Machine (SVM) classification</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In this example, we will showcase RamanSPy&#x27;s integrability by integrating a Neural Network (NN)..."><img alt="" src="../_images/sphx_glr_plot_v_integrative_nn_thumb.png" />
+<p><a class="reference internal" href="vi-analysis/plot_v_integrative_nn.html#sphx-glr-auto-tutorials-vi-analysis-plot-v-integrative-nn-py"><span class="std std-ref">Integrative analysis: Neural Network (NN) classification</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Integrative analysis: Neural Network (NN) classification</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-footer sphx-glr-footer-gallery docutils container">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/cab7a090c4183ca69dc0cd84d3b04413/auto_tutorials_python.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">auto_tutorials_python.zip</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/97a1de59bce682890841bb846e3dd09c/auto_tutorials_jupyter.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Jupyter</span> <span class="pre">notebooks:</span> <span class="pre">auto_tutorials_jupyter.zip</span></code></a></p>
+</div>
+</div>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="i-classes/plot_i_generic_container.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Storing generic data</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../analysis.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Analysis</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Dimitar Georgiev
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Tutorials</a><ul>
+<li><a class="reference internal" href="#data-containers">Data containers</a></li>
+<li><a class="reference internal" href="#data-loading">Data loading</a></li>
+<li><a class="reference internal" href="#datasets-and-metrics">Datasets and metrics</a></li>
+<li><a class="reference internal" href="#data-visualisation">Data visualisation</a></li>
+<li><a class="reference internal" href="#preprocessing">Preprocessing</a></li>
+<li><a class="reference internal" href="#analysis">Analysis</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/jquery.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    </body>
+</html>

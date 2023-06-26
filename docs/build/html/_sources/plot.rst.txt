@@ -1,0 +1,45 @@
+=================================
+Data visualisation
+=================================
+.. currentmodule:: ramanspy.plot
+
+`RamanSPy` provides a variety of data visualisation tools which can be used to plot different types of Raman spectroscopic data
+and analysis results. This includes the visualisation of (collections of) spectra, imaging and volumetric data, relevant
+statistics (e.g. mean spectra, peak intensity distributions) and more. These can also be used to visualise analysis results,
+such as endmembers, fractional abundances, clusters, projections and others.
+
+The visualisation tools are implemented as functions which can be accessed via the :mod:`ramanspy.plot` module.
+
+
+Spectra
+==============
+.. autofunction:: spectra
+.. seealso:: Check the :ref:`Visualising spectra` tutorial for more information about how to visualise spectra.
+
+.. autofunction:: mean_spectra
+.. seealso:: Check the :ref:`Visualising spectral distributions` tutorial for more information about how to visualise spectral distributions.
+
+
+.. autofunction:: peaks
+.. seealso:: Check the :ref:`Visualising peaks` tutorial for more information about how to visualise the peaks of spectra.
+
+Image
+==============
+.. autofunction:: image
+.. seealso:: Check the :ref:`Visualising imaging data` tutorial for more information about how to visualise imaging data.
+
+
+Volumetric
+==============
+.. autofunction:: volume
+.. seealso:: Check the :ref:`Visualising volumetric data` tutorial for more information about how to visualise volumetric data.
+
+
+Other
+==============
+
+Peak distributions
+-------------------------
+.. autofunction:: peak_dist
+.. seealso:: Check the :ref:`Visualising peak distributions` tutorial for more information about how to visualise peak distributions.
+

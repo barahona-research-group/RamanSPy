@@ -1,0 +1,857 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="prev" title="AI-based denoising" href="plot_ii_dl_denoising.html" />
+
+    <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
+        <title>Bacteria classification - ramanspy 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --color-brand-primary: #7C4DFF;
+  --color-brand-content: #7C4DFF;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">ramanspy 0.0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../_static/raman_logo_transparent.png" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Quick start:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_classes.html">Data containers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../loading.html">Data loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metrics.html">Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plot.html">Data visualisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preprocessing.html">Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analysis.html">Analysis</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../auto_tutorials/index.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/i-classes/plot_i_generic_container.html">Storing generic data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/i-classes/plot_ii_spectrum_container.html">Storing spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/i-classes/plot_iii_image_container.html">Storing imaging data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/i-classes/plot_iv_volume_container.html">Storing volumetric data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/ii-instrumental/i_witec.html">Loading WITec data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/ii-instrumental/ii_renishaw.html">Loading Renishaw data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/ii-instrumental/iii_ocean_insight.html">Loading Ocean Insight data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/ii-instrumental/iv_other.html">Loading other data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/iii-datasets/ii_rruff.html">Loading the RRUFF dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/iii-datasets/plot_i_bacteria.html">Loading the Bacteria dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/iii-datasets/plot_ii_metrics.html">Using built-in metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/iv-viz/plot_i_spectra.html">Visualising spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/iv-viz/plot_ii_peaks.html">Visualising peaks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/iv-viz/plot_ii_spectra_mean.html">Visualising spectral distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/iv-viz/plot_iii_image.html">Visualising imaging data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/iv-viz/plot_iv_volume.html">Visualising volumetric data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/iv-viz/plot_v_peak_dist.html">Visualising peak distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/iv-viz/plot_vi_customisation.html">Customising plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/v-preprocessing/plot_i_predefined_methods.html">Built-in methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/v-preprocessing/plot_ii_custom_method.html">Custom methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/v-preprocessing/plot_iii_custom_pipeline.html">Custom pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/v-preprocessing/plot_iv_predefined_pipeline.html">Built-in protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/vi-analysis/plot_i_decomposition.html">Built-in decomposition methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/vi-analysis/plot_ii_kmeans.html">Built-in clustering methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/vi-analysis/plot_iii_unmixing.html">Built-in unmixing methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/vi-analysis/plot_iv_integrative_svm.html">Integrative analysis: Support Vector Machine (SVM) classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/vi-analysis/plot_v_integrative_nn.html">Integrative analysis: Neural Network (NN) classification</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="plot_i_package_overview.html">Cell phenotyping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_i_preprocessing_pipelines.html">Preprocessing pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_ii_dl_denoising.html">AI-based denoising</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Bacteria classification</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/barahona-research-group/RamanSPy">GitHub repository</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-auto-examples-plot-iii-bacteria-classification-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="bacteria-classification">
+<span id="sphx-glr-auto-examples-plot-iii-bacteria-classification-py"></span><h1>Bacteria classification<a class="headerlink" href="#bacteria-classification" title="Permalink to this heading"></a></h1>
+<p>In this example, we will benchmark the performance of a variety of machine learning models on a dataset of Raman spectra of
+30 different bacteria species. The dataset is from <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lazypredict.Supervised</span> <span class="kn">import</span> <span class="n">LazyClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">shuffle</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span>
+</pre></div>
+</div>
+</section>
+<section id="data-loading">
+<h2>Data loading<a class="headerlink" href="#data-loading" title="Permalink to this heading"></a></h2>
+<p>Load the fine-tuning/validation and testing datasets from the original paper, alongside the corresponding labels.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dir_</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;../../../data/bacteria_data&quot;</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">ramanspy</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">bacteria</span><span class="p">(</span><span class="s2">&quot;val&quot;</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="n">dir_</span><span class="p">)</span>
+<span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">ramanspy</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">bacteria</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="n">dir_</span><span class="p">)</span>
+
+<span class="n">y_labels</span><span class="p">,</span> <span class="n">antibiotics_labels</span> <span class="o">=</span> <span class="n">ramanspy</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">bacteria</span><span class="p">(</span><span class="s2">&quot;labels&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Define the order in which to plot the species throughout the example. The same order as in the original paper.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_order</span> <span class="o">=</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="exploratory-analysis">
+<h2>Exploratory analysis<a class="headerlink" href="#exploratory-analysis" title="Permalink to this heading"></a></h2>
+<p>Group training data into species classes for plotting.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spectra</span> <span class="o">=</span> <span class="p">[[</span><span class="n">X_train</span><span class="p">[</span><span class="n">y_train</span> <span class="o">==</span> <span class="n">species_id</span><span class="p">]]</span> <span class="k">for</span> <span class="n">species_id</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y_train</span><span class="p">))]</span>
+</pre></div>
+</div>
+<p>Normalise the spectra using min-max normalisation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spectra_</span> <span class="o">=</span> <span class="n">ramanspy</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">normalise</span><span class="o">.</span><span class="n">MinMax</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">spectra</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Define colormaps (for visualisation purposes).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">()</span>  <span class="c1"># using matplotlib&#39;s default colormap</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">cmap</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">antibiotics_labels</span><span class="p">))))))</span>
+
+<span class="c1"># defining the color map for the different antibiotic groups</span>
+<span class="n">antibiotics_map_</span> <span class="o">=</span> <span class="p">[</span><span class="n">antibiotics_labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">plotting_order</span><span class="p">]</span>
+<span class="n">antibiotic_color_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">a</span><span class="p">:</span> <span class="n">c</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">antibiotics_map_</span><span class="p">)),</span> <span class="n">colors</span><span class="p">)}</span>
+<span class="n">antibiotics_colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">antibiotic_color_map</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">antibiotics_map_</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Plot the mean spectra of each species (data from finetuning dataset).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">ramanspy</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">mean_spectra</span><span class="p">([</span><span class="n">spectra_</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">plotting_order</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="n">y_labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">plotting_order</span><span class="p">],</span> <span class="n">plot_type</span><span class="o">=</span><span class="s2">&quot;single stacked&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">antibiotics_colors</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<img src="../_images/sphx_glr_plot_iii_bacteria_classification_001.png" srcset="../_images/sphx_glr_plot_iii_bacteria_classification_001.png" alt="plot iii bacteria classification" class = "sphx-glr-single-img"/></section>
+<section id="benchmarking">
+<h2>Benchmarking<a class="headerlink" href="#benchmarking" title="Permalink to this heading"></a></h2>
+<p>Next, we will benchmark a variety of machine learning models on task of predicting the bacteria species class each
+spectrum belongs to. We will train the models on the validation/fine-tuning dataset and test them on the testing dataset.</p>
+<p>To guide the training, it is important to shuffle the training dataset, which is originally ordered by bacteria species.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">flat</span><span class="o">.</span><span class="n">spectral_data</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can use <a class="reference external" href="https://lazypredict.readthedocs.io/en/latest/">the lazypredict Python package</a> to benchmark the performance of a variety of machine learning models.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">LazyClassifier</span><span class="p">()</span>
+<span class="n">models_test</span><span class="p">,</span> <span class="n">predictions_test</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">spectral_data</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/29 [00:00&lt;?, ?it/s]
+  3%|3         | 1/29 [00:14&lt;06:38, 14.24s/it]
+  7%|6         | 2/29 [00:37&lt;08:41, 19.32s/it]
+ 10%|#         | 3/29 [00:37&lt;04:34, 10.56s/it]
+ 14%|#3        | 4/29 [03:17&lt;28:57, 69.50s/it]
+ 21%|##        | 6/29 [03:20&lt;12:51, 33.53s/it]
+ 28%|##7       | 8/29 [03:20&lt;06:41, 19.10s/it]
+ 31%|###1      | 9/29 [03:21&lt;04:57, 14.87s/it]
+ 34%|###4      | 10/29 [03:21&lt;03:32, 11.19s/it]
+ 38%|###7      | 11/29 [03:22&lt;02:29,  8.33s/it]
+ 41%|####1     | 12/29 [03:22&lt;01:45,  6.21s/it]
+ 45%|####4     | 13/29 [03:23&lt;01:14,  4.63s/it]
+ 48%|####8     | 14/29 [03:25&lt;00:56,  3.78s/it]
+ 52%|#####1    | 15/29 [03:58&lt;02:54, 12.43s/it]
+ 55%|#####5    | 16/29 [04:00&lt;02:00,  9.27s/it]
+ 62%|######2   | 18/29 [04:12&lt;01:26,  7.88s/it]
+ 66%|######5   | 19/29 [04:15&lt;01:05,  6.59s/it]
+ 69%|######8   | 20/29 [04:16&lt;00:47,  5.24s/it]
+ 72%|#######2  | 21/29 [04:17&lt;00:31,  3.99s/it]
+ 76%|#######5  | 22/29 [04:23&lt;00:32,  4.60s/it]
+ 79%|#######9  | 23/29 [04:24&lt;00:20,  3.43s/it]
+ 83%|########2 | 24/29 [04:25&lt;00:13,  2.77s/it]
+ 86%|########6 | 25/29 [04:26&lt;00:09,  2.45s/it]
+ 90%|########9 | 26/29 [04:37&lt;00:14,  4.85s/it]
+ 97%|#########6| 28/29 [05:23&lt;00:13, 13.07s/it]
+100%|##########| 29/29 [05:50&lt;00:00, 16.66s/it]
+100%|##########| 29/29 [05:50&lt;00:00, 12.10s/it]
+</pre></div>
+</div>
+<p>Print the benchmarking results.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">models_test</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Accuracy</th>
+      <th>Balanced Accuracy</th>
+      <th>ROC AUC</th>
+      <th>F1 Score</th>
+      <th>Time Taken</th>
+    </tr>
+    <tr>
+      <th>Model</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>LogisticRegression</th>
+      <td>0.80</td>
+      <td>0.80</td>
+      <td>None</td>
+      <td>0.79</td>
+      <td>1.65</td>
+    </tr>
+    <tr>
+      <th>SVC</th>
+      <td>0.76</td>
+      <td>0.76</td>
+      <td>None</td>
+      <td>0.75</td>
+      <td>10.61</td>
+    </tr>
+    <tr>
+      <th>NuSVC</th>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>None</td>
+      <td>0.75</td>
+      <td>12.34</td>
+    </tr>
+    <tr>
+      <th>SGDClassifier</th>
+      <td>0.74</td>
+      <td>0.74</td>
+      <td>None</td>
+      <td>0.73</td>
+      <td>1.68</td>
+    </tr>
+    <tr>
+      <th>LinearDiscriminantAnalysis</th>
+      <td>0.73</td>
+      <td>0.73</td>
+      <td>None</td>
+      <td>0.72</td>
+      <td>1.66</td>
+    </tr>
+    <tr>
+      <th>PassiveAggressiveClassifier</th>
+      <td>0.64</td>
+      <td>0.64</td>
+      <td>None</td>
+      <td>0.63</td>
+      <td>2.64</td>
+    </tr>
+    <tr>
+      <th>CalibratedClassifierCV</th>
+      <td>0.64</td>
+      <td>0.64</td>
+      <td>None</td>
+      <td>0.63</td>
+      <td>159.87</td>
+    </tr>
+    <tr>
+      <th>RidgeClassifierCV</th>
+      <td>0.61</td>
+      <td>0.61</td>
+      <td>None</td>
+      <td>0.59</td>
+      <td>1.14</td>
+    </tr>
+    <tr>
+      <th>RidgeClassifier</th>
+      <td>0.61</td>
+      <td>0.61</td>
+      <td>None</td>
+      <td>0.59</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <th>LGBMClassifier</th>
+      <td>0.61</td>
+      <td>0.61</td>
+      <td>None</td>
+      <td>0.59</td>
+      <td>27.65</td>
+    </tr>
+    <tr>
+      <th>LinearSVC</th>
+      <td>0.60</td>
+      <td>0.60</td>
+      <td>None</td>
+      <td>0.59</td>
+      <td>33.56</td>
+    </tr>
+    <tr>
+      <th>Perceptron</th>
+      <td>0.58</td>
+      <td>0.58</td>
+      <td>None</td>
+      <td>0.56</td>
+      <td>1.40</td>
+    </tr>
+    <tr>
+      <th>XGBClassifier</th>
+      <td>0.57</td>
+      <td>0.57</td>
+      <td>None</td>
+      <td>0.56</td>
+      <td>45.67</td>
+    </tr>
+    <tr>
+      <th>GaussianNB</th>
+      <td>0.56</td>
+      <td>0.56</td>
+      <td>None</td>
+      <td>0.56</td>
+      <td>0.24</td>
+    </tr>
+    <tr>
+      <th>NearestCentroid</th>
+      <td>0.55</td>
+      <td>0.55</td>
+      <td>None</td>
+      <td>0.55</td>
+      <td>0.08</td>
+    </tr>
+    <tr>
+      <th>BernoulliNB</th>
+      <td>0.54</td>
+      <td>0.54</td>
+      <td>None</td>
+      <td>0.54</td>
+      <td>0.13</td>
+    </tr>
+    <tr>
+      <th>RandomForestClassifier</th>
+      <td>0.50</td>
+      <td>0.50</td>
+      <td>None</td>
+      <td>0.49</td>
+      <td>6.16</td>
+    </tr>
+    <tr>
+      <th>ExtraTreesClassifier</th>
+      <td>0.49</td>
+      <td>0.49</td>
+      <td>None</td>
+      <td>0.48</td>
+      <td>1.13</td>
+    </tr>
+    <tr>
+      <th>BaggingClassifier</th>
+      <td>0.38</td>
+      <td>0.38</td>
+      <td>None</td>
+      <td>0.36</td>
+      <td>22.88</td>
+    </tr>
+    <tr>
+      <th>KNeighborsClassifier</th>
+      <td>0.33</td>
+      <td>0.33</td>
+      <td>None</td>
+      <td>0.27</td>
+      <td>0.38</td>
+    </tr>
+    <tr>
+      <th>DecisionTreeClassifier</th>
+      <td>0.27</td>
+      <td>0.27</td>
+      <td>None</td>
+      <td>0.27</td>
+      <td>3.21</td>
+    </tr>
+    <tr>
+      <th>ExtraTreeClassifier</th>
+      <td>0.22</td>
+      <td>0.22</td>
+      <td>None</td>
+      <td>0.22</td>
+      <td>0.06</td>
+    </tr>
+    <tr>
+      <th>AdaBoostClassifier</th>
+      <td>0.10</td>
+      <td>0.10</td>
+      <td>None</td>
+      <td>0.05</td>
+      <td>14.24</td>
+    </tr>
+    <tr>
+      <th>QuadraticDiscriminantAnalysis</th>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>None</td>
+      <td>0.05</td>
+      <td>0.62</td>
+    </tr>
+    <tr>
+      <th>LabelSpreading</th>
+      <td>0.03</td>
+      <td>0.03</td>
+      <td>None</td>
+      <td>0.00</td>
+      <td>0.57</td>
+    </tr>
+    <tr>
+      <th>LabelPropagation</th>
+      <td>0.03</td>
+      <td>0.03</td>
+      <td>None</td>
+      <td>0.00</td>
+      <td>0.61</td>
+    </tr>
+    <tr>
+      <th>DummyClassifier</th>
+      <td>0.03</td>
+      <td>0.03</td>
+      <td>None</td>
+      <td>0.00</td>
+      <td>0.05</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br />
+<br /><p>Plot the benchmarking results in a bar chart.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;whitegrid&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">models_test</span><span class="p">[</span><span class="s1">&#39;Accuracy (%)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">models_test</span><span class="p">[</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">models_test</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Accuracy (%)&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">models_test</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">containers</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img src="../_images/sphx_glr_plot_iii_bacteria_classification_002.png" srcset="../_images/sphx_glr_plot_iii_bacteria_classification_002.png" alt="plot iii bacteria classification" class = "sphx-glr-single-img"/><p>Get the best performing model.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">best_model</span> <span class="o">=</span> <span class="n">models_test</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The best performing model is: </span><span class="si">{</span><span class="n">best_model</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The best performing model is: LogisticRegression
+</pre></div>
+</div>
+</section>
+<section id="logistic-regression-modelling">
+<h2>Logistic regression modelling<a class="headerlink" href="#logistic-regression-modelling" title="Permalink to this heading"></a></h2>
+<p>As the benchmarking results show, the Logistic Regression model performs the best. We thus select this model for the
+consecutive analyses where we analyse the model’s performance in more detail for the task of predicting the bacteria
+species class each spectrum belongs to, as well as the task of predicting the antibiotic class each spectrum belongs to.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+
+<span class="c1"># Then, we can simply use `scikit-learn&#39;s` implementation of logistic regression.</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Normalise the data</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">flat</span><span class="o">.</span><span class="n">spectral_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Training the logistic regression model on the training dataset.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="species-level-classification">
+<h3>Species-level classification<a class="headerlink" href="#species-level-classification" title="Permalink to this heading"></a></h3>
+<p>Testing the trained model on the unseen testing dataset.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The accuracy of the Logistic Regression model is: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="w"> </span><span class="n">y_test</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The accuracy of the Logistic Regression model is: 0.7963333333333333
+</pre></div>
+</div>
+<p>Plot the confusion matrix.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s2">&quot;talk&quot;</span><span class="p">)</span>
+
+<span class="n">label_order</span> <span class="o">=</span> <span class="p">[</span><span class="n">y_labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">plotting_order</span><span class="p">]</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">plotting_order</span><span class="p">)</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">cm</span> <span class="o">/</span> <span class="n">cm</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">18</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;YlGnBu&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;0.0f&#39;</span><span class="p">,</span>
+                 <span class="n">xticklabels</span><span class="o">=</span><span class="n">label_order</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">label_order</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">tick_top</span><span class="p">()</span>
+
+<span class="c1"># color the antibiotic groups differently</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tick_label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">()):</span>
+    <span class="n">tick_label</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">antibiotics_colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tick_label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()):</span>
+    <span class="n">tick_label</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">antibiotics_colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="c1"># add lines separating the antibiotic groups</span>
+<span class="n">linewidth</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span>
+<span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.25</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">linestyle</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">linestyle</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">linestyle</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">linestyle</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">linestyle</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">linestyle</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">linestyle</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">linestyle</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">linestyle</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">linestyle</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">linestyle</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">linestyle</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">linestyle</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">linestyle</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img src="../_images/sphx_glr_plot_iii_bacteria_classification_003.png" srcset="../_images/sphx_glr_plot_iii_bacteria_classification_003.png" alt="plot iii bacteria classification" class = "sphx-glr-single-img"/></section>
+<section id="antibiotic-level-classification">
+<h3>Antibiotic-level classification<a class="headerlink" href="#antibiotic-level-classification" title="Permalink to this heading"></a></h3>
+<p>Calculate the antibiotic-level accuracy.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y_ab</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">antibiotics_labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y_test</span><span class="p">])</span>
+<span class="n">y_ab_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">antibiotics_labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y_pred</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The accuracy of the Logistic Regression model is: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_ab</span><span class="p">,</span><span class="w"> </span><span class="n">y_ab_hat</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The accuracy of the Logistic Regression model is: 0.9463333333333334
+</pre></div>
+</div>
+<p>Plot the confusion matrix.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">label_order</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Vancomycin&#39;</span><span class="p">,</span> <span class="s1">&#39;Ceftriaxone&#39;</span><span class="p">,</span> <span class="s1">&#39;Penicillin&#39;</span><span class="p">,</span> <span class="s1">&#39;Daptomycin&#39;</span><span class="p">,</span> <span class="s1">&#39;Meropenem&#39;</span><span class="p">,</span> <span class="s1">&#39;Ciprofloxacin&#39;</span><span class="p">,</span> <span class="s1">&#39;TZP&#39;</span><span class="p">,</span> <span class="s1">&#39;Caspofungin&#39;</span><span class="p">]</span>
+
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_ab</span><span class="p">,</span> <span class="n">y_ab_hat</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">label_order</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">14</span><span class="p">))</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">cm</span> <span class="o">/</span> <span class="n">cm</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;YlGnBu&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;0.0f&#39;</span><span class="p">,</span>
+                 <span class="n">xticklabels</span><span class="o">=</span><span class="n">label_order</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">label_order</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">tick_top</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">tick_label</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">():</span>
+    <span class="n">tick_label</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">antibiotic_color_map</span><span class="p">[</span><span class="n">tick_label</span><span class="o">.</span><span class="n">get_text</span><span class="p">()])</span>
+
+<span class="k">for</span> <span class="n">tick_label</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">():</span>
+    <span class="n">tick_label</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">antibiotic_color_map</span><span class="p">[</span><span class="n">tick_label</span><span class="o">.</span><span class="n">get_text</span><span class="p">()])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img src="../_images/sphx_glr_plot_iii_bacteria_classification_004.png" srcset="../_images/sphx_glr_plot_iii_bacteria_classification_004.png" alt="plot iii bacteria classification" class = "sphx-glr-single-img"/></section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Ho, CS., Jean, N., Hogan, C.A. et al. Rapid identification of pathogenic bacteria using Raman spectroscopy and deep learning. Nat Commun 10, 4927 (2019).</p>
+</aside>
+</aside>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 5 minutes  53.933 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-iii-bacteria-classification-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/b10659896e45369c4e0796bd26a6d3d0/plot_iii_bacteria_classification.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_iii_bacteria_classification.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/d9f43a311a24bb163b2bc2df1f242fd8/plot_iii_bacteria_classification.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_iii_bacteria_classification.ipynb</span></code></a></p>
+</div>
+</div>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          <a class="prev-page" href="plot_ii_dl_denoising.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">AI-based denoising</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Dimitar Georgiev
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Bacteria classification</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#data-loading">Data loading</a></li>
+<li><a class="reference internal" href="#exploratory-analysis">Exploratory analysis</a></li>
+<li><a class="reference internal" href="#benchmarking">Benchmarking</a></li>
+<li><a class="reference internal" href="#logistic-regression-modelling">Logistic regression modelling</a><ul>
+<li><a class="reference internal" href="#species-level-classification">Species-level classification</a></li>
+<li><a class="reference internal" href="#antibiotic-level-classification">Antibiotic-level classification</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/jquery.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    </body>
+</html>

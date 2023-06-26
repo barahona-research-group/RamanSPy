@@ -1,0 +1,641 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Data loading" href="loading.html" /><link rel="prev" title="Installation" href="installation.html" />
+
+    <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
+        <title>Data containers - ramanspy 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --color-brand-primary: #7C4DFF;
+  --color-brand-content: #7C4DFF;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">ramanspy 0.0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/raman_logo_transparent.png" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Quick start:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Data containers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading.html">Data loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot.html">Data visualisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preprocessing.html">Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="auto_tutorials/index.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/i-classes/plot_i_generic_container.html">Storing generic data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/i-classes/plot_ii_spectrum_container.html">Storing spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/i-classes/plot_iii_image_container.html">Storing imaging data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/i-classes/plot_iv_volume_container.html">Storing volumetric data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/ii-instrumental/i_witec.html">Loading WITec data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/ii-instrumental/ii_renishaw.html">Loading Renishaw data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/ii-instrumental/iii_ocean_insight.html">Loading Ocean Insight data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/ii-instrumental/iv_other.html">Loading other data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/iii-datasets/ii_rruff.html">Loading the RRUFF dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/iii-datasets/plot_i_bacteria.html">Loading the Bacteria dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/iii-datasets/plot_ii_metrics.html">Using built-in metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/iv-viz/plot_i_spectra.html">Visualising spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/iv-viz/plot_ii_peaks.html">Visualising peaks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/iv-viz/plot_ii_spectra_mean.html">Visualising spectral distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/iv-viz/plot_iii_image.html">Visualising imaging data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/iv-viz/plot_iv_volume.html">Visualising volumetric data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/iv-viz/plot_v_peak_dist.html">Visualising peak distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/iv-viz/plot_vi_customisation.html">Customising plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/v-preprocessing/plot_i_predefined_methods.html">Built-in methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/v-preprocessing/plot_ii_custom_method.html">Custom methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/v-preprocessing/plot_iii_custom_pipeline.html">Custom pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/v-preprocessing/plot_iv_predefined_pipeline.html">Built-in protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_i_decomposition.html">Built-in decomposition methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_ii_kmeans.html">Built-in clustering methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_iii_unmixing.html">Built-in unmixing methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_iv_integrative_svm.html">Integrative analysis: Support Vector Machine (SVM) classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_v_integrative_nn.html">Integrative analysis: Neural Network (NN) classification</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/plot_i_package_overview.html">Cell phenotyping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/plot_i_preprocessing_pipelines.html">Preprocessing pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/plot_ii_dl_denoising.html">AI-based denoising</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/plot_iii_bacteria_classification.html">Bacteria classification</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/barahona-research-group/RamanSPy">GitHub repository</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="data-containers">
+<h1>Data containers<a class="headerlink" href="#data-containers" title="Permalink to this heading"></a></h1>
+<p>Experimental Raman spectroscopic data can be very diverse, depending on their data acquisition modality
+and instrumental origin. This usually makes any consecutive operations heavily application-specific, which in turn
+impedes the development of transferable and reusable workflows.</p>
+<p><cite>RamanSPy</cite> resolves this by decoupling its data management core from its preprocessing and analysis functionalities.
+This is achieved by establishing efficient and scalable data representation classes built upon <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html">numpy ndarrays</a>,
+which capture and define relevant information and behaviour in the background to allow a smooth, modification-free experience,
+regardless of the data of interest.</p>
+<p>This includes a generic spectral container class <a class="reference internal" href="#ramanspy.SpectralContainer" title="ramanspy.SpectralContainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralContainer</span></code></a>, as well as
+the more specialised <a class="reference internal" href="#ramanspy.Spectrum" title="ramanspy.Spectrum"><code class="xref py py-class docutils literal notranslate"><span class="pre">Spectrum</span></code></a>, <a class="reference internal" href="#ramanspy.SpectralImage" title="ramanspy.SpectralImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralImage</span></code></a> and <a class="reference internal" href="#ramanspy.SpectralVolume" title="ramanspy.SpectralVolume"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralVolume</span></code></a> classes,
+which correspond to single spectra, Raman imaging data and volumetric Raman data respectively.</p>
+<p>For the most part, the construction of these classes is automated through the various <a class="reference internal" href="auto_tutorials/index.html#data-loading"><span class="std std-ref">Data loading</span></a> and <a class="reference internal" href="datasets.html#datasets"><span class="std std-ref">Datasets</span></a>
+methods in <cite>RamanSPy</cite>. However, the containers can be populated manually as well, if required.</p>
+<section id="generic-container">
+<h2>Generic container<a class="headerlink" href="#generic-container" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ramanspy.SpectralContainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ramanspy.</span></span><span class="sig-name descname"><span class="pre">SpectralContainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spectral_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spectral_axis</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/core.html#SpectralContainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.SpectralContainer" title="Permalink to this definition"></a></dt>
+<dd><p>The base class that settles as the backbone of the package. It encapsulates a spectral data
+container of an arbitrary dimension and defines relevant behaviour and information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spectral_data</strong> (<em>array_like</em><em> of </em><em>shape</em><em> (</em><em>x</em><em>, </em><em>y</em><em>, </em><em>z</em><em>, </em><em>...</em><em>, </em><em>B</em><em>)</em>) – The intensity values to store. Last dimension must be the spectral dimension.</p></li>
+<li><p><strong>spectral_axis</strong> (<em>array_like</em><em> of </em><em>shape</em><em> (</em><em>B</em><em>, </em><em>)</em>) – The Raman wavenumber axis (in cm<sup>-1</sup>). Order and length must match the last dimension of <code class="docutils literal notranslate"><span class="pre">spectral_data</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your spectral data is not in Raman wavenumber units (cm<sup>-1</sup>) but in Raman wavelength (nm) instead,
+simply use the <code class="xref py py-meth docutils literal notranslate"><span class="pre">ramanspy.utils.wavelength_to_wavenumber()</span></code> method to convert your <code class="docutils literal notranslate"><span class="pre">spectral_axis</span></code>
+before initialising a <a class="reference internal" href="#ramanspy.SpectralContainer" title="ramanspy.SpectralContainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralContainer</span></code></a> instance.</p>
+<p>Note that you will need to put in the excitation wavelength (nm) of the laser used to acquire the data of interest to make the conversion.</p>
+</div>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
+
+<span class="n">spectral_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">1500</span><span class="p">)</span>
+<span class="n">spectral_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">3600</span><span class="p">,</span> <span class="mi">1500</span><span class="p">)</span>
+
+<span class="c1"># if the spectral axis is in wavelength units (nm) and needs converting</span>
+<span class="n">spectral_axis</span> <span class="o">=</span> <span class="n">rp</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">wavelength_to_wavenumber</span><span class="p">(</span><span class="n">spectral_axis</span><span class="p">)</span>
+
+<span class="n">raman_object</span> <span class="o">=</span> <span class="n">rp</span><span class="o">.</span><span class="n">SpectralContainer</span><span class="p">(</span><span class="n">spectral_data</span><span class="p">,</span> <span class="n">spectral_axis</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="ramanspy.SpectralContainer.band">
+<span class="sig-name descname"><span class="pre">band</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spectral_band</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Number</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/ramanspy/core.html#SpectralContainer.band"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.SpectralContainer.band" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a spectral slice across the closest spectral band in the axis to the one given.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ramanspy.SpectralContainer.flat">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">flat</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a></em><a class="headerlink" href="#ramanspy.SpectralContainer.flat" title="Permalink to this definition"></a></dt>
+<dd><p>Flatten all spatial dimensions of the spectral object into a single one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray of shape (dim_1*dim_2*…*dim_n, B)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ramanspy.SpectralContainer.from_stack">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_stack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a></span></span><a class="reference internal" href="_modules/ramanspy/core.html#SpectralContainer.from_stack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.SpectralContainer.from_stack" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the combined Raman object defined by stacking the collection of individual spectra given.</p>
+<p>The spectral axes of the spectra provided must match.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ramanspy.SpectralContainer.load">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/core.html#SpectralContainer.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.SpectralContainer.load" title="Permalink to this definition"></a></dt>
+<dd><p>Load a spectral object from a pickle file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – The name of the file to load a spectral object from. Must be the full path or the path relative to the working directory.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ramanspy.SpectralContainer.mean">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mean</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></em><a class="headerlink" href="#ramanspy.SpectralContainer.mean" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the mean spectrum in the spectral object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ramanspy.SpectralContainer.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/core.html#SpectralContainer.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.SpectralContainer.save" title="Permalink to this definition"></a></dt>
+<dd><p>Save the spectral object to a pickle file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) – The name of the file to save the spectral object to.</p></li>
+<li><p><strong>directory</strong> (<em>str</em><em>, </em><em>optional</em>) – The name of the directory to save the file in. Must be the full path to the directory or the path relative
+to the working directory. If not provided (default), the file will be saved in the working directory.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ramanspy.SpectralContainer.shape">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ramanspy.SpectralContainer.shape" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the (spatial) shape of the spectral object (i.e. without the last dimension).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ramanspy.SpectralContainer.spectral_length">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">spectral_length</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#ramanspy.SpectralContainer.spectral_length" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the spectral length B of the spectral object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Check the <a class="reference internal" href="auto_tutorials/i-classes/plot_i_generic_container.html#storing-generic-data"><span class="std std-ref">Storing generic data</span></a> tutorial for more information about how to define and use spectral data containers in <cite>RamanSPy</cite>.</p>
+</div>
+</section>
+<section id="specialised-containers">
+<h2>Specialised containers<a class="headerlink" href="#specialised-containers" title="Permalink to this heading"></a></h2>
+<p>Additional data-specific information is added through the specialised <a class="reference internal" href="#ramanspy.Spectrum" title="ramanspy.Spectrum"><code class="xref py py-class docutils literal notranslate"><span class="pre">Spectrum</span></code></a>, <a class="reference internal" href="#ramanspy.SpectralImage" title="ramanspy.SpectralImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralImage</span></code></a> and
+<a class="reference internal" href="#ramanspy.SpectralVolume" title="ramanspy.SpectralVolume"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralVolume</span></code></a> classes. These ensure that the data management of single spectra, imaging and volumetric Raman data
+is appropriately dealt with without the need for any data-related user modifications.</p>
+<section id="spectra">
+<h3>Spectra<a class="headerlink" href="#spectra" title="Permalink to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="ramanspy.Spectrum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ramanspy.</span></span><span class="sig-name descname"><span class="pre">Spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spectral_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spectral_axis</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/core.html#Spectrum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.Spectrum" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralContainer</span></code></a></p>
+<p>The <a class="reference internal" href="#ramanspy.Spectrum" title="ramanspy.Spectrum"><code class="xref py py-class docutils literal notranslate"><span class="pre">Spectrum</span></code></a> class defines a 1D spectroscopic signal of an arbitrary spectral length.</p>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
+
+<span class="n">spectral_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1500</span><span class="p">)</span>
+<span class="n">spectral_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">3600</span><span class="p">,</span> <span class="mi">1500</span><span class="p">)</span>
+
+<span class="n">raman_spectrum</span> <span class="o">=</span> <span class="n">rp</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">(</span><span class="n">spectral_data</span><span class="p">,</span> <span class="n">spectral_axis</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="ramanspy.Spectrum.peaks">
+<span class="sig-name descname"><span class="pre">peaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prominence</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wlen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rel_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plateau_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/core.html#Spectrum.peaks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.Spectrum.peaks" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ramanspy.Spectrum.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/core.html#Spectrum.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.Spectrum.plot" title="Permalink to this definition"></a></dt>
+<dd><p>Plots the spectrum.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>**kwargs</strong> (<em>keyword arguments</em><em>, </em><em>optional</em><em>,</em>) – Check the :meth:<a href="#id1"><span class="problematic" id="id2">`</span></a>ramanspy.plot.spectra’ method for a list of keyword parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Check the <a class="reference internal" href="auto_tutorials/i-classes/plot_ii_spectrum_container.html#storing-spectra"><span class="std std-ref">Storing spectra</span></a> tutorial for more information about how to define and use <span class="xref std std-ref">Spectrum</span> data containers in <cite>RamanSPy</cite>.</p>
+</div>
+</section>
+<section id="imaging">
+<h3>Imaging<a class="headerlink" href="#imaging" title="Permalink to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="ramanspy.SpectralImage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ramanspy.</span></span><span class="sig-name descname"><span class="pre">SpectralImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spectral_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spectral_axis</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/core.html#SpectralImage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.SpectralImage" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralContainer</span></code></a></p>
+<p>The <a class="reference internal" href="#ramanspy.SpectralImage" title="ramanspy.SpectralImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralImage</span></code></a> class defines a 2D spectroscopic image. Dimensions must be in the order of
+(x, y, B).</p>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
+
+<span class="n">spectral_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">1500</span><span class="p">)</span>
+<span class="n">spectral_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">3600</span><span class="p">,</span> <span class="mi">1500</span><span class="p">)</span>
+
+<span class="n">raman_image</span> <span class="o">=</span> <span class="n">rp</span><span class="o">.</span><span class="n">SpectralImage</span><span class="p">(</span><span class="n">spectral_data</span><span class="p">,</span> <span class="n">spectral_axis</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="ramanspy.SpectralImage.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Number</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Number</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/core.html#SpectralImage.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.SpectralImage.plot" title="Permalink to this definition"></a></dt>
+<dd><p>Plots the spectral image slice(s) across the spectral image, defined by the band(s) provided (using the closest
+band(s) in the spectral axis of the image to the one(s) given).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bands</strong> (<em>Number</em><em> or </em><em>List</em><em>[</em><em>Number</em><em>]</em>) – The spectral bands to plot across.</p></li>
+<li><p><strong>**kwargs</strong> (<em>keyword arguments</em><em>, </em><em>optional</em><em>,</em>) – Check the :meth:<a href="#id3"><span class="problematic" id="id4">`</span></a>ramanspy.plot.image’ method for a list of keyword parameters.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Check the <a class="reference internal" href="auto_tutorials/i-classes/plot_iii_image_container.html#storing-imaging-data"><span class="std std-ref">Storing imaging data</span></a> tutorial for more information about how to define and use <span class="xref std std-ref">SpectralImage</span> data containers in <cite>RamanSPy</cite>.</p>
+</div>
+</section>
+<section id="volumetric">
+<h3>Volumetric<a class="headerlink" href="#volumetric" title="Permalink to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="ramanspy.SpectralVolume">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ramanspy.</span></span><span class="sig-name descname"><span class="pre">SpectralVolume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spectral_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spectral_axis</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/core.html#SpectralVolume"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.SpectralVolume" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralContainer</span></code></a></p>
+<p>The <a class="reference internal" href="#ramanspy.SpectralVolume" title="ramanspy.SpectralVolume"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralVolume</span></code></a> class defines a 3D spectroscopic volume. Dimensions must be in the order of
+(x, y, z, B).</p>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
+
+<span class="n">spectral_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1500</span><span class="p">)</span>
+<span class="n">spectral_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">3600</span><span class="p">,</span> <span class="mi">1500</span><span class="p">)</span>
+
+<span class="n">raman_volume</span> <span class="o">=</span> <span class="n">rp</span><span class="o">.</span><span class="n">SpectralVolume</span><span class="p">(</span><span class="n">spectral_data</span><span class="p">,</span> <span class="n">spectral_axis</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="ramanspy.SpectralVolume.from_image_stack">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_image_stack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_stack</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ramanspy.SpectralImage" title="ramanspy.core.SpectralImage"><span class="pre">SpectralImage</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#ramanspy.SpectralVolume" title="ramanspy.core.SpectralVolume"><span class="pre">SpectralVolume</span></a></span></span><a class="reference internal" href="_modules/ramanspy/core.html#SpectralVolume.from_image_stack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.SpectralVolume.from_image_stack" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the volumetric Raman object defined by z-stacking the collection of spectral images given.</p>
+<p>All dimensions of the spectral images must match, as well as their spectral axes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ramanspy.SpectralVolume.layer">
+<span class="sig-name descname"><span class="pre">layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#ramanspy.SpectralImage" title="ramanspy.core.SpectralImage"><span class="pre">SpectralImage</span></a></span></span><a class="reference internal" href="_modules/ramanspy/core.html#SpectralVolume.layer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.SpectralVolume.layer" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the <a class="reference internal" href="#ramanspy.SpectralImage" title="ramanspy.SpectralImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralImage</span></code></a> layer specified by the given index as a SpectralImage. Index must be between 0 and <a href="#id7"><span class="problematic" id="id8">|z dimension|</span></a>-1.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ramanspy.SpectralVolume.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bands</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/core.html#SpectralVolume.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.SpectralVolume.plot" title="Permalink to this definition"></a></dt>
+<dd><p>Plots the spectral volume slice(s) across the spectral volume, defined by the band(s) provided (using the closest
+band(s) in the spectral axis of the image to the one(s) given).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bands</strong> (<em>Number</em><em> or </em><em>List</em><em>[</em><em>Number</em><em>]</em>) – The spectral bands to plot across.</p></li>
+<li><p><strong>**kwargs</strong> (<em>keyword arguments</em><em>, </em><em>optional</em><em>,</em>) – Check the :meth:<a href="#id5"><span class="problematic" id="id6">`</span></a>ramanspy.plot.volume’ method for a list of keyword parameters.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Check the <a class="reference internal" href="auto_tutorials/i-classes/plot_iv_volume_container.html#storing-volumetric-data"><span class="std std-ref">Storing volumetric data</span></a> tutorial for more information about how to define and use <span class="xref std std-ref">SpectralVolume</span> data containers in <cite>RamanSPy</cite>.</p>
+</div>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="loading.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Data loading</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="installation.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Installation</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Dimitar Georgiev
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Data containers</a><ul>
+<li><a class="reference internal" href="#generic-container">Generic container</a><ul>
+<li><a class="reference internal" href="#ramanspy.SpectralContainer"><code class="docutils literal notranslate"><span class="pre">SpectralContainer</span></code></a><ul>
+<li><a class="reference internal" href="#ramanspy.SpectralContainer.band"><code class="docutils literal notranslate"><span class="pre">SpectralContainer.band()</span></code></a></li>
+<li><a class="reference internal" href="#ramanspy.SpectralContainer.flat"><code class="docutils literal notranslate"><span class="pre">SpectralContainer.flat</span></code></a></li>
+<li><a class="reference internal" href="#ramanspy.SpectralContainer.from_stack"><code class="docutils literal notranslate"><span class="pre">SpectralContainer.from_stack()</span></code></a></li>
+<li><a class="reference internal" href="#ramanspy.SpectralContainer.load"><code class="docutils literal notranslate"><span class="pre">SpectralContainer.load()</span></code></a></li>
+<li><a class="reference internal" href="#ramanspy.SpectralContainer.mean"><code class="docutils literal notranslate"><span class="pre">SpectralContainer.mean</span></code></a></li>
+<li><a class="reference internal" href="#ramanspy.SpectralContainer.save"><code class="docutils literal notranslate"><span class="pre">SpectralContainer.save()</span></code></a></li>
+<li><a class="reference internal" href="#ramanspy.SpectralContainer.shape"><code class="docutils literal notranslate"><span class="pre">SpectralContainer.shape</span></code></a></li>
+<li><a class="reference internal" href="#ramanspy.SpectralContainer.spectral_length"><code class="docutils literal notranslate"><span class="pre">SpectralContainer.spectral_length</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#specialised-containers">Specialised containers</a><ul>
+<li><a class="reference internal" href="#spectra">Spectra</a><ul>
+<li><a class="reference internal" href="#ramanspy.Spectrum"><code class="docutils literal notranslate"><span class="pre">Spectrum</span></code></a><ul>
+<li><a class="reference internal" href="#ramanspy.Spectrum.peaks"><code class="docutils literal notranslate"><span class="pre">Spectrum.peaks()</span></code></a></li>
+<li><a class="reference internal" href="#ramanspy.Spectrum.plot"><code class="docutils literal notranslate"><span class="pre">Spectrum.plot()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#imaging">Imaging</a><ul>
+<li><a class="reference internal" href="#ramanspy.SpectralImage"><code class="docutils literal notranslate"><span class="pre">SpectralImage</span></code></a><ul>
+<li><a class="reference internal" href="#ramanspy.SpectralImage.plot"><code class="docutils literal notranslate"><span class="pre">SpectralImage.plot()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#volumetric">Volumetric</a><ul>
+<li><a class="reference internal" href="#ramanspy.SpectralVolume"><code class="docutils literal notranslate"><span class="pre">SpectralVolume</span></code></a><ul>
+<li><a class="reference internal" href="#ramanspy.SpectralVolume.from_image_stack"><code class="docutils literal notranslate"><span class="pre">SpectralVolume.from_image_stack()</span></code></a></li>
+<li><a class="reference internal" href="#ramanspy.SpectralVolume.layer"><code class="docutils literal notranslate"><span class="pre">SpectralVolume.layer()</span></code></a></li>
+<li><a class="reference internal" href="#ramanspy.SpectralVolume.plot"><code class="docutils literal notranslate"><span class="pre">SpectralVolume.plot()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/jquery.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    </body>
+</html>

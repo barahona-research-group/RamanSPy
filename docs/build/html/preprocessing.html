@@ -1,0 +1,762 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Analysis" href="analysis.html" /><link rel="prev" title="Data visualisation" href="plot.html" />
+
+    <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
+        <title>Preprocessing - ramanspy 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --color-brand-primary: #7C4DFF;
+  --color-brand-content: #7C4DFF;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">ramanspy 0.0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/raman_logo_transparent.png" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Quick start:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="data_classes.html">Data containers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading.html">Data loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot.html">Data visualisation</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="auto_tutorials/index.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/i-classes/plot_i_generic_container.html">Storing generic data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/i-classes/plot_ii_spectrum_container.html">Storing spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/i-classes/plot_iii_image_container.html">Storing imaging data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/i-classes/plot_iv_volume_container.html">Storing volumetric data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/ii-instrumental/i_witec.html">Loading WITec data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/ii-instrumental/ii_renishaw.html">Loading Renishaw data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/ii-instrumental/iii_ocean_insight.html">Loading Ocean Insight data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/ii-instrumental/iv_other.html">Loading other data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/iii-datasets/ii_rruff.html">Loading the RRUFF dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/iii-datasets/plot_i_bacteria.html">Loading the Bacteria dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/iii-datasets/plot_ii_metrics.html">Using built-in metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/iv-viz/plot_i_spectra.html">Visualising spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/iv-viz/plot_ii_peaks.html">Visualising peaks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/iv-viz/plot_ii_spectra_mean.html">Visualising spectral distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/iv-viz/plot_iii_image.html">Visualising imaging data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/iv-viz/plot_iv_volume.html">Visualising volumetric data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/iv-viz/plot_v_peak_dist.html">Visualising peak distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/iv-viz/plot_vi_customisation.html">Customising plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/v-preprocessing/plot_i_predefined_methods.html">Built-in methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/v-preprocessing/plot_ii_custom_method.html">Custom methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/v-preprocessing/plot_iii_custom_pipeline.html">Custom pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/v-preprocessing/plot_iv_predefined_pipeline.html">Built-in protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_i_decomposition.html">Built-in decomposition methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_ii_kmeans.html">Built-in clustering methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_iii_unmixing.html">Built-in unmixing methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_iv_integrative_svm.html">Integrative analysis: Support Vector Machine (SVM) classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_v_integrative_nn.html">Integrative analysis: Neural Network (NN) classification</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/plot_i_package_overview.html">Cell phenotyping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/plot_i_preprocessing_pipelines.html">Preprocessing pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/plot_ii_dl_denoising.html">AI-based denoising</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/plot_iii_bacteria_classification.html">Bacteria classification</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/barahona-research-group/RamanSPy">GitHub repository</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="preprocessing">
+<h1>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this heading"></a></h1>
+<p><cite>RamanSPy</cite> offers extensive preprocessing support that alleviates the common burdens of spectral preprocessing and enables
+the construction and execution of complex preprocessing procedures with minimal software requirements.</p>
+<p>Users can access and use the variety of preprocessing techniques and protocols built into <cite>RamanSPy</cite>, as well as use the
+package to define custom preprocessing algorithms and pipelines.</p>
+<p>All of the preprocessing methods and pipelines are implemented as <a class="reference internal" href="#ramanspy.preprocessing.PreprocessingStep" title="ramanspy.preprocessing.PreprocessingStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">PreprocessingStep</span></code></a> instances, which standardises
+their behaviour and allows for their easy integration into various preprocessing pipelines.</p>
+<p>These have been designed to be as flexible and data-agnostic as possible, so that they can be applied to any type of
+Raman spectroscopic data loaded into the framework.</p>
+<p>Preprocessing support is provided by the <code class="xref py py-mod docutils literal notranslate"><span class="pre">ramanspy.preprocessing</span></code> module.</p>
+<section id="algorithms">
+<h2>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this heading"></a></h2>
+<p>The behaviour of preprocessing procedures is defined by the <a class="reference internal" href="#ramanspy.preprocessing.PreprocessingStep" title="ramanspy.preprocessing.PreprocessingStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">PreprocessingStep</span></code></a> class.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ramanspy.preprocessing.PreprocessingStep">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ramanspy.preprocessing.</span></span><span class="sig-name descname"><span class="pre">PreprocessingStep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/preprocessing/Step.html#PreprocessingStep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.preprocessing.PreprocessingStep" title="Permalink to this definition"></a></dt>
+<dd><p>A class that defines preprocessing logic.</p>
+<p>Encapsulate preprocessing methods that transform the intensity values and spectral axis of Raman data.</p>
+<p>To define a preprocessing procedure that can be applied to any Raman spectroscopic data, you must wrap a predefined
+preprocessing method using this class, which in turn streamlines any consecutive operations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> (<em>Callable</em>) – A Callable object (e.g. a method) which defines how the preprocessing step alters spectral objects. Its <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method
+must have signature of the form: <code class="docutils literal notranslate"><span class="pre">__call__(intensity_data,</span> <span class="pre">spectral_axis,</span> <span class="pre">*args,</span> <span class="pre">**kwargs)</span></code>, where <code class="docutils literal notranslate"><span class="pre">intensity_data</span></code>
+is an ndarray of arbitrary shape defining the intensity values to process, whose last axis is the spectral axis,
+<code class="docutils literal notranslate"><span class="pre">spectral_axis</span></code> - a 1D ndarray defining the spectral axis to process (in Raman wavenumber cm <sup>-1</sup> units),
+<code class="docutils literal notranslate"><span class="pre">*args</span></code> - other positional arguments, and <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> - other keyword arguments.</p></li>
+<li><p><strong>**kwargs</strong> – Any keyword arguments the Callable needs in its <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>One has to use the <a class="reference internal" href="#ramanspy.preprocessing.PreprocessingStep" title="ramanspy.preprocessing.PreprocessingStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">PreprocessingStep</span></code></a> class only when devising and integrating custom preprocessing methods (check <a class="reference internal" href="#custom-algorithms"><span class="std std-ref">Custom algorithms</span></a>).</p>
+<p>All preprocessing methods built into <cite>RamanSPy</cite> can be directly accessed and used as indicated in <a class="reference internal" href="#built-in-preprocessing-methods"><span class="std std-ref">Built-in preprocessing methods</span></a>.</p>
+</div>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ramanspy</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+
+<span class="c1"># Defining some preprocessing function of the correct type</span>
+<span class="k">def</span> <span class="nf">preprocessing_func</span><span class="p">(</span><span class="n">intensity_data</span><span class="p">,</span> <span class="n">spectral_axis</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># Preprocess intensity_data and spectral axis</span>
+    <span class="o">...</span>
+
+    <span class="k">return</span> <span class="n">updated_intensity_data</span><span class="p">,</span> <span class="n">updated_spectral_axis</span>
+
+<span class="c1"># wrapping the function into a PreprocessingStep object together with the relevant *args and **kwargs</span>
+<span class="n">preprocessing_method</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">PreprocessingStep</span><span class="p">(</span><span class="n">preprocessing_func</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="ramanspy.preprocessing.PreprocessingStep.apply">
+<em class="property"><span class="pre">final</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raman_objects</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralImage" title="ramanspy.core.SpectralImage"><span class="pre">SpectralImage</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralVolume" title="ramanspy.core.SpectralVolume"><span class="pre">SpectralVolume</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralImage" title="ramanspy.core.SpectralImage"><span class="pre">SpectralImage</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralVolume" title="ramanspy.core.SpectralVolume"><span class="pre">SpectralVolume</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralImage" title="ramanspy.core.SpectralImage"><span class="pre">SpectralImage</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralVolume" title="ramanspy.core.SpectralVolume"><span class="pre">SpectralVolume</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralImage" title="ramanspy.core.SpectralImage"><span class="pre">SpectralImage</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralVolume" title="ramanspy.core.SpectralVolume"><span class="pre">SpectralVolume</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralImage" title="ramanspy.core.SpectralImage"><span class="pre">SpectralImage</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralVolume" title="ramanspy.core.SpectralVolume"><span class="pre">SpectralVolume</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralImage" title="ramanspy.core.SpectralImage"><span class="pre">SpectralImage</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralVolume" title="ramanspy.core.SpectralVolume"><span class="pre">SpectralVolume</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ramanspy/preprocessing/Step.html#PreprocessingStep.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.preprocessing.PreprocessingStep.apply" title="Permalink to this definition"></a></dt>
+<dd><p>Applies the defined preprocessing method on the Raman spectroscopic objects provided.</p>
+<p>The single point-of-contact method of <a class="reference internal" href="#ramanspy.preprocessing.PreprocessingStep" title="ramanspy.preprocessing.PreprocessingStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">ramanspy.preprocessing.PreprocessingStep</span></code></a> instances.</p>
+<p>Method is applied on each data container instance provided individually.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raman_objects</strong> (<em>Union</em><em>[</em><em>SpectralObject</em><em>, </em><em>List</em><em>[</em><em>Union</em><em>[</em><em>SpectralObject</em><em>, </em><em>List</em><em>[</em><em>SpectralObject</em><em>]</em><em>]</em><em>]</em><em>]</em>) – The objects to preprocess, where SpectralObject := Union[SpectralContainer, Spectrum, SpectralImage, SpectralVolume].</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The preprocessed objects, where SpectralObject := Union[SpectralContainer, Spectrum, SpectralImage, SpectralVolume].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[SpectralObject, List[Union[SpectralObject, List[SpectralObject]]]]</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When more than one class:<cite>ramanspy.SpectralContainer</cite> is passed, preprocessing methods are applied individually for each instance passed.</p>
+</div>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># once a preprocessing method is initialised, it can be applied to different Raman data</span>
+<span class="n">preprocessed_data</span> <span class="o">=</span> <span class="n">preprocessing_method</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">raman_object</span><span class="p">)</span>
+<span class="n">preprocessed_data</span> <span class="o">=</span> <span class="n">preprocessing_method</span><span class="o">.</span><span class="n">apply</span><span class="p">([</span><span class="n">raman_object</span><span class="p">,</span> <span class="n">raman_spectrum</span><span class="p">,</span> <span class="n">raman_image</span><span class="p">])</span>
+<span class="n">preprocessed_data</span> <span class="o">=</span> <span class="n">preprocessing_method</span><span class="o">.</span><span class="n">apply</span><span class="p">([</span><span class="n">raman_object</span><span class="p">,</span> <span class="n">raman_spectrum</span><span class="p">],</span> <span class="n">raman_object</span><span class="p">,</span> <span class="p">[</span><span class="n">raman_spectrum</span><span class="p">,</span> <span class="n">raman_image</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<section id="built-in-preprocessing-methods">
+<h3>Built-in preprocessing methods<a class="headerlink" href="#built-in-preprocessing-methods" title="Permalink to this heading"></a></h3>
+<p><cite>RamanSPy</cite> provides many of the commonly-used techniques for spectral preprocessing. This includes a broad collection of
+methods for cosmic ray removal, denoising, baseline correction, normalisation and other preprocessing procedures.</p>
+<p>These are built into <cite>RamanSPy</cite> as classes extending <a class="reference internal" href="#ramanspy.preprocessing.PreprocessingStep" title="ramanspy.preprocessing.PreprocessingStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">PreprocessingStep</span></code></a> and can thus be readily used via their
+<code class="docutils literal notranslate"><span class="pre">apply()</span></code> method. The built-in methods include:</p>
+<section id="miscellaneous">
+<h4>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this heading"></a></h4>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">misc.Cropper</span></code>(*, region)</p></td>
+<td><p>Crop the intensity values and the shift axis associated with the band range(s) specified.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">misc.BackgroundSubtractor</span></code>(*, background)</p></td>
+<td><p>Subtract a fixed reference background.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="cosmic-rays-removal">
+<h4>Cosmic rays removal<a class="headerlink" href="#cosmic-rays-removal" title="Permalink to this heading"></a></h4>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">despike.WhitakerHayes</span></code>(*[, kernel_size, ...])</p></td>
+<td><p>Cosmic rays removal based on modified z-scores filtering.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="denoising">
+<h4>Denoising<a class="headerlink" href="#denoising" title="Permalink to this heading"></a></h4>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">denoise.SavGol</span></code>(*, window_length, polyorder)</p></td>
+<td><p>Denoising based on Savitzky-Golay filtering.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">denoise.Whittaker</span></code>(*[, lam, d])</p></td>
+<td><p>Denoising based on Discrete Penalised Least Squares (a.k.a Whittaker−Henderson smoothing).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">denoise.Kernel</span></code>(*, method[, kernel_size])</p></td>
+<td><p>Denoising based on kernel/window smoothers.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">denoise.Gaussian</span></code>(*[, sigma, order, output, ...])</p></td>
+<td><p>Denoising based on a Gaussian filter.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="baseline-correction">
+<h4>Baseline correction<a class="headerlink" href="#baseline-correction" title="Permalink to this heading"></a></h4>
+<section id="least-squares">
+<h5>Least squares<a class="headerlink" href="#least-squares" title="Permalink to this heading"></a></h5>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">baseline.ASLS</span></code>(*[, lam, p, diff_order, ...])</p></td>
+<td><p>Baseline correction based on Asymmetric Least Squares (AsLS).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">baseline.IASLS</span></code>(*[, lam, p, lam_1, max_iter, ...])</p></td>
+<td><p>Baseline correction based on Improved Asymmetric Least Squares (IAsLS).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">baseline.AIRPLS</span></code>(*[, lam, diff_order, ...])</p></td>
+<td><p>Baseline correction based on Adaptive Iteratively Reweighted Penalized Least Squares (airPLS).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">baseline.ARPLS</span></code>(*[, lam, diff_order, ...])</p></td>
+<td><p>Baseline correction based on Asymmetrically Reweighted Penalized Least Squares (arPLS).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">baseline.DRPLS</span></code>(*[, lam, eta, max_iter, tol, ...])</p></td>
+<td><p>Baseline correction based on Doubly Reweighted Penalized Least Squares (drPLS).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">baseline.IARPLS</span></code>(*[, lam, diff_order, ...])</p></td>
+<td><p>Baseline correction based on Improved Asymmetrically Reweighted Penalized Least Squares (IarPLS).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">baseline.ASPLS</span></code>(*[, lam, diff_order, ...])</p></td>
+<td><p>Baseline correction based on Adaptive Smoothness Penalized Least Squares (asPLS).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="polynomial-fitting">
+<h5>Polynomial fitting<a class="headerlink" href="#polynomial-fitting" title="Permalink to this heading"></a></h5>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">baseline.Poly</span></code>(*[, poly_order, regions])</p></td>
+<td><p>Baseline correction based on polynomial fitting.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">baseline.ModPoly</span></code>(*[, poly_order, tol, ...])</p></td>
+<td><p>Baseline correction based on modified polynomial fitting.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">baseline.Poly</span></code>(*[, poly_order, regions])</p></td>
+<td><p>Baseline correction based on polynomial fitting.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">baseline.ModPoly</span></code>(*[, poly_order, tol, ...])</p></td>
+<td><p>Baseline correction based on modified polynomial fitting.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="other">
+<h5>Other<a class="headerlink" href="#other" title="Permalink to this heading"></a></h5>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">baseline.Goldindec</span></code>(*[, poly_order, tol, ...])</p></td>
+<td><p>Baseline correction based on Goldindec.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">baseline.IRSQR</span></code>(*[, lam, quantile, ...])</p></td>
+<td><p>Baseline correction based on Iterative Reweighted Spline Quantile Regression (IRSQR).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">baseline.CornerCutting</span></code>(*[, max_iter])</p></td>
+<td><p>Baseline correction based on Corner Cutting.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">baseline.FABC</span></code>(*[, lam, scale, num_std, ...])</p></td>
+<td><p>Baseline correction based on Fully automatic baseline correction (FABC).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="normalisation-scaling">
+<h4>Normalisation/Scaling<a class="headerlink" href="#normalisation-scaling" title="Permalink to this heading"></a></h4>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalise.Vector</span></code>(*[, pixelwise])</p></td>
+<td><p>Vector normalisation.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalise.MinMax</span></code>(*[, pixelwise, a, b])</p></td>
+<td><p>Min-max normalisation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalise.MaxIntensity</span></code>(*[, pixelwise])</p></td>
+<td><p>Max intensity normalisation.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalise.AUC</span></code>(*[, pixelwise])</p></td>
+<td><p>Area under the curve normalisation.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Check the <a class="reference internal" href="auto_tutorials/v-preprocessing/plot_i_predefined_methods.html#built-in-methods"><span class="std std-ref">Built-in methods</span></a> tutorial for more information about how to access and use the preprocessing algorithms built into <cite>RamanSPy</cite>.</p>
+</div>
+</section>
+</section>
+<section id="custom-algorithms">
+<h3>Custom algorithms<a class="headerlink" href="#custom-algorithms" title="Permalink to this heading"></a></h3>
+<p>Alternatively, users can use <cite>RamanSPy</cite> to create their own preprocessing methods by wrapping preprocessing functions of the
+correct type within <a class="reference internal" href="#ramanspy.preprocessing.PreprocessingStep" title="ramanspy.preprocessing.PreprocessingStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">PreprocessingStep</span></code></a> instances.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Check the <a class="reference internal" href="auto_tutorials/v-preprocessing/plot_ii_custom_method.html#custom-methods"><span class="std std-ref">Custom methods</span></a> tutorial for more information about how to define custom preprocessing methods using <cite>RamanSPy</cite>.</p>
+</div>
+</section>
+</section>
+<section id="pipelines">
+<h2>Pipelines<a class="headerlink" href="#pipelines" title="Permalink to this heading"></a></h2>
+<p>In most applications, there are several preprocessing procedures, which need to be performed on the experimental Raman
+spectroscopic data one’s working with before proceeding with the consecutive analysis. The construction and
+customisation of such complex preprocessing pipelines are usually software-intensive tasks, which are
+unnecessarily challenging.</p>
+<p>This is why <cite>RamanSPy</cite> also provides tools for the smooth development of preprocessing pipelines. This is made
+possible through the introduction of the <a class="reference internal" href="#ramanspy.preprocessing.Pipeline" title="ramanspy.preprocessing.Pipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a> class.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ramanspy.preprocessing.Pipeline">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ramanspy.preprocessing.</span></span><span class="sig-name descname"><span class="pre">Pipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pipeline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ramanspy.preprocessing.PreprocessingStep" title="ramanspy.preprocessing.Step.PreprocessingStep"><span class="pre">PreprocessingStep</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/preprocessing/Pipeline.html#Pipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.preprocessing.Pipeline" title="Permalink to this definition"></a></dt>
+<dd><p>Defines a preprocessing pipeline consisting of multiple preprocessing procedures.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pipeline</strong> (list[<a class="reference internal" href="#ramanspy.preprocessing.PreprocessingStep" title="ramanspy.preprocessing.PreprocessingStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">PreprocessingStep</span></code></a>]) – The preprocessing procedures defining the pipeline.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ramanspy</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+
+<span class="n">preprocessing_pipeline</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">Pipeline</span><span class="p">([</span>
+    <span class="n">preprocessing</span><span class="o">.</span><span class="n">PreprocessingStep</span><span class="p">(</span><span class="n">some_custom_preprocessing_func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">),</span>
+    <span class="n">preprocessing</span><span class="o">.</span><span class="n">denoise</span><span class="o">.</span><span class="n">SavGol</span><span class="p">(</span><span class="n">window_length</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">polyorder</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
+    <span class="n">preprocessing</span><span class="o">.</span><span class="n">normalise</span><span class="o">.</span><span class="n">Vector</span><span class="p">()</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="ramanspy.preprocessing.Pipeline.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#ramanspy.preprocessing.PreprocessingStep" title="ramanspy.preprocessing.Step.PreprocessingStep"><span class="pre">PreprocessingStep</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/preprocessing/Pipeline.html#Pipeline.append"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.preprocessing.Pipeline.append" title="Permalink to this definition"></a></dt>
+<dd><p>Append a preprocessing procedure to the pipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>step</strong> (<a class="reference internal" href="#ramanspy.preprocessing.PreprocessingStep" title="ramanspy.preprocessing.PreprocessingStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">PreprocessingStep</span></code></a>) – The preprocessing procedure to append to the pipeline.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ramanspy.preprocessing.Pipeline.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raman_objects</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralImage" title="ramanspy.core.SpectralImage"><span class="pre">SpectralImage</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralVolume" title="ramanspy.core.SpectralVolume"><span class="pre">SpectralVolume</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralImage" title="ramanspy.core.SpectralImage"><span class="pre">SpectralImage</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralVolume" title="ramanspy.core.SpectralVolume"><span class="pre">SpectralVolume</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralImage" title="ramanspy.core.SpectralImage"><span class="pre">SpectralImage</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralVolume" title="ramanspy.core.SpectralVolume"><span class="pre">SpectralVolume</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralImage" title="ramanspy.core.SpectralImage"><span class="pre">SpectralImage</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralVolume" title="ramanspy.core.SpectralVolume"><span class="pre">SpectralVolume</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralImage" title="ramanspy.core.SpectralImage"><span class="pre">SpectralImage</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralVolume" title="ramanspy.core.SpectralVolume"><span class="pre">SpectralVolume</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralImage" title="ramanspy.core.SpectralImage"><span class="pre">SpectralImage</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralVolume" title="ramanspy.core.SpectralVolume"><span class="pre">SpectralVolume</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ramanspy/preprocessing/Pipeline.html#Pipeline.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.preprocessing.Pipeline.apply" title="Permalink to this definition"></a></dt>
+<dd><p>Preprocess Raman spectroscopic data using the initialised pipeline.</p>
+<p>The single point-of-contact method of the <a class="reference internal" href="#ramanspy.preprocessing.Pipeline" title="ramanspy.preprocessing.Pipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a> class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raman_objects</strong> (<em>Union</em><em>[</em><em>SpectralObject</em><em>, </em><em>List</em><em>[</em><em>Union</em><em>[</em><em>SpectralObject</em><em>, </em><em>List</em><em>[</em><em>SpectralObject</em><em>]</em><em>]</em><em>]</em><em>]</em>) – The objects to preprocess, where SpectralObject := Union[SpectralContainer, Spectrum, SpectralImage, SpectralVolume].</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The preprocessed objects, where SpectralObject := Union[SpectralContainer, Spectrum, SpectralImage, SpectralVolume].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[SpectralObject, List[Union[SpectralObject, List[SpectralObject]]]]</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <a class="reference internal" href="#ramanspy.preprocessing.PreprocessingStep" title="ramanspy.preprocessing.PreprocessingStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">PreprocessingStep</span></code></a> objects comprising the <a class="reference internal" href="#ramanspy.preprocessing.Pipeline" title="ramanspy.preprocessing.Pipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a> instance will be applied sequentially in the order provided during initialisation.</p>
+</div>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># once a preprocessing pipeline is initialised, it can be applied to different Raman data just as single PreprocessingStep instances</span>
+<span class="n">preprocessed_data</span> <span class="o">=</span> <span class="n">preprocessing_pipeline</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">raman_object</span><span class="p">)</span>
+<span class="n">preprocessed_data</span> <span class="o">=</span> <span class="n">preprocessing_method</span><span class="o">.</span><span class="n">apply</span><span class="p">([</span><span class="n">raman_object</span><span class="p">,</span> <span class="n">raman_spectrum</span><span class="p">,</span> <span class="n">raman_image</span><span class="p">])</span>
+<span class="n">preprocessed_data</span> <span class="o">=</span> <span class="n">preprocessing_method</span><span class="o">.</span><span class="n">apply</span><span class="p">([</span><span class="n">raman_object</span><span class="p">,</span> <span class="n">raman_spectrum</span><span class="p">],</span> <span class="n">raman_object</span><span class="p">,</span> <span class="p">[</span><span class="n">raman_spectrum</span><span class="p">,</span> <span class="n">raman_image</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ramanspy.preprocessing.Pipeline.extend">
+<span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ramanspy.preprocessing.PreprocessingStep" title="ramanspy.preprocessing.Step.PreprocessingStep"><span class="pre">PreprocessingStep</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/preprocessing/Pipeline.html#Pipeline.extend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.preprocessing.Pipeline.extend" title="Permalink to this definition"></a></dt>
+<dd><p>Extend the pipeline with multiple preprocessing procedures.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>steps</strong> (list[<a class="reference internal" href="#ramanspy.preprocessing.PreprocessingStep" title="ramanspy.preprocessing.PreprocessingStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">PreprocessingStep</span></code></a>]) – The preprocessing procedures to extend the pipeline with.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ramanspy.preprocessing.Pipeline.insert">
+<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#ramanspy.preprocessing.PreprocessingStep" title="ramanspy.preprocessing.Step.PreprocessingStep"><span class="pre">PreprocessingStep</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/preprocessing/Pipeline.html#Pipeline.insert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.preprocessing.Pipeline.insert" title="Permalink to this definition"></a></dt>
+<dd><p>Insert a preprocessing procedure into the pipeline at a specified index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<em>int</em>) – The index at which to insert the preprocessing procedure.</p></li>
+<li><p><strong>step</strong> (<a class="reference internal" href="#ramanspy.preprocessing.PreprocessingStep" title="ramanspy.preprocessing.PreprocessingStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">PreprocessingStep</span></code></a>) – The preprocessing procedure to insert into the pipeline.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ramanspy.preprocessing.Pipeline.pop">
+<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/preprocessing/Pipeline.html#Pipeline.pop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.preprocessing.Pipeline.pop" title="Permalink to this definition"></a></dt>
+<dd><p>Remove a preprocessing procedure from the pipeline at a specified index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – The index at which to remove the preprocessing procedure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="custom-pipelines">
+<h3>Custom pipelines<a class="headerlink" href="#custom-pipelines" title="Permalink to this heading"></a></h3>
+<p>The preprocessing methods offered by the package and other custom algorithms (wrapped as <a class="reference internal" href="#ramanspy.preprocessing.PreprocessingStep" title="ramanspy.preprocessing.PreprocessingStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">PreprocessingStep</span></code></a> instances),
+can easily be stacked together using <cite>RamanSPy</cite> into complete multi-layered preprocessing pipelines that work just as single
+<a class="reference internal" href="#ramanspy.preprocessing.PreprocessingStep" title="ramanspy.preprocessing.PreprocessingStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">PreprocessingStep</span></code></a> instances do.</p>
+<p>To create a preprocessing pipeline, simply wrap a list of preprocessing methods within a <a class="reference internal" href="#ramanspy.preprocessing.Pipeline" title="ramanspy.preprocessing.Pipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a> instance.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Check the <a class="reference internal" href="#custom-pipelines"><span class="std std-ref">Custom pipelines</span></a> tutorial for more information about how to construct and execute custom preprocessing pipelines.</p>
+</div>
+</section>
+<section id="established-protocols">
+<h3>Established protocols<a class="headerlink" href="#established-protocols" title="Permalink to this heading"></a></h3>
+<p><cite>RamanSPy</cite> also provides preprocessing protocols already proposed in the literature. This allows users
+to select pre-configured preprocessing pipelines without having to worry about the choice of methods and parameters.
+These can be accessed through the following methods:</p>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">protocols.default</span></code>([normalisation_pixelwise])</p></td>
+<td><p>A basic preprocessing protocol.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">protocols.default_fingerprint</span></code>([...])</p></td>
+<td><p>Same as <code class="xref py py-meth docutils literal notranslate"><span class="pre">default()</span></code> but starting with spectral cropping.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">protocols.articular_cartilage</span></code>()</p></td>
+<td><p>A basic preprocessing protocol approximating the one adopted in Bergholt MS et al (2016).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Check the <a class="reference internal" href="auto_tutorials/v-preprocessing/plot_iv_predefined_pipeline.html#built-in-protocols"><span class="std std-ref">Built-in protocols</span></a> tutorial for more information about how to access and use the preprocessing protocols built into <cite>RamanSPy</cite>.</p>
+</div>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="analysis.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Analysis</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="plot.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Data visualisation</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Dimitar Georgiev
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Preprocessing</a><ul>
+<li><a class="reference internal" href="#algorithms">Algorithms</a><ul>
+<li><a class="reference internal" href="#ramanspy.preprocessing.PreprocessingStep"><code class="docutils literal notranslate"><span class="pre">PreprocessingStep</span></code></a><ul>
+<li><a class="reference internal" href="#ramanspy.preprocessing.PreprocessingStep.apply"><code class="docutils literal notranslate"><span class="pre">PreprocessingStep.apply()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#built-in-preprocessing-methods">Built-in preprocessing methods</a><ul>
+<li><a class="reference internal" href="#miscellaneous">Miscellaneous</a></li>
+<li><a class="reference internal" href="#cosmic-rays-removal">Cosmic rays removal</a></li>
+<li><a class="reference internal" href="#denoising">Denoising</a></li>
+<li><a class="reference internal" href="#baseline-correction">Baseline correction</a><ul>
+<li><a class="reference internal" href="#least-squares">Least squares</a></li>
+<li><a class="reference internal" href="#polynomial-fitting">Polynomial fitting</a></li>
+<li><a class="reference internal" href="#other">Other</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#normalisation-scaling">Normalisation/Scaling</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#custom-algorithms">Custom algorithms</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pipelines">Pipelines</a><ul>
+<li><a class="reference internal" href="#ramanspy.preprocessing.Pipeline"><code class="docutils literal notranslate"><span class="pre">Pipeline</span></code></a><ul>
+<li><a class="reference internal" href="#ramanspy.preprocessing.Pipeline.append"><code class="docutils literal notranslate"><span class="pre">Pipeline.append()</span></code></a></li>
+<li><a class="reference internal" href="#ramanspy.preprocessing.Pipeline.apply"><code class="docutils literal notranslate"><span class="pre">Pipeline.apply()</span></code></a></li>
+<li><a class="reference internal" href="#ramanspy.preprocessing.Pipeline.extend"><code class="docutils literal notranslate"><span class="pre">Pipeline.extend()</span></code></a></li>
+<li><a class="reference internal" href="#ramanspy.preprocessing.Pipeline.insert"><code class="docutils literal notranslate"><span class="pre">Pipeline.insert()</span></code></a></li>
+<li><a class="reference internal" href="#ramanspy.preprocessing.Pipeline.pop"><code class="docutils literal notranslate"><span class="pre">Pipeline.pop()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#custom-pipelines">Custom pipelines</a></li>
+<li><a class="reference internal" href="#established-protocols">Established protocols</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/jquery.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    </body>
+</html>
