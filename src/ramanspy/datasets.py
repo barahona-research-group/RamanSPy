@@ -293,7 +293,7 @@ def volumetric_cells(cell_type='THP-1', folder=None) -> List[core.SpectralVolume
 
     Data from `Kallepitis et al. (2017) <https://www.nature.com/articles/ncomms14843>`_.
 
-    Provided by authors on `Zenodo <https://zenodo.org/record/256329#.Y7wpc3bP1D_>`_.
+    Must be downloaded first. Provided by authors on `Zenodo <https://zenodo.org/record/256329#.Y7wpc3bP1D_>`_.
 
     Parameters
     ----------
