@@ -2,3 +2,4 @@ include LICENSE
 include README.md
 
 prune docs
+prune paper_reproducibility
