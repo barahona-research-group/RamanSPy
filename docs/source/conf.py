@@ -18,7 +18,6 @@ sys.path.insert(0, os.path.abspath('../../src'))
 project = 'ramanspy'
 author = 'Dimitar Georgiev'
 copyright = f'{date.today().year}, {author}'
-release = '0.0.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -68,6 +67,7 @@ sphinx_gallery_conf = {
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
+html_title = 'RamanSPy'
 html_theme = 'furo'
 html_static_path = ['_static']
 html_theme_path = ['_themes', ]
