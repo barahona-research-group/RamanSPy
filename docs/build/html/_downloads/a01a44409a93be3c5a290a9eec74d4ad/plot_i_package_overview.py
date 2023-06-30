@@ -64,6 +64,7 @@ ax = ramanspy.plot.spectra(volume[selected_spectrum_index])
 
 # %%
 # Data before preprocessing with fingerprint region highlighted.
+plt.subplots(figsize=(4, 3))
 ax = ramanspy.plot.spectra(volume[selected_spectrum_index], title="Raw spectrum")
 ax.axvspan(700, 1800, alpha=0.25, color='red', zorder=0)
 

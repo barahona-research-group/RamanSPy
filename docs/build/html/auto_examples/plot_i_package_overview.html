@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Preprocessing pipelines" href="plot_i_preprocessing_pipelines.html" /><link rel="prev" title="Examples" href="index.html" />
 
     <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
-        <title>Cell phenotyping - ramanspy 0.0.1 documentation</title>
+        <title>Cell phenotyping - RamanSPy</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
@@ -132,7 +132,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">ramanspy 0.0.1 documentation</div></a>
+      <a href="../index.html"><div class="brand">RamanSPy</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -320,7 +320,8 @@ to download the full example code</p>
 </pre></div>
 </div>
 <img src="../_images/sphx_glr_plot_i_package_overview_001.png" srcset="../_images/sphx_glr_plot_i_package_overview_001.png" alt="Raman spectra" class = "sphx-glr-single-img"/><p>Data before preprocessing with fingerprint region highlighted.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">ramanspy</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">spectra</span><span class="p">(</span><span class="n">volume</span><span class="p">[</span><span class="n">selected_spectrum_index</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Raw spectrum&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">ramanspy</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">spectra</span><span class="p">(</span><span class="n">volume</span><span class="p">[</span><span class="n">selected_spectrum_index</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Raw spectrum&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="mi">700</span><span class="p">,</span> <span class="mi">1800</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">700</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -475,7 +476,7 @@ peaks used to identify the components highlighted.</p>
 <p>Heinz DC. Fully constrained least squares linear spectral mixture analysis method for material quantification in hyperspectral imagery. IEEE transactions on geoscience and remote sensing. 2001 Mar;39(3):529-45.</p>
 </aside>
 </aside>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  50.382 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  51.544 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-i-package-overview-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/a01a44409a93be3c5a290a9eec74d4ad/plot_i_package_overview.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_i_package_overview.py</span></code></a></p>

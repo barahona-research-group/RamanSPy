@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
     <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
-        <title>ramanspy.load - ramanspy 0.0.1 documentation</title>
+        <title>ramanspy.load - RamanSPy</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
@@ -131,7 +131,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">ramanspy 0.0.1 documentation</div></a>
+      <a href="../../index.html"><div class="brand">RamanSPy</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -153,9 +153,6 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
-  <div class="sidebar-logo-container">
-    <img class="sidebar-logo" src="../../_static/raman_logo_transparent.png" alt="Logo"/>
-  </div>
   
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
@@ -256,7 +253,9 @@
         </div>
         <article role="main">
           <h1>Source code for ramanspy.load</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span></span><span class="kn">import</span> <span class="nn">numbers</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy.io</span> <span class="k">as</span> <span class="nn">spio</span>
 <span class="kn">from</span> <span class="nn">renishawWiRE</span> <span class="kn">import</span> <span class="n">WDFReader</span>
 
@@ -308,7 +307,7 @@
     <span class="k">return</span> <span class="nb">dict</span>
 
 
-<div class="viewcode-block" id="witec"><a class="viewcode-back" href="../../loading.html#ramanspy.load.witec">[docs]</a><span class="k">def</span> <span class="nf">witec</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">:</span> <span class="n">Pipeline</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">core</span><span class="o">.</span><span class="n">Spectrum</span> <span class="ow">or</span> <span class="n">core</span><span class="o">.</span><span class="n">SpectralImage</span><span class="p">:</span>
+<div class="viewcode-block" id="witec"><a class="viewcode-back" href="../../loading.html#ramanspy.load.witec">[docs]</a><span class="k">def</span> <span class="nf">witec</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">:</span> <span class="n">Pipeline</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">laser_excitation</span><span class="p">:</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="mi">532</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">core</span><span class="o">.</span><span class="n">Spectrum</span> <span class="ow">or</span> <span class="n">core</span><span class="o">.</span><span class="n">SpectralImage</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Loads MATLAB files exported from `WITec&#39;s WITec Suite software &lt;https://raman.oxinst.com/products/software/witec-software-suite&gt;`_.</span>
 
@@ -318,6 +317,8 @@
 <span class="sd">        The name of the MATLAB file to load. Full path or relative to working directory.</span>
 <span class="sd">    preprocess : :class:`~ramanspy.preprocessing.Pipeline`, optional</span>
 <span class="sd">        A preprocessing pipeline to apply to the loaded data. If not specified (default), no preprocessing is applied.</span>
+<span class="sd">    laser_excitation : numeric, optional</span>
+<span class="sd">        The excitation wavelength of the laser (in nm). Default is 532 nm.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    ---------</span>
@@ -351,7 +352,7 @@
     <span class="n">raman_matlab_struct</span> <span class="o">=</span> <span class="n">matlab_dict</span><span class="p">[</span><span class="n">struct_key</span><span class="p">]</span>
 
     <span class="n">axis</span> <span class="o">=</span> <span class="n">raman_matlab_struct</span><span class="p">[</span><span class="s1">&#39;axisscale&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">shift_values</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">wavelength_to_wavenumber</span><span class="p">(</span><span class="n">axis</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">if</span> <span class="n">axis</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;rel. 1/cm&#39;</span> <span class="k">else</span> <span class="n">axis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">shift_values</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">wavelength_to_wavenumber</span><span class="p">(</span><span class="n">axis</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">laser_excitation</span><span class="p">)</span> <span class="k">if</span> <span class="n">axis</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;rel. 1/cm&#39;</span> <span class="k">else</span> <span class="n">axis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="n">spectral_data</span> <span class="o">=</span> <span class="n">raman_matlab_struct</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
 
@@ -384,7 +385,7 @@
     <span class="k">return</span> <span class="n">obj</span></div>
 
 
-<div class="viewcode-block" id="ocean_insight"><a class="viewcode-back" href="../../loading.html#ramanspy.load.ocean_insight">[docs]</a><span class="k">def</span> <span class="nf">ocean_insight</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">:</span> <span class="n">Pipeline</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">core</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">:</span>
+<div class="viewcode-block" id="ocean_insight"><a class="viewcode-back" href="../../loading.html#ramanspy.load.ocean_insight">[docs]</a><span class="k">def</span> <span class="nf">ocean_insight</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">:</span> <span class="n">Pipeline</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">laser_excitation</span><span class="p">:</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="mi">532</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">core</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Loads spectra data from `Ocean Insight&#39;s OceanView software &lt;https://www.oceaninsight.com/products/software/&gt;`_ .txt files.</span>
 
@@ -394,6 +395,8 @@
 <span class="sd">        The name of the .txt file to load. Full path or relative to working directory.</span>
 <span class="sd">    preprocess : :class:`~ramanspy.preprocessing.Pipeline`, optional</span>
 <span class="sd">        A preprocessing pipeline to apply to the loaded data. If not specified (default), no preprocessing is applied.</span>
+<span class="sd">    laser_excitation : numeric, optional</span>
+<span class="sd">        The excitation wavelength of the laser (in nm). Default is 532 nm.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    ---------</span>
@@ -435,7 +438,7 @@
     <span class="n">shift_values</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
 
     <span class="k">if</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;XAxis mode&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;wavelengths&quot;</span><span class="p">:</span>
-        <span class="n">shift_values</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">wavelength_to_wavenumber</span><span class="p">(</span><span class="n">shift_values</span><span class="p">)</span>
+        <span class="n">shift_values</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">wavelength_to_wavenumber</span><span class="p">(</span><span class="n">shift_values</span><span class="p">,</span> <span class="n">laser_excitation</span><span class="p">)</span>
 
     <span class="n">spectrum</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">(</span><span class="n">spectral_data</span><span class="p">,</span> <span class="n">shift_values</span><span class="p">)</span>
 
@@ -445,7 +448,7 @@
     <span class="k">return</span> <span class="n">spectrum</span></div>
 
 
-<div class="viewcode-block" id="renishaw"><a class="viewcode-back" href="../../loading.html#ramanspy.load.renishaw">[docs]</a><span class="k">def</span> <span class="nf">renishaw</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">:</span> <span class="n">Pipeline</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">core</span><span class="o">.</span><span class="n">SpectralContainer</span> <span class="ow">or</span> <span class="n">core</span><span class="o">.</span><span class="n">Spectrum</span> <span class="ow">or</span> <span class="n">core</span><span class="o">.</span><span class="n">SpectralImage</span><span class="p">:</span>
+<div class="viewcode-block" id="renishaw"><a class="viewcode-back" href="../../loading.html#ramanspy.load.renishaw">[docs]</a><span class="k">def</span> <span class="nf">renishaw</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">:</span> <span class="n">Pipeline</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">core</span><span class="o">.</span><span class="n">SpectralContainer</span> <span class="ow">or</span> <span class="n">core</span><span class="o">.</span><span class="n">Spectrum</span> <span class="ow">or</span> <span class="n">core</span><span class="o">.</span><span class="n">SpectralImage</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Loads spectra data from `Ranishaw&#39;s WiRE software &lt;https://www.renishaw.com/en/raman-software--9450&gt;`_ .wdf  files.</span>
 
@@ -489,7 +492,7 @@
     <span class="k">return</span> <span class="n">obj</span></div>
 
 
-<span class="k">def</span> <span class="nf">opus</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">:</span> <span class="n">Pipeline</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">core</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">opus</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">:</span> <span class="n">Pipeline</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">core</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Loads spectra data from `Bruker&#39;s OPUS software &lt;https://www.bruker.com/en/products-and-solutions/infrared-and-raman/opus-spectroscopy-software.html&gt;`_ files.</span>
 
@@ -521,7 +524,7 @@
     <span class="k">raise</span> <span class="bp">NotImplemented</span><span class="p">()</span>
 
 
-<div class="viewcode-block" id="labspec"><a class="viewcode-back" href="../../loading.html#ramanspy.load.labspec">[docs]</a><span class="k">def</span> <span class="nf">labspec</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">:</span> <span class="n">Pipeline</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">core</span><span class="o">.</span><span class="n">SpectralContainer</span> <span class="ow">or</span> <span class="n">core</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">:</span>
+<div class="viewcode-block" id="labspec"><a class="viewcode-back" href="../../loading.html#ramanspy.load.labspec">[docs]</a><span class="k">def</span> <span class="nf">labspec</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">:</span> <span class="n">Pipeline</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">core</span><span class="o">.</span><span class="n">SpectralContainer</span> <span class="ow">or</span> <span class="n">core</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Loads spectra data from `HORIBA&#39;s LabSpec software &lt;https://www.horiba.com/int/scientific/products/detail/action/show/Product/labspec-6-spectroscopy-suite-software-1843/&gt;`_ .txt files.</span>
 
