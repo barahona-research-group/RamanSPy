@@ -114,7 +114,7 @@ def covid19(file) -> Tuple[core.SpectralContainer, np.ndarray, np.ndarray]:
     """
     Raman spectra acquired from patients with COVID-19 and healthy controls.
 
-    Data from `Yin G. et al. (2019) <https://pubmed.ncbi.nlm.nih.gov/33821082/>`_.
+    Data from `Yin G. et al. (2021) <https://pubmed.ncbi.nlm.nih.gov/33821082/>`_.
 
     Must be downloaded first. Available on `Kaggle <https://www.kaggle.com/datasets/sfran96/raman-spectroscopy-for-detecting-covid19>`_.
 
@@ -135,6 +135,8 @@ def covid19(file) -> Tuple[core.SpectralContainer, np.ndarray, np.ndarray]:
     References
     ----------
     Yin G, Li L, Lu S, Yin Y, Su Y, Zeng Y, Luo M, Ma M, Zhou H, Orlandini L, Yao D. An efficient primary screening of COVID‐19 by serum Raman spectroscopy. Journal of Raman Spectroscopy. 2021 May;52(5):949-58.
+
+    Yin G, Li L, Lu S, Yin Y, Su Y, Zeng Y, Luo M, Ma M, Zhou H, Yao D, Liu G, Lang J. Data and code on serum Raman spectroscopy as an efficient primary screening of coronavirus disease in 2019 (COVID-19). figshare; 2020.
 
 
     Examples:
