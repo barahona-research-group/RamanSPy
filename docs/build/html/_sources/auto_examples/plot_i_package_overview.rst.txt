@@ -163,10 +163,11 @@ Data before preprocessing.
 
 Data before preprocessing with fingerprint region highlighted.
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-76
+.. GENERATED FROM PYTHON SOURCE LINES 67-77
 
 .. code-block:: default
 
+    plt.subplots(figsize=(4, 3))
     ax = ramanspy.plot.spectra(volume[selected_spectrum_index], title="Raw spectrum")
     ax.axvspan(700, 1800, alpha=0.25, color='red', zorder=0)
 
@@ -188,11 +189,11 @@ Data before preprocessing with fingerprint region highlighted.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 77-78
+.. GENERATED FROM PYTHON SOURCE LINES 78-79
 
 The raw data from the fingerprint region.
 
-.. GENERATED FROM PYTHON SOURCE LINES 78-82
+.. GENERATED FROM PYTHON SOURCE LINES 79-83
 
 .. code-block:: default
 
@@ -212,11 +213,11 @@ The raw data from the fingerprint region.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 83-84
+.. GENERATED FROM PYTHON SOURCE LINES 84-85
 
 Fingerprint region data after preprocessing.
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-86
+.. GENERATED FROM PYTHON SOURCE LINES 85-87
 
 .. code-block:: default
 
@@ -234,11 +235,11 @@ Fingerprint region data after preprocessing.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 87-88
+.. GENERATED FROM PYTHON SOURCE LINES 88-89
 
 Plotting spectral slices across relevant bands corresponding to biomolecular components, such as DNA, protein and lipids.
 
-.. GENERATED FROM PYTHON SOURCE LINES 88-89
+.. GENERATED FROM PYTHON SOURCE LINES 89-90
 
 .. code-block:: default
 
@@ -274,7 +275,7 @@ Plotting spectral slices across relevant bands corresponding to biomolecular com
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 90-91
+.. GENERATED FROM PYTHON SOURCE LINES 91-92
 
 .. code-block:: default
 
@@ -291,7 +292,7 @@ Plotting spectral slices across relevant bands corresponding to biomolecular com
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 92-93
+.. GENERATED FROM PYTHON SOURCE LINES 93-94
 
 .. code-block:: default
 
@@ -333,7 +334,7 @@ Plotting spectral slices across relevant bands corresponding to biomolecular com
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 94-96
+.. GENERATED FROM PYTHON SOURCE LINES 95-97
 
 .. code-block:: default
 
@@ -351,13 +352,13 @@ Plotting spectral slices across relevant bands corresponding to biomolecular com
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 97-100
+.. GENERATED FROM PYTHON SOURCE LINES 98-101
 
 Spectral unmixing
 ---------------------
 We use the N-FINDR [2]_ algorithm to unmix the volume into endmembers and FCLS [3]_ to derive the corresponding abundance maps.
 
-.. GENERATED FROM PYTHON SOURCE LINES 100-101
+.. GENERATED FROM PYTHON SOURCE LINES 101-102
 
 .. code-block:: default
 
@@ -369,7 +370,7 @@ We use the N-FINDR [2]_ algorithm to unmix the volume into endmembers and FCLS [
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 102-103
+.. GENERATED FROM PYTHON SOURCE LINES 103-104
 
 .. code-block:: default
 
@@ -381,13 +382,13 @@ We use the N-FINDR [2]_ algorithm to unmix the volume into endmembers and FCLS [
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 106-109
+.. GENERATED FROM PYTHON SOURCE LINES 107-110
 
 Plotting results
 ---------------------
 Plotting the derived endmembers.
 
-.. GENERATED FROM PYTHON SOURCE LINES 109-112
+.. GENERATED FROM PYTHON SOURCE LINES 110-113
 
 .. code-block:: default
 
@@ -406,12 +407,12 @@ Plotting the derived endmembers.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-115
+.. GENERATED FROM PYTHON SOURCE LINES 114-116
 
 Plotting a selection of endmembers that are representative of the different biomolecular components with relevant
 peaks used to identify the components highlighted.
 
-.. GENERATED FROM PYTHON SOURCE LINES 115-120
+.. GENERATED FROM PYTHON SOURCE LINES 116-121
 
 .. code-block:: default
 
@@ -427,7 +428,7 @@ peaks used to identify the components highlighted.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 121-150
+.. GENERATED FROM PYTHON SOURCE LINES 122-151
 
 .. code-block:: default
 
@@ -472,11 +473,11 @@ peaks used to identify the components highlighted.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 151-152
+.. GENERATED FROM PYTHON SOURCE LINES 152-153
 
 Plotting the abundance maps corresponding to the selected endmembers.
 
-.. GENERATED FROM PYTHON SOURCE LINES 152-154
+.. GENERATED FROM PYTHON SOURCE LINES 153-155
 
 .. code-block:: default
 
@@ -520,7 +521,7 @@ Plotting the abundance maps corresponding to the selected endmembers.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 155-157
+.. GENERATED FROM PYTHON SOURCE LINES 156-158
 
 .. code-block:: default
 
@@ -564,11 +565,11 @@ Plotting the abundance maps corresponding to the selected endmembers.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 158-159
+.. GENERATED FROM PYTHON SOURCE LINES 159-160
 
 Plotting a merged reconstruction of the selected image slice by plotting the abundance maps in one plot.
 
-.. GENERATED FROM PYTHON SOURCE LINES 159-175
+.. GENERATED FROM PYTHON SOURCE LINES 160-176
 
 .. code-block:: default
 
@@ -600,7 +601,7 @@ Plotting a merged reconstruction of the selected image slice by plotting the abu
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 176-183
+.. GENERATED FROM PYTHON SOURCE LINES 177-184
 
 References
 ----------
@@ -613,7 +614,7 @@ References
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  50.382 seconds)
+   **Total running time of the script:** ( 0 minutes  51.544 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_i_package_overview.py:
