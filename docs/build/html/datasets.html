@@ -356,6 +356,50 @@ access these datasets via established data loading methods and experiment with t
 </dd></dl>
 
 </section>
+<section id="mda-mb-231-cells-data">
+<h2>MDA-MB-231 cells data<a class="headerlink" href="#mda-mb-231-cells-data" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ramanspy.datasets.MDA_MB_231_cells">
+<span class="sig-prename descclassname"><span class="pre">ramanspy.datasets.</span></span><span class="sig-name descname"><span class="pre">MDA_MB_231_cells</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'train'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ramanspy/datasets.html#MDA_MB_231_cells"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.datasets.MDA_MB_231_cells" title="Permalink to this definition"></a></dt>
+<dd><p>170k pairs of low- and high-SNR data. I</p>
+<p>Ideal for developing and validating denoising models and algorithms.</p>
+<p>Data from <a class="reference external" href="https://pubs.acs.org/doi/full/10.1021/acs.analchem.1c02178">Horgan, C.C. et al. (2021)</a>.</p>
+<p>Must be downloaded first. Provided by authors on <a class="reference external" href="https://drive.google.com/drive/folders/1590Zqr56txK5_hVlrfe7oEIdcKoUTEIH">Google Drive</a>.</p>
+<p>All data has spectral dimensionality of 500, in the range (500, 1800) cm:sup:<cite>-1</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>str</em><em>, </em><em>default='train'</em>) – <p>Which bacteria dataset to load.</p>
+<p>Available datasets are:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'train'</span></code> - Just under 160k spectra.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'test'</span></code> - Just under 13k spectra.</p></li>
+</ul>
+</p></li>
+<li><p><strong>folder</strong> (<em>str</em><em>, </em><em>default=None</em>) – Path to the folder containing the downloaded data. If None, will use the root location. Irrelevant if <code class="docutils literal notranslate"><span class="pre">dataset='labels'</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>SpectralContainer</em> – Low SNR input.</p></li>
+<li><p><em>SpectralContainer</em> – The corresponding high SNR target output.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p>Horgan, C.C., Jensen, M., Nagelkerke, A., St-Pierre, J.P., Vercauteren, T., Stevens, M.M. and Bergholt, M.S., 2021. High-Throughput Molecular Imaging via Deep-Learning-Enabled Raman Spectroscopy. Analytical Chemistry, 93(48), pp.15850-15860.</p>
+<section id="id2">
+<h3>Examples:<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
+
+<span class="nb">input</span><span class="p">,</span> <span class="n">output</span> <span class="o">=</span> <span class="n">rp</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">MDA_MB_231_cells</span><span class="p">(</span><span class="n">path_to_data</span><span class="o">=</span><span class="s2">&quot;path/to/data&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+</section>
 <section id="covid-19-data">
 <h2>COVID-19 data<a class="headerlink" href="#covid-19-data" title="Permalink to this heading"></a></h2>
 <dl class="py function">
@@ -380,12 +424,53 @@ access these datasets via established data loading methods and experiment with t
 <p class="rubric">References</p>
 <p>Yin G, Li L, Lu S, Yin Y, Su Y, Zeng Y, Luo M, Ma M, Zhou H, Orlandini L, Yao D. An efficient primary screening of COVID‐19 by serum Raman spectroscopy. Journal of Raman Spectroscopy. 2021 May;52(5):949-58.</p>
 <p>Yin G, Li L, Lu S, Yin Y, Su Y, Zeng Y, Luo M, Ma M, Zhou H, Yao D, Liu G, Lang J. Data and code on serum Raman spectroscopy as an efficient primary screening of coronavirus disease in 2019 (COVID-19). figshare; 2020.</p>
-<section id="id2">
-<h3>Examples:<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<section id="id3">
+<h3>Examples:<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
 
 <span class="c1"># Load training dataset</span>
 <span class="n">spectra</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">label_names</span> <span class="o">=</span> <span class="n">rp</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">covid19</span><span class="p">(</span><span class="n">path_to_data</span><span class="o">=</span><span class="s2">&quot;path/to/data&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+</section>
+<section id="adenine-data">
+<h2>Adenine data<a class="headerlink" href="#adenine-data" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ramanspy.datasets.adenine">
+<span class="sig-prename descclassname"><span class="pre">ramanspy.datasets.</span></span><span class="sig-name descname"><span class="pre">adenine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ramanspy/datasets.html#adenine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.datasets.adenine" title="Permalink to this definition"></a></dt>
+<dd><p>Raman spectra acquired from samples representing different levels of adenine concentrations.</p>
+<p>Data from <a class="reference external" href="https://pubs.acs.org/doi/10.1021/acs.analchem.9b05658">Fornasaro, Stefano, et al. (2020)</a>.</p>
+<p>Can be downloaded directly through the function or downloaded separately. In the latter case, users just need to
+specifiy the location of the file to be loaded.</p>
+<p>Available on <a class="reference external" href="https://zenodo.org/record/3572359#.ZGxwOxbMLDs">Zenodo</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> (<em>str</em><em>, </em><em>default=None</em>) – Path to the file containing the downloaded data. Not used if <code class="docutils literal notranslate"><span class="pre">download=True</span></code>.</p></li>
+<li><p><strong>download</strong> (<em>bool</em><em>, </em><em>default=True</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, will download the data from Zenodo. Otherwise, will look for the data in the specified path given by <code class="docutils literal notranslate"><span class="pre">path_to_data</span></code>.
+Note that if <code class="docutils literal notranslate"><span class="pre">download=True</span></code>, data will be downloaded which may take some time.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>SpectralContainer with spectral_data of shape (N, B)</em> – The Raman spectra provided in the selected dataset.</p></li>
+<li><p><em>pandas.DataFrame of shape (N, 8)</em> – 8 additional features indicating sample collection parameters..</p></li>
+<li><p><em>np.ndarray[int] of shape (N, )</em> – The corresponding labels - indicating the adenine concentration which each data point corresponds to.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p>Fornasaro S, Alsamad F, Baia M, Batista de Carvalho LA, Beleites C, Byrne HJ, Chiadò A, Chis M, Chisanga M, Daniel A, Dybas J. Surface enhanced Raman spectroscopy for quantitative analysis: results of a large-scale European multi-instrument interlaboratory study. Analytical chemistry. 2020 Feb 11;92(5):4053-64.</p>
+<section id="id5">
+<h3>Examples:<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
+
+<span class="c1"># Load dataset</span>
+<span class="n">spectra</span><span class="p">,</span> <span class="n">additional_features</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">rp</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">adenine</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -429,56 +514,12 @@ Note that if <code class="docutils literal notranslate"><span class="pre">downlo
 </dl>
 <p class="rubric">References</p>
 <p>ŞEN A, Kecoglu I, Ahmed M, Parlatan U, Unlu M. Differentiation of advanced generation mutant wheat lines: Conventional techniques versus Raman spectroscopy. Frontiers in Plant Science. 2023;14.</p>
-<section id="id4">
-<h3>Examples:<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<section id="id7">
+<h3>Examples:<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
 
 <span class="c1"># Load training dataset</span>
 <span class="n">spectra</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">label_names</span> <span class="o">=</span> <span class="n">rp</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">wheat_lines</span><span class="p">()</span>
-</pre></div>
-</div>
-</section>
-</dd></dl>
-
-</section>
-<section id="mda-mb-231-cells-data">
-<h2>MDA-MB-231 cells data<a class="headerlink" href="#mda-mb-231-cells-data" title="Permalink to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="ramanspy.datasets.MDA_MB_231_cells">
-<span class="sig-prename descclassname"><span class="pre">ramanspy.datasets.</span></span><span class="sig-name descname"><span class="pre">MDA_MB_231_cells</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'train'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ramanspy/datasets.html#MDA_MB_231_cells"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.datasets.MDA_MB_231_cells" title="Permalink to this definition"></a></dt>
-<dd><p>170k pairs of low- and high-SNR data. I</p>
-<p>Ideal for developing and validating denoising models and algorithms.</p>
-<p>Data from <a class="reference external" href="https://pubs.acs.org/doi/full/10.1021/acs.analchem.1c02178">Horgan, C.C. et al. (2021)</a>.</p>
-<p>Must be downloaded first. Provided by authors on <a class="reference external" href="https://drive.google.com/drive/folders/1590Zqr56txK5_hVlrfe7oEIdcKoUTEIH">Google Drive</a>.</p>
-<p>All data has spectral dimensionality of 500, in the range (500, 1800) cm:sup:<cite>-1</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dataset</strong> (<em>str</em><em>, </em><em>default='train'</em>) – <p>Which bacteria dataset to load.</p>
-<p>Available datasets are:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">'train'</span></code> - Just under 160k spectra.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'test'</span></code> - Just under 13k spectra.</p></li>
-</ul>
-</p></li>
-<li><p><strong>folder</strong> (<em>str</em><em>, </em><em>default=None</em>) – Path to the folder containing the downloaded data. If None, will use the root location. Irrelevant if <code class="docutils literal notranslate"><span class="pre">dataset='labels'</span></code>.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><em>SpectralContainer</em> – Low SNR input.</p></li>
-<li><p><em>SpectralContainer</em> – The corresponding high SNR target output.</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-<p class="rubric">References</p>
-<p>Horgan, C.C., Jensen, M., Nagelkerke, A., St-Pierre, J.P., Vercauteren, T., Stevens, M.M. and Bergholt, M.S., 2021. High-Throughput Molecular Imaging via Deep-Learning-Enabled Raman Spectroscopy. Analytical Chemistry, 93(48), pp.15850-15860.</p>
-<section id="id5">
-<h3>Examples:<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
-
-<span class="nb">input</span><span class="p">,</span> <span class="n">output</span> <span class="o">=</span> <span class="n">rp</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">MDA_MB_231_cells</span><span class="p">(</span><span class="n">path_to_data</span><span class="o">=</span><span class="s2">&quot;path/to/data&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -498,7 +539,7 @@ specifiy the location of the file to be loaded.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>dataset</strong> (<em>str</em>) – The name of the RRUFF Raman dataset to load. Check available datasets <a class="reference external" href="https://rruff.info/zipped_data_files/raman/">here</a>.</p></li>
-<li><p><strong>folder</strong> (<em>str</em><em>, </em><em>default=None</em>) – Path to the folder containing the downloaded data. If None, will use the root location. Irrelevant if <a href="#id6"><span class="problematic" id="id7">``</span></a>download=True`.</p></li>
+<li><p><strong>folder</strong> (<em>str</em><em>, </em><em>default=None</em>) – Path to the folder containing the downloaded data. If None, will use the root location. Irrelevant if <a href="#id8"><span class="problematic" id="id9">``</span></a>download=True`.</p></li>
 <li><p><strong>download</strong> (<em>bool</em><em>, </em><em>optional</em><em>, </em><em>default=True</em>) – Whether to download the specified dataset or load it from a local directory. If <code class="docutils literal notranslate"><span class="pre">download=False</span></code>, all .txt files
 from the directory provided via <cite>dataset</cite> will be loaded.</p></li>
 </ul>
@@ -513,8 +554,8 @@ from the directory provided via <cite>dataset</cite> will be loaded.</p></li>
 </dl>
 <p class="rubric">References</p>
 <p>Lafuente B, Downs R T, Yang H, Stone N (2015) The power of databases: the RRUFF project. In: Highlights in Mineralogical Crystallography, T Armbruster and R M Danisi, eds. Berlin, Germany, W. De Gruyter, pp 1-30.</p>
-<section id="id8">
-<h3>Examples:<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
+<section id="id10">
+<h3>Examples:<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
 
 <span class="c1"># downloaded from the Internet</span>
@@ -597,16 +638,20 @@ from the directory provided via <cite>dataset</cite> will be loaded.</p></li>
 <li><a class="reference internal" href="#ramanspy.datasets.volumetric_cells"><code class="docutils literal notranslate"><span class="pre">volumetric_cells()</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#mda-mb-231-cells-data">MDA-MB-231 cells data</a><ul>
+<li><a class="reference internal" href="#ramanspy.datasets.MDA_MB_231_cells"><code class="docutils literal notranslate"><span class="pre">MDA_MB_231_cells()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#covid-19-data">COVID-19 data</a><ul>
 <li><a class="reference internal" href="#ramanspy.datasets.covid19"><code class="docutils literal notranslate"><span class="pre">covid19()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#wheat-lines-data">Wheat lines data</a><ul>
-<li><a class="reference internal" href="#ramanspy.datasets.wheat_lines"><code class="docutils literal notranslate"><span class="pre">wheat_lines()</span></code></a></li>
+<li><a class="reference internal" href="#adenine-data">Adenine data</a><ul>
+<li><a class="reference internal" href="#ramanspy.datasets.adenine"><code class="docutils literal notranslate"><span class="pre">adenine()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#mda-mb-231-cells-data">MDA-MB-231 cells data</a><ul>
-<li><a class="reference internal" href="#ramanspy.datasets.MDA_MB_231_cells"><code class="docutils literal notranslate"><span class="pre">MDA_MB_231_cells()</span></code></a></li>
+<li><a class="reference internal" href="#wheat-lines-data">Wheat lines data</a><ul>
+<li><a class="reference internal" href="#ramanspy.datasets.wheat_lines"><code class="docutils literal notranslate"><span class="pre">wheat_lines()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#rruff-data">RRUFF data</a><ul>

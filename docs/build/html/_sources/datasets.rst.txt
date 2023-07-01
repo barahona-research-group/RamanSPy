@@ -23,20 +23,24 @@ Volumetric cell data
 .. autofunction:: volumetric_cells
 
 
+MDA-MB-231 cells data
+=================================
+.. autofunction:: MDA_MB_231_cells
+
 
 COVID-19 data
 =================================
 .. autofunction:: covid19
 
 
+Adenine data
+=================================
+.. autofunction:: adenine
+
+
 Wheat lines data
 =================================
 .. autofunction:: wheat_lines
-
-
-MDA-MB-231 cells data
-=================================
-.. autofunction:: MDA_MB_231_cells
 
 
 RRUFF data
