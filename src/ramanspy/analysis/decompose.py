@@ -45,6 +45,8 @@ class NMF(AnalysisStep):
     """
     Non-negative matrix factorisation (NMF).
 
+    Data must be non-negative. If negative values are present, one can use :class:`ramanspy.preprocessing.normalise.MinMax` to scale the data.
+
     Parameters
     ----------
     n_components : int

@@ -136,7 +136,7 @@ class VCA(AnalysisStep):
         - ``'fcls'`` - Fully-constrained Least Squares.
 
 
-    .. note :: Implementation based on `the MATLAB code provided by the authors <http://www.lx.it.pt/~bioucas/code.htm>`_
+    .. note :: Implementation based on `the MATLAB code provided by the authors <http://www.lx.it.pt/~bioucas/code.htm>`,
                and `Adrien Lagrange's translation to Python <https://github.com/Laadr/VCA>`_.
 
 
@@ -149,42 +149,75 @@ class VCA(AnalysisStep):
         super().__init__(unmixer(_vca), n_endmembers, abundance_method)
 
 
-def _vca(data, n_endmembers):
-    data_mean = np.mean(data, axis=0, keepdims=True)
-    data_centered = data - data_mean
+def _vca(data, n_endmembers, *, snr_input=0):
+    """
+    Copyright 2018 Adrien Lagrange
 
-    # Project mean-centered data to n_endmembers subspace
-    Ud = splin.svd(np.dot(data_centered, data_centered.T) / float(data.shape[0]))[0]
-    x_p = np.dot(Ud[:, :n_endmembers].T, data_centered)
+    Licensed under the Apache License, Version 2.0.
+
+    Source code available at: https://github.com/Laadr/VCA
+
+    Changes:
+    - sp -> np;
+    - removed comments;
+    - removed semicolons at the end of lines;
+    - removed verbose option and print statements;
+    - renamed some variables;
+    - only return endmembers;
+    """
+    # Transpose data to comply with code
+    data = data.T
+
+    N = data.shape[1]
 
     # Estimate SNR
-    P_y = np.sum(data.T ** 2) / float(data.shape[0])
-    P_x = np.sum(x_p ** 2) / float(data.shape[0]) + np.sum(data_mean ** 2)
-    SNR = 10 * np.log10((P_x - x_p.shape[0] / data.shape[1] * P_y) / (P_y - P_x))
+    # ------------
+    if snr_input == 0:
+        data_mean = np.mean(data, axis=1, keepdims=True)
+        data_centered = data - data_mean  # data with zero-mean
+        Ud = splin.svd(np.dot(data_centered, data_centered.T) / float(N))[0][:, :n_endmembers]
+        x_p = np.dot(Ud.T, data_centered)
 
-    SNR_threshold = 15 + 10 * np.log10(n_endmembers)
-    if SNR < SNR_threshold:
-        # Project to n_endmembers-1 subspace
-        # """"""""""""""""""""""""""""""""""""""
-        Yp = np.dot(Ud[:, :n_endmembers - 1], x_p[:n_endmembers - 1, :]) + data_mean
-
-        x = x_p[:n_endmembers - 1, :]
-        c = np.amax(np.sum(x ** 2, axis=0)) ** 0.5
-        y = np.vstack((x, c * np.ones((1, data.shape[0]))))
+        P_y = np.sum(data ** 2) / float(N)
+        P_x = np.sum(x_p ** 2) / float(N) + np.sum(data_mean ** 2)
+        SNR = 10 * np.log10((P_x - n_endmembers / data.shape[0] * P_y) / (P_y - P_x))
     else:
-        # Projective Projection
-        # """""""""""""""""""""""
-        Ud = splin.svd(np.dot(data.T, data) / float(data.shape[0]))[0][:, :n_endmembers]
+        SNR = snr_input
 
-        x = np.dot(Ud.T, data.T)
-        Yp = np.dot(Ud, x[:n_endmembers, :])
+    SNR_th = 15 + 10 * np.log10(n_endmembers)
 
+    # Projection to n_endmembers-1 subspace if SNR < SNR_th; else, no projective projection
+    # -------------------------------------------------------------------------------------
+    if SNR < SNR_th:
+        d = n_endmembers - 1
+        if snr_input == 0:
+            Ud = Ud[:, :d]
+        else:
+            data_mean = np.mean(data, axis=1, keepdims=True)
+            data_centered = data - data_mean
+
+            Ud = splin.svd(np.dot(data_centered, data_centered.T) / float(N))[0][:, :d]  # computes the p-projection matrix
+            x_p = np.dot(Ud.T, data_centered)
+
+        Yp = np.dot(Ud, x_p[:d, :]) + data_mean
+
+        x = x_p[:d, :]
+        c = np.amax(np.sum(x ** 2, axis=0)) ** 0.5
+        y = np.vstack((x, c * np.ones((1, N))))
+    else:
+        d = n_endmembers
+        Ud = splin.svd(np.dot(data, data.T) / float(N))[0][:, :d]
+
+        x_p = np.dot(Ud.T, data)
+        Yp = np.dot(Ud, x_p[:d, :])
+
+        x = np.dot(Ud.T, data)
         u = np.mean(x, axis=1, keepdims=True)
         y = x / np.dot(u.T, x)
 
     # VCA algorithm
-    # --------------
-    indice = np.zeros(n_endmembers, dtype=int)
+    # -------------
+    indice = np.zeros((n_endmembers), dtype=int)
     A = np.zeros((n_endmembers, n_endmembers))
     A[-1, 0] = 1
 
