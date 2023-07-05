@@ -28,7 +28,16 @@ for installation instructions. Extensive documentation of `RamanSPy's` functiona
 
 |
 
-If you find `RamanSPy` useful, please consider leaving a star on GitHub:
+Credits
+-----------------
+If you use this package for your research, please cite our paper:
+
+`Georgiev, D., Pedersen, S., Xie, R., Fernández-Galiana, Á, Stevens, M., & Barahona, M. (2023). RamanSPy: An open-source Python package for integrative Raman spectroscopy data analysis. ChemRxiv. doi:10.26434/chemrxiv-2023-m3xlm <https://chemrxiv.org/engage/chemrxiv/article-details/64a53861ba3e99daef8c9c51>`_
+
+|
+
+
+Also, if you find *RamanSPy* useful, please consider leaving a star on GitHub:
 
 .. raw:: html
 
@@ -36,14 +45,6 @@ If you find `RamanSPy` useful, please consider leaving a star on GitHub:
    <script async defer src="https://buttons.github.io/buttons.js"></script>
 
 |
-
-Bugs and feature requests can be communicated to the development team via GitHub:
-
-.. raw:: html
-
-   <a class="github-button" href="https://github.com/barahona-research-group/RamanSPy" data-icon="octicon-issue-opened" data-show-count="true" aria-label="Open an issue on GitHub">Issue</a>
-   <script async defer src="https://buttons.github.io/buttons.js"></script>
-
 
 
 .. toctree::
@@ -84,3 +85,4 @@ Bugs and feature requests can be communicated to the development team via GitHub
    :hidden:
 
    GitHub repository <https://github.com/barahona-research-group/RamanSPy>
+   Paper <https://chemrxiv.org/engage/chemrxiv/article-details/64a53861ba3e99daef8c9c51>
