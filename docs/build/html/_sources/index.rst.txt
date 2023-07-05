@@ -32,7 +32,7 @@ Credits
 -----------------
 If you use this package for your research, please cite our paper:
 
-`Georgiev, D., Pedersen, S., Xie, R., Fernández-Galiana, Á, Stevens, M., & Barahona, M. (2023). RamanSPy: An open-source Python package for integrative Raman spectroscopy data analysis. ChemRxiv. doi:10.26434/chemrxiv-2023-m3xlm <https://chemrxiv.org/engage/chemrxiv/article-details/64a53861ba3e99daef8c9c51>`_
+`Georgiev, D., Pedersen, S., Xie, R., Fernández-Galiana, Á., Stevens, M., & Barahona, M. (2023). RamanSPy: An open-source Python package for integrative Raman spectroscopy data analysis. ChemRxiv. doi:10.26434/chemrxiv-2023-m3xlm <https://chemrxiv.org/engage/chemrxiv/article-details/64a53861ba3e99daef8c9c51>`_
 
 |
 
