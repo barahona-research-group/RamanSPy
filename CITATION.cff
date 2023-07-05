@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as follows."
+authors:
+  - family-names: Georgiev
+    given-names: Dimitar
+title: "RamanSPy"
+repository-code: "https://github.com/barahona-research-group/RamanSPy"
+preferred-citation:
+  type: article
+  authors:
+  - family-names: Georgiev
+    given-names: Dimitar
+  - family-names: Pedersen
+    given-names: Simon Vilms
+  - family-names: Xie
+    given-names: Ruoxiao
+  - family-names: Fernández-Galiana
+    given-names: Álvaro
+  - family-names: Stevens
+    given-names: Molly M.
+  - family-names: Barahona
+    given-names: Mauricio
+  doi: "10.26434/chemrxiv-2023-m3xlm"
+  journal: "ChemRxiv"
+  title: "RamanSPy: An open-source Python package for integrative Raman spectroscopy data analysis"
+  url: "https://chemrxiv.org/engage/chemrxiv/article-details/64a53861ba3e99daef8c9c51"
+  year: 2023
