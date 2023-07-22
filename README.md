@@ -1,5 +1,8 @@
 # RamanSPy
 
+[![Downloads](https://static.pepy.tech/badge/ramanspy)](https://pepy.tech/project/ramanspy)   [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)]([https://github.com/dwyl/esta/issues](https://github.com/barahona-research-group/RamanSPy/issues))
+
+
 *RamanSPy* is an open-source Python package for integrative
 Raman spectroscopy data analysis.
 
