@@ -9,8 +9,12 @@
         <title>Analysis - RamanSPy</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=362ab14a" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
-    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css?v=7f9a90b1" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -206,7 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_iii_unmixing.html">Built-in unmixing methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_iv_integrative_svm.html">Integrative analysis: Support Vector Machine (SVM) classification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_v_integrative_nn.html">Integrative analysis: Neural Network (NN) classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vii%20-%20synth/plot_i_generate_endmembers.html">Generate synthetic endmembers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vii-synth/plot_i_endmembers.html">Generate synthetic endmembers</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -256,18 +260,18 @@
         </div>
         <article role="main">
           <section id="analysis">
-<h1>Analysis<a class="headerlink" href="#analysis" title="Link to this heading">#</a></h1>
+<h1>Analysis<a class="headerlink" href="#analysis" title="Link to this heading"></a></h1>
 <p><cite>RamanSPy</cite> provides a number of built-in methods for spectral analysis, including decomposition, clustering and spectral unmixing.
 Similarly to the preprocessing methods, these are built into <cite>RamanSPy</cite> as standardised classes and can thus be readily accessed
 and applied to any type of Raman spectroscopic data loaded into the framework.</p>
 <p>Analysis functionality is given within the <code class="xref py py-mod docutils literal notranslate"><span class="pre">ramanspy.analysis</span></code> module.</p>
 <section id="built-in-analysis-methods">
-<h2>Built-in analysis methods<a class="headerlink" href="#built-in-analysis-methods" title="Link to this heading">#</a></h2>
+<h2>Built-in analysis methods<a class="headerlink" href="#built-in-analysis-methods" title="Link to this heading"></a></h2>
 <p><cite>RamanSPy</cite> provides many of the commonly-used techniques for spectral analysis. This includes a broad collection of
 methods for decomposition, clustering and spectral unmixing, which, similarly to preprocessing methods, can be directly
 interfaced through their <code class="docutils literal notranslate"><span class="pre">apply()</span></code> method.</p>
 <section id="decomposition">
-<h3>Decomposition<a class="headerlink" href="#decomposition" title="Link to this heading">#</a></h3>
+<h3>Decomposition<a class="headerlink" href="#decomposition" title="Link to this heading"></a></h3>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
@@ -290,7 +294,7 @@ the decomposition algorithms built into <cite>RamanSPy</cite>.</p>
 </div>
 </section>
 <section id="clustering">
-<h3>Clustering<a class="headerlink" href="#clustering" title="Link to this heading">#</a></h3>
+<h3>Clustering<a class="headerlink" href="#clustering" title="Link to this heading"></a></h3>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
@@ -307,7 +311,7 @@ clustering algorithms built into <cite>RamanSPy</cite>.</p>
 </div>
 </section>
 <section id="spectral-unmixing">
-<h3>Spectral unmixing<a class="headerlink" href="#spectral-unmixing" title="Link to this heading">#</a></h3>
+<h3>Spectral unmixing<a class="headerlink" href="#spectral-unmixing" title="Link to this heading"></a></h3>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
@@ -334,7 +338,7 @@ spectral unmixing algorithms built into <cite>RamanSPy</cite>.</p>
 </section>
 </section>
 <section id="integrative-analysis">
-<h2>Integrative analysis<a class="headerlink" href="#integrative-analysis" title="Link to this heading">#</a></h2>
+<h2>Integrative analysis<a class="headerlink" href="#integrative-analysis" title="Link to this heading"></a></h2>
 <p>Because of <cite>RamanSPy’s</cite> data management design, data stored within the package can easily be integrated into the rest of
 the Python analysis ecosystem, including most frameworks for statistical and machine learning modelling. As such methods
 are increasingly often utilised for Raman spectroscopic research, we believe this will be a feature of paramount
@@ -420,7 +424,9 @@ tutorials for more information about how to integrate <cite>RamanSPy</cite> with
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=5929fcd5"></script>
+</div><script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=32e29ea5"></script>

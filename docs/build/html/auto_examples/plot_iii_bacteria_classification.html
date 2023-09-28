@@ -1,22 +1,21 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="prev" title="AI-based denoising" href="plot_ii_dl_denoising.html" />
 
-    <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Bacteria classification - RamanSPy</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
-    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css?v=7f9a90b1" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -179,6 +178,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../plot.html">Data visualisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preprocessing.html">Preprocessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synth.html">Synthetic data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
 <ul class="current">
@@ -210,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/vi-analysis/plot_iii_unmixing.html">Built-in unmixing methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/vi-analysis/plot_iv_integrative_svm.html">Integrative analysis: Support Vector Machine (SVM) classification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/vi-analysis/plot_v_integrative_nn.html">Integrative analysis: Neural Network (NN) classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/vii-synth/plot_i_endmembers.html">Generate synthetic endmembers</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -264,11 +265,11 @@
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="bacteria-classification">
-<span id="sphx-glr-auto-examples-plot-iii-bacteria-classification-py"></span><h1>Bacteria classification<a class="headerlink" href="#bacteria-classification" title="Permalink to this heading"></a></h1>
+<span id="sphx-glr-auto-examples-plot-iii-bacteria-classification-py"></span><h1>Bacteria classification<a class="headerlink" href="#bacteria-classification" title="Link to this heading"></a></h1>
 <p>In this example, we will benchmark the performance of a variety of machine learning models on a dataset of Raman spectra of
 30 different bacteria species. The dataset is from <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 <section id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lazypredict.Supervised</span> <span class="kn">import</span> <span class="n">LazyClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">shuffle</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">confusion_matrix</span>
@@ -282,7 +283,7 @@ to download the full example code</p>
 </div>
 </section>
 <section id="data-loading">
-<h2>Data loading<a class="headerlink" href="#data-loading" title="Permalink to this heading"></a></h2>
+<h2>Data loading<a class="headerlink" href="#data-loading" title="Link to this heading"></a></h2>
 <p>Load the fine-tuning/validation and testing datasets from the original paper, alongside the corresponding labels.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dir_</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;../../../data/bacteria_data&quot;</span>
 
@@ -298,7 +299,7 @@ to download the full example code</p>
 </div>
 </section>
 <section id="exploratory-analysis">
-<h2>Exploratory analysis<a class="headerlink" href="#exploratory-analysis" title="Permalink to this heading"></a></h2>
+<h2>Exploratory analysis<a class="headerlink" href="#exploratory-analysis" title="Link to this heading"></a></h2>
 <p>Group training data into species classes for plotting.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spectra</span> <span class="o">=</span> <span class="p">[[</span><span class="n">X_train</span><span class="p">[</span><span class="n">y_train</span> <span class="o">==</span> <span class="n">species_id</span><span class="p">]]</span> <span class="k">for</span> <span class="n">species_id</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y_train</span><span class="p">))]</span>
 </pre></div>
@@ -324,7 +325,7 @@ to download the full example code</p>
 </div>
 <img src="../_images/sphx_glr_plot_iii_bacteria_classification_001.png" srcset="../_images/sphx_glr_plot_iii_bacteria_classification_001.png" alt="plot iii bacteria classification" class = "sphx-glr-single-img"/></section>
 <section id="benchmarking">
-<h2>Benchmarking<a class="headerlink" href="#benchmarking" title="Permalink to this heading"></a></h2>
+<h2>Benchmarking<a class="headerlink" href="#benchmarking" title="Link to this heading"></a></h2>
 <p>Next, we will benchmark a variety of machine learning models on task of predicting the bacteria species class each
 spectrum belongs to. We will train the models on the validation/fine-tuning dataset and test them on the testing dataset.</p>
 <p>To guide the training, it is important to shuffle the training dataset, which is originally ordered by bacteria species.</p>
@@ -644,7 +645,7 @@ spectrum belongs to. We will train the models on the validation/fine-tuning data
 </div>
 </section>
 <section id="logistic-regression-modelling">
-<h2>Logistic regression modelling<a class="headerlink" href="#logistic-regression-modelling" title="Permalink to this heading"></a></h2>
+<h2>Logistic regression modelling<a class="headerlink" href="#logistic-regression-modelling" title="Link to this heading"></a></h2>
 <p>As the benchmarking results show, the Logistic Regression model performs the best. We thus select this model for the
 consecutive analyses where we analyse the model’s performance in more detail for the task of predicting the bacteria
 species class each spectrum belongs to, as well as the task of predicting the antibiotic class each spectrum belongs to.</p>
@@ -667,7 +668,7 @@ species class each spectrum belongs to, as well as the task of predicting the an
 </pre></div>
 </div>
 <section id="species-level-classification">
-<h3>Species-level classification<a class="headerlink" href="#species-level-classification" title="Permalink to this heading"></a></h3>
+<h3>Species-level classification<a class="headerlink" href="#species-level-classification" title="Link to this heading"></a></h3>
 <p>Testing the trained model on the unseen testing dataset.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The accuracy of the Logistic Regression model is: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="w"> </span><span class="n">y_test</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -724,7 +725,7 @@ species class each spectrum belongs to, as well as the task of predicting the an
 </div>
 <img src="../_images/sphx_glr_plot_iii_bacteria_classification_003.png" srcset="../_images/sphx_glr_plot_iii_bacteria_classification_003.png" alt="plot iii bacteria classification" class = "sphx-glr-single-img"/></section>
 <section id="antibiotic-level-classification">
-<h3>Antibiotic-level classification<a class="headerlink" href="#antibiotic-level-classification" title="Permalink to this heading"></a></h3>
+<h3>Antibiotic-level classification<a class="headerlink" href="#antibiotic-level-classification" title="Link to this heading"></a></h3>
 <p>Calculate the antibiotic-level accuracy.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y_ab</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">antibiotics_labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y_test</span><span class="p">])</span>
 <span class="n">y_ab_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">antibiotics_labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y_pred</span><span class="p">])</span>
@@ -759,7 +760,7 @@ species class each spectrum belongs to, as well as the task of predicting the an
 <img src="../_images/sphx_glr_plot_iii_bacteria_classification_004.png" srcset="../_images/sphx_glr_plot_iii_bacteria_classification_004.png" alt="plot iii bacteria classification" class = "sphx-glr-single-img"/></section>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="id2" role="note">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
@@ -846,13 +847,13 @@ species class each spectrum belongs to, as well as the task of predicting the an
       
     </aside>
   </div>
-</div><script src="../_static/jquery.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/scripts/furo.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+</div><script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     </body>
 </html>

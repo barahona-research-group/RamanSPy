@@ -9,8 +9,12 @@
         <title>Metrics - RamanSPy</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=362ab14a" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
-    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css?v=7f9a90b1" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -206,7 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_iii_unmixing.html">Built-in unmixing methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_iv_integrative_svm.html">Integrative analysis: Support Vector Machine (SVM) classification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_v_integrative_nn.html">Integrative analysis: Neural Network (NN) classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vii%20-%20synth/plot_i_generate_endmembers.html">Generate synthetic endmembers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vii-synth/plot_i_endmembers.html">Generate synthetic endmembers</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -256,15 +260,15 @@
         </div>
         <article role="main">
           <section id="metrics">
-<h1>Metrics<a class="headerlink" href="#metrics" title="Link to this heading">#</a></h1>
+<h1>Metrics<a class="headerlink" href="#metrics" title="Link to this heading"></a></h1>
 <p><cite>RamanSPy</cite> also provides a set or relevant metrics that can be used to measure the similarity between spectra. This can be
 useful for the evaluatiion of different methods for preprocessing and analysis.</p>
 <p>Metrics are available in the <cite>ramanspy.metrics</cite> module.</p>
 <section id="mae">
-<h2>MAE<a class="headerlink" href="#mae" title="Link to this heading">#</a></h2>
+<h2>MAE<a class="headerlink" href="#mae" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ramanspy.metrics.MAE">
-<span class="sig-prename descclassname"><span class="pre">ramanspy.metrics.</span></span><span class="sig-name descname"><span class="pre">MAE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/metrics.html#MAE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.metrics.MAE" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ramanspy.metrics.</span></span><span class="sig-name descname"><span class="pre">MAE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/metrics.html#MAE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.metrics.MAE" title="Link to this definition"></a></dt>
 <dd><p>Mean Absolute Error (MAE).</p>
 <p>MAE is an Euclidean distance-based measure equal to the average of the absolute errors. The smaller the MAE, the more similar the two spectra are.</p>
 <div class="math-wrapper docutils container">
@@ -272,7 +276,7 @@ useful for the evaluatiion of different methods for preprocessing and analysis.<
 \[MAE = \frac{1}{n} \sum_{i=1}^{n} |a_i - b_i|\]</div>
 </div>
 <section id="examples">
-<h3>Examples:<a class="headerlink" href="#examples" title="Link to this heading">#</a></h3>
+<h3>Examples:<a class="headerlink" href="#examples" title="Link to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
 
 <span class="n">rp</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">MAE</span><span class="p">(</span><span class="n">spectrum_1</span><span class="p">,</span> <span class="n">spectrum_2</span><span class="p">)</span>
@@ -283,10 +287,10 @@ useful for the evaluatiion of different methods for preprocessing and analysis.<
 
 </section>
 <section id="mse">
-<h2>MSE<a class="headerlink" href="#mse" title="Link to this heading">#</a></h2>
+<h2>MSE<a class="headerlink" href="#mse" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ramanspy.metrics.MSE">
-<span class="sig-prename descclassname"><span class="pre">ramanspy.metrics.</span></span><span class="sig-name descname"><span class="pre">MSE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/metrics.html#MSE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.metrics.MSE" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ramanspy.metrics.</span></span><span class="sig-name descname"><span class="pre">MSE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/metrics.html#MSE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.metrics.MSE" title="Link to this definition"></a></dt>
 <dd><p>Mean Squared Error (MSE).</p>
 <p>MSE is an Euclidean distance-based measure equal to the average of the square of the errors. The smaller the MSE, the more similar the two spectra are.</p>
 <div class="math-wrapper docutils container">
@@ -294,7 +298,7 @@ useful for the evaluatiion of different methods for preprocessing and analysis.<
 \[MSE = \frac{1}{n} \sum_{i=1}^{n} (a_i - b_i)^2\]</div>
 </div>
 <section id="id1">
-<h3>Examples:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3>Examples:<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
 
 <span class="n">rp</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">MSE</span><span class="p">(</span><span class="n">spectrum_1</span><span class="p">,</span> <span class="n">spectrum_2</span><span class="p">)</span>
@@ -305,10 +309,10 @@ useful for the evaluatiion of different methods for preprocessing and analysis.<
 
 </section>
 <section id="rmse">
-<h2>RMSE<a class="headerlink" href="#rmse" title="Link to this heading">#</a></h2>
+<h2>RMSE<a class="headerlink" href="#rmse" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ramanspy.metrics.RMSE">
-<span class="sig-prename descclassname"><span class="pre">ramanspy.metrics.</span></span><span class="sig-name descname"><span class="pre">RMSE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/metrics.html#RMSE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.metrics.RMSE" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ramanspy.metrics.</span></span><span class="sig-name descname"><span class="pre">RMSE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/metrics.html#RMSE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.metrics.RMSE" title="Link to this definition"></a></dt>
 <dd><p>Root-mean-square error (RMSE).</p>
 <p>The RMSE is the square root of the MSE. The smaller the RMSE, the more similar the two spectra are.</p>
 <div class="math-wrapper docutils container">
@@ -316,7 +320,7 @@ useful for the evaluatiion of different methods for preprocessing and analysis.<
 \[RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (a_i - b_i)^2}\]</div>
 </div>
 <section id="id2">
-<h3>Examples:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<h3>Examples:<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
 
 <span class="n">rp</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">RMSE</span><span class="p">(</span><span class="n">spectrum_1</span><span class="p">,</span> <span class="n">spectrum_2</span><span class="p">)</span>
@@ -327,10 +331,10 @@ useful for the evaluatiion of different methods for preprocessing and analysis.<
 
 </section>
 <section id="sad">
-<h2>SAD<a class="headerlink" href="#sad" title="Link to this heading">#</a></h2>
+<h2>SAD<a class="headerlink" href="#sad" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ramanspy.metrics.SAD">
-<span class="sig-prename descclassname"><span class="pre">ramanspy.metrics.</span></span><span class="sig-name descname"><span class="pre">SAD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/metrics.html#SAD"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.metrics.SAD" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ramanspy.metrics.</span></span><span class="sig-name descname"><span class="pre">SAD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/metrics.html#SAD"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.metrics.SAD" title="Link to this definition"></a></dt>
 <dd><p>Spectral Angle Distance (SAD).</p>
 <p>The SAD is the angle between two spectra in the n-dimensional space. The smaller the SAD, the more similar the two spectra are.</p>
 <div class="math-wrapper docutils container">
@@ -340,7 +344,7 @@ useful for the evaluatiion of different methods for preprocessing and analysis.<
 <p class="rubric">References</p>
 <p>Kruse, F.A., Lefkoff, A.B., Boardman, J.W., Heidebrecht, K.B., Shapiro, A.T., Barloon, P.J. and Goetz, A.F.H., 1993. The spectral image processing system (SIPS)—interactive visualization and analysis of imaging spectrometer data. Remote sensing of environment, 44(2-3), pp.145-163.</p>
 <section id="id3">
-<h3>Examples:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<h3>Examples:<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
 
 <span class="n">rp</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">SAD</span><span class="p">(</span><span class="n">spectrum_1</span><span class="p">,</span> <span class="n">spectrum_2</span><span class="p">)</span>
@@ -351,10 +355,10 @@ useful for the evaluatiion of different methods for preprocessing and analysis.<
 
 </section>
 <section id="sid">
-<h2>SID<a class="headerlink" href="#sid" title="Link to this heading">#</a></h2>
+<h2>SID<a class="headerlink" href="#sid" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ramanspy.metrics.SID">
-<span class="sig-prename descclassname"><span class="pre">ramanspy.metrics.</span></span><span class="sig-name descname"><span class="pre">SID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/metrics.html#SID"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.metrics.SID" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ramanspy.metrics.</span></span><span class="sig-name descname"><span class="pre">SID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/metrics.html#SID"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.metrics.SID" title="Link to this definition"></a></dt>
 <dd><p>Spectral Information Divergence (SID).</p>
 <p>The SID is a information-theoretic measure of the difference between two spectra based on Kullback-Leibler divergence.
 The smaller the SID, the more similar the two spectra are.</p>
@@ -370,7 +374,7 @@ The smaller the SID, the more similar the two spectra are.</p>
 <p class="rubric">References</p>
 <p>Chang, C.I., 1999, June. Spectral information divergence for hyperspectral image analysis. In IEEE 1999 International Geoscience and Remote Sensing Symposium. IGARSS’99 (Cat. No. 99CH36293) (Vol. 1, pp. 509-511). IEEE.</p>
 <section id="id4">
-<h3>Examples:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<h3>Examples:<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
 
 <span class="n">rp</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">SID</span><span class="p">(</span><span class="n">spectrum_1</span><span class="p">,</span> <span class="n">spectrum_2</span><span class="p">)</span>
@@ -381,7 +385,7 @@ The smaller the SID, the more similar the two spectra are.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>Check relevant tutorials in the <a class="reference internal" href="tutorials/iii-datasets/README.html#datasets-and-metrics"><span class="std std-ref">Datasets and metrics</span></a> section for more information about how to use <cite>RamanSPy</cite> to access and use the metrics built into the package.</p>
+<p>Check relevant tutorials in the <a class="reference internal" href="auto_tutorials/index.html#datasets-and-metrics"><span class="std std-ref">Datasets and metrics</span></a> section for more information about how to use <cite>RamanSPy</cite> to access and use the metrics built into the package.</p>
 </div>
 </section>
 </section>
@@ -472,7 +476,9 @@ The smaller the SID, the more similar the two spectra are.</p>
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=5929fcd5"></script>
+</div><script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=32e29ea5"></script>

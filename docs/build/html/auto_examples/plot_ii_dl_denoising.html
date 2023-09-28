@@ -1,22 +1,21 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Bacteria classification" href="plot_iii_bacteria_classification.html" /><link rel="prev" title="Preprocessing pipelines" href="plot_i_preprocessing_pipelines.html" />
 
-    <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>AI-based denoising - RamanSPy</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
-    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css?v=7f9a90b1" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -179,6 +178,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../plot.html">Data visualisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preprocessing.html">Preprocessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synth.html">Synthetic data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
 <ul class="current">
@@ -210,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/vi-analysis/plot_iii_unmixing.html">Built-in unmixing methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/vi-analysis/plot_iv_integrative_svm.html">Integrative analysis: Support Vector Machine (SVM) classification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/vi-analysis/plot_v_integrative_nn.html">Integrative analysis: Neural Network (NN) classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_tutorials/vii-synth/plot_i_endmembers.html">Generate synthetic endmembers</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -264,11 +265,11 @@
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="ai-based-denoising">
-<span id="sphx-glr-auto-examples-plot-ii-dl-denoising-py"></span><h1>AI-based denoising<a class="headerlink" href="#ai-based-denoising" title="Permalink to this heading"></a></h1>
+<span id="sphx-glr-auto-examples-plot-ii-dl-denoising-py"></span><h1>AI-based denoising<a class="headerlink" href="#ai-based-denoising" title="Link to this heading"></a></h1>
 <p>Denoising based on the deep learning model proposed in <a class="footnote-reference brackets" href="#id11" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 <p>Applied to the original data from <a class="footnote-reference brackets" href="#id11" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> and a slice from <a class="footnote-reference brackets" href="#id12" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <section id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
 <p>Imports</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -297,10 +298,10 @@ to download the full example code</p>
 </div>
 </section>
 <section id="create-denoisers">
-<h2>Create denoisers<a class="headerlink" href="#create-denoisers" title="Permalink to this heading"></a></h2>
+<h2>Create denoisers<a class="headerlink" href="#create-denoisers" title="Link to this heading"></a></h2>
 <p>We will start by defining the denoisers we will use.</p>
 <section id="ai-based-denoiser">
-<h3>AI-based denoiser<a class="headerlink" href="#ai-based-denoiser" title="Permalink to this heading"></a></h3>
+<h3>AI-based denoiser<a class="headerlink" href="#ai-based-denoiser" title="Link to this heading"></a></h3>
 <p>First, we will define and load the AI-based denoiser. This is based on the deep learning model proposed in <a class="footnote-reference brackets" href="#id11" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. The model
 is pretrained on pairs of low-signal-to-noise (SNR) and high-SNR spectra. The trained model has been deposited by the authors
 on <a class="reference external" href="https://github.com/conor-horgan/DeepeR/blob/master/Raman%20Spectral%20Denoising/model.py">GitHub</a>.</p>
@@ -458,7 +459,7 @@ on <a class="reference external" href="https://github.com/conor-horgan/DeepeR/bl
 </div>
 </section>
 <section id="baseline-denoisers">
-<h3>Baseline denoisers<a class="headerlink" href="#baseline-denoisers" title="Permalink to this heading"></a></h3>
+<h3>Baseline denoisers<a class="headerlink" href="#baseline-denoisers" title="Link to this heading"></a></h3>
 <p>Next, we define a set of baseline correction denoisers based on Savitzky-Golay filtering <a class="footnote-reference brackets" href="#id13" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> with different parameters.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baseliners</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;SG (2, 5)&#39;</span><span class="p">:</span> <span class="n">ramanspy</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">denoise</span><span class="o">.</span><span class="n">SavGol</span><span class="p">(</span><span class="n">window_length</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">polyorder</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
@@ -472,7 +473,7 @@ on <a class="reference external" href="https://github.com/conor-horgan/DeepeR/bl
 </div>
 </section>
 <section id="utility-methods">
-<h3>Utility methods<a class="headerlink" href="#utility-methods" title="Permalink to this heading"></a></h3>
+<h3>Utility methods<a class="headerlink" href="#utility-methods" title="Link to this heading"></a></h3>
 <p>We will also define a set of utility methods to help us extract and compare the results of the different denoisers.</p>
 <p>Define a MinMax scalar.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">minmax</span> <span class="o">=</span> <span class="n">ramanspy</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">normalise</span><span class="o">.</span><span class="n">MinMax</span><span class="p">()</span>
@@ -530,11 +531,11 @@ on <a class="reference external" href="https://github.com/conor-horgan/DeepeR/bl
 </section>
 </section>
 <section id="original-data-mda-mb-231-cells">
-<h2>Original data (MDA_MB_231 cells)<a class="headerlink" href="#original-data-mda-mb-231-cells" title="Permalink to this heading"></a></h2>
+<h2>Original data (MDA_MB_231 cells)<a class="headerlink" href="#original-data-mda-mb-231-cells" title="Link to this heading"></a></h2>
 <p>We will use the MDA_MB_231 cells dataset from the original paper <a class="footnote-reference brackets" href="#id11" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> to investigate the performance of the proposed
 AI-based denoiser.</p>
 <section id="load-data">
-<h3>Load data<a class="headerlink" href="#load-data" title="Permalink to this heading"></a></h3>
+<h3>Load data<a class="headerlink" href="#load-data" title="Link to this heading"></a></h3>
 <p>We will use the test set of the MDA_MB_231 cells dataset.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dir_</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;../../../data/horgan_data&#39;</span>
 <span class="n">MDA_MB_231_X_test</span><span class="p">,</span> <span class="n">MDA_MB_231_Y_test</span> <span class="o">=</span> <span class="n">ramanspy</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">MDA_MB_231_cells</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="n">dir_</span><span class="p">)</span>
@@ -542,7 +543,7 @@ AI-based denoiser.</p>
 </div>
 </section>
 <section id="example-spectrum">
-<h3>Example spectrum<a class="headerlink" href="#example-spectrum" title="Permalink to this heading"></a></h3>
+<h3>Example spectrum<a class="headerlink" href="#example-spectrum" title="Link to this heading"></a></h3>
 <p>Denoising results on an example spectrum.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
 
@@ -564,7 +565,7 @@ AI-based denoiser.</p>
 </div>
 <img src="../_images/sphx_glr_plot_ii_dl_denoising_001.png" srcset="../_images/sphx_glr_plot_ii_dl_denoising_001.png" alt="Original dataset" class = "sphx-glr-single-img"/></section>
 <section id="results-on-entire-dataset">
-<h3>Results on entire dataset<a class="headerlink" href="#results-on-entire-dataset" title="Permalink to this heading"></a></h3>
+<h3>Results on entire dataset<a class="headerlink" href="#results-on-entire-dataset" title="Link to this heading"></a></h3>
 <p>Denoising results on the entire testing dataset.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">original_baseline_results_dfs</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">METRICS</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">baseliners</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
 <span class="n">original_nn_results_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">METRICS</span><span class="p">)</span>
@@ -626,11 +627,11 @@ NN vs. SG (3, 9): Wilcoxon test (paired samples) with Benjamini-Hochberg correct
 </section>
 </section>
 <section id="transfer-data-thp-1-cells">
-<h2>Transfer data (THP-1 cells)<a class="headerlink" href="#transfer-data-thp-1-cells" title="Permalink to this heading"></a></h2>
+<h2>Transfer data (THP-1 cells)<a class="headerlink" href="#transfer-data-thp-1-cells" title="Link to this heading"></a></h2>
 <p>To showcase transferability and study generalisation, we will repeat the same experiment on a different unseen dataset.
 We will use the THP-1 cells dataset from <a class="footnote-reference brackets" href="#id12" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <section id="id8">
-<h3>Load data<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
+<h3>Load data<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
 <p>Here, we will load the fifth image layer of the first THP-1 cell sample. Note that we have already preprocessed the data
 following the same preprocessing steps as in <a class="footnote-reference brackets" href="#id11" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> for consistency. This included spectral cropping to the 500-1800 cm <sup>-1</sup> range,
 followed by baseline correction using the ‘shape’ method in the WITec Project FIVE software with <span class="math notranslate nohighlight">\(\alpha = 500\)</span>.</p>
@@ -652,7 +653,7 @@ THP-1 cells data.</p>
 </div>
 </section>
 <section id="id10">
-<h3>Example spectrum<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
+<h3>Example spectrum<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
 <p>Denoising results on an example spectrum.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
 
@@ -675,7 +676,7 @@ THP-1 cells data.</p>
 </div>
 <img src="../_images/sphx_glr_plot_ii_dl_denoising_005.png" srcset="../_images/sphx_glr_plot_ii_dl_denoising_005.png" alt="Transfer dataset" class = "sphx-glr-single-img"/></section>
 <section id="results-on-transfer-data">
-<h3>Results on transfer data<a class="headerlink" href="#results-on-transfer-data" title="Permalink to this heading"></a></h3>
+<h3>Results on transfer data<a class="headerlink" href="#results-on-transfer-data" title="Link to this heading"></a></h3>
 <p>Denoising results on the entire transfer dataset.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">transfer_baseline_results_dfs</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">METRICS</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">baseliners</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
 <span class="n">transfer_nn_results_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">METRICS</span><span class="p">)</span>
@@ -738,7 +739,7 @@ NN vs. SG (3, 9): Wilcoxon test (paired samples) with Benjamini-Hochberg correct
 </section>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="id11" role="note">
 <span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
@@ -853,14 +854,14 @@ NN vs. SG (3, 9): Wilcoxon test (paired samples) with Benjamini-Hochberg correct
       
     </aside>
   </div>
-</div><script src="../_static/jquery.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/scripts/furo.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+</div><script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>

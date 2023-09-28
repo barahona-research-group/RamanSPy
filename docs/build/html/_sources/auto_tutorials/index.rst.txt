@@ -617,6 +617,43 @@ Analysis
    /auto_tutorials/vi-analysis/plot_iv_integrative_svm
    /auto_tutorials/vi-analysis/plot_v_integrative_nn
 
+Synthetic data generation
+**************************
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this example, we will use RamanSPy to generate synthetic endmember signatures.">
+
+.. only:: html
+
+  .. image:: /auto_tutorials/vii-synth/images/thumb/sphx_glr_plot_i_endmembers_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_tutorials_vii-synth_plot_i_endmembers.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Generate synthetic endmembers</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_tutorials/vii-synth/plot_i_endmembers
+
 
 .. only:: html
 

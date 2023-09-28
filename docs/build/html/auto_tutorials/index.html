@@ -1,22 +1,21 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Storing generic data" href="i-classes/plot_i_generic_container.html" /><link rel="prev" title="Analysis" href="../analysis.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Storing generic data" href="i-classes/plot_i_generic_container.html" /><link rel="prev" title="Synthetic data" href="../synth.html" />
 
-    <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Tutorials - RamanSPy</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
-    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css?v=7f9a90b1" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -179,6 +178,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../plot.html">Data visualisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preprocessing.html">Preprocessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synth.html">Synthetic data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
 <ul class="current">
@@ -210,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="vi-analysis/plot_iii_unmixing.html">Built-in unmixing methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vi-analysis/plot_iv_integrative_svm.html">Integrative analysis: Support Vector Machine (SVM) classification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vi-analysis/plot_v_integrative_nn.html">Integrative analysis: Neural Network (NN) classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vii-synth/plot_i_endmembers.html">Generate synthetic endmembers</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -259,11 +260,11 @@
         </div>
         <article role="main">
           <section id="tutorials">
-<h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this heading"></a></h1>
+<h1>Tutorials<a class="headerlink" href="#tutorials" title="Link to this heading"></a></h1>
 <p>In this section, different code snippets are provided to illustrate how to use some of the main features of <cite>raman</cite>,
 including data loading, preprocessing and analysis, and visualisation.</p>
 <div class="sphx-glr-thumbnails"></div><section id="data-containers">
-<h2>Data containers<a class="headerlink" href="#data-containers" title="Permalink to this heading"></a></h2>
+<h2>Data containers<a class="headerlink" href="#data-containers" title="Link to this heading"></a></h2>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="The backbone of RamanSPy&#x27;s data management core is the ramanspy.SpectralContainer class. It ser..."><img alt="" src="../_images/sphx_glr_plot_i_generic_container_thumb.png" />
 <p><a class="reference internal" href="i-classes/plot_i_generic_container.html#sphx-glr-auto-tutorials-i-classes-plot-i-generic-container-py"><span class="std std-ref">Storing generic data</span></a></p>
   <div class="sphx-glr-thumbnail-title">Storing generic data</div>
@@ -280,7 +281,7 @@ including data loading, preprocessing and analysis, and visualisation.</p>
 </div>
 </section>
 <section id="data-loading">
-<h2>Data loading<a class="headerlink" href="#data-loading" title="Permalink to this heading"></a></h2>
+<h2>Data loading<a class="headerlink" href="#data-loading" title="Link to this heading"></a></h2>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Users can use RamanSPy to load MATLAB files as exported from WITec&#x27;s Suite FIVE software."><img alt="" src="../_images/sphx_glr_i_witec_thumb.png" />
 <p><a class="reference internal" href="ii-instrumental/i_witec.html#sphx-glr-auto-tutorials-ii-instrumental-i-witec-py"><span class="std std-ref">Loading WITec data</span></a></p>
   <div class="sphx-glr-thumbnail-title">Loading WITec data</div>
@@ -297,7 +298,7 @@ including data loading, preprocessing and analysis, and visualisation.</p>
 </div>
 </section>
 <section id="datasets-and-metrics">
-<h2>Datasets and metrics<a class="headerlink" href="#datasets-and-metrics" title="Permalink to this heading"></a></h2>
+<h2>Datasets and metrics<a class="headerlink" href="#datasets-and-metrics" title="Link to this heading"></a></h2>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we will see how to load the RRUFF data using RamanSPy."><img alt="" src="../_images/sphx_glr_ii_rruff_thumb.png" />
 <p><a class="reference internal" href="iii-datasets/ii_rruff.html#sphx-glr-auto-tutorials-iii-datasets-ii-rruff-py"><span class="std std-ref">Loading the RRUFF dataset</span></a></p>
   <div class="sphx-glr-thumbnail-title">Loading the RRUFF dataset</div>
@@ -311,7 +312,7 @@ including data loading, preprocessing and analysis, and visualisation.</p>
 </div>
 </section>
 <section id="data-visualisation">
-<h2>Data visualisation<a class="headerlink" href="#data-visualisation" title="Permalink to this heading"></a></h2>
+<h2>Data visualisation<a class="headerlink" href="#data-visualisation" title="Link to this heading"></a></h2>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="RamanSPy provides a broad selection of visualisation tools for the visualisation of Raman spect..."><img alt="" src="../_images/sphx_glr_plot_i_spectra_thumb.png" />
 <p><a class="reference internal" href="iv-viz/plot_i_spectra.html#sphx-glr-auto-tutorials-iv-viz-plot-i-spectra-py"><span class="std std-ref">Visualising spectra</span></a></p>
   <div class="sphx-glr-thumbnail-title">Visualising spectra</div>
@@ -337,7 +338,7 @@ including data loading, preprocessing and analysis, and visualisation.</p>
 </div>
 </section>
 <section id="preprocessing">
-<h2>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this heading"></a></h2>
+<h2>Preprocessing<a class="headerlink" href="#preprocessing" title="Link to this heading"></a></h2>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="RamanSPy provides a collection of various preprocessing methods, which users can directly acces..."><img alt="" src="../_images/sphx_glr_plot_i_predefined_methods_thumb.png" />
 <p><a class="reference internal" href="v-preprocessing/plot_i_predefined_methods.html#sphx-glr-auto-tutorials-v-preprocessing-plot-i-predefined-methods-py"><span class="std std-ref">Built-in methods</span></a></p>
   <div class="sphx-glr-thumbnail-title">Built-in methods</div>
@@ -354,7 +355,7 @@ including data loading, preprocessing and analysis, and visualisation.</p>
 </div>
 </section>
 <section id="analysis">
-<h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading"></a></h2>
+<h2>Analysis<a class="headerlink" href="#analysis" title="Link to this heading"></a></h2>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In this example, we will use RamanSPy to perform Principal Component Analysis (PCA) to decompos..."><img alt="" src="../_images/sphx_glr_plot_i_decomposition_thumb.png" />
 <p><a class="reference internal" href="vi-analysis/plot_i_decomposition.html#sphx-glr-auto-tutorials-vi-analysis-plot-i-decomposition-py"><span class="std std-ref">Built-in decomposition methods</span></a></p>
   <div class="sphx-glr-thumbnail-title">Built-in decomposition methods</div>
@@ -370,6 +371,14 @@ including data loading, preprocessing and analysis, and visualisation.</p>
 </div><div class="sphx-glr-thumbcontainer" tooltip="In this example, we will showcase RamanSPy&#x27;s integrability by integrating a Neural Network (NN)..."><img alt="" src="../_images/sphx_glr_plot_v_integrative_nn_thumb.png" />
 <p><a class="reference internal" href="vi-analysis/plot_v_integrative_nn.html#sphx-glr-auto-tutorials-vi-analysis-plot-v-integrative-nn-py"><span class="std std-ref">Integrative analysis: Neural Network (NN) classification</span></a></p>
   <div class="sphx-glr-thumbnail-title">Integrative analysis: Neural Network (NN) classification</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="synthetic-data-generation">
+<h2>Synthetic data generation<a class="headerlink" href="#synthetic-data-generation" title="Link to this heading"></a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In this example, we will use RamanSPy to generate synthetic endmember signatures."><img alt="" src="../_images/sphx_glr_plot_i_endmembers_thumb.png" />
+<p><a class="reference internal" href="vii-synth/plot_i_endmembers.html#sphx-glr-auto-tutorials-vii-synth-plot-i-endmembers-py"><span class="std std-ref">Generate synthetic endmembers</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Generate synthetic endmembers</div>
 </div></div><div class="toctree-wrapper compound">
 </div>
 <div class="sphx-glr-footer sphx-glr-footer-gallery docutils container">
@@ -397,14 +406,14 @@ including data loading, preprocessing and analysis, and visualisation.</p>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../analysis.html">
+          <a class="prev-page" href="../synth.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Analysis</div>
+                <div class="title">Synthetic data</div>
                 
               </div>
             </a>
@@ -444,6 +453,7 @@ including data loading, preprocessing and analysis, and visualisation.</p>
 <li><a class="reference internal" href="#data-visualisation">Data visualisation</a></li>
 <li><a class="reference internal" href="#preprocessing">Preprocessing</a></li>
 <li><a class="reference internal" href="#analysis">Analysis</a></li>
+<li><a class="reference internal" href="#synthetic-data-generation">Synthetic data generation</a></li>
 </ul>
 </li>
 </ul>
@@ -455,13 +465,13 @@ including data loading, preprocessing and analysis, and visualisation.</p>
       
     </aside>
   </div>
-</div><script src="../_static/jquery.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/scripts/furo.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+</div><script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     </body>
 </html>

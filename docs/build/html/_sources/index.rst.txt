@@ -71,7 +71,6 @@ Also, if you find *RamanSPy* useful, please consider leaving a star on GitHub:
    synth
 
 
-
 .. toctree::
    :maxdepth: 1
    :caption: Gallery:
