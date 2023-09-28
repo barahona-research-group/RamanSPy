@@ -629,7 +629,7 @@ Synthetic data generation
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="In this example, we will use RamanSPy to generate synthetic endmember signatures.">
+    <div class="sphx-glr-thumbcontainer" tooltip="In this example, we will use RamanSPy to generate synthetic spectra.">
 
 .. only:: html
 
@@ -640,7 +640,7 @@ Synthetic data generation
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Generate synthetic endmembers</div>
+      <div class="sphx-glr-thumbnail-title">Generate synthetic spectra</div>
     </div>
 
 

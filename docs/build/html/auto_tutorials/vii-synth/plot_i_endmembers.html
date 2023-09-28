@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Examples" href="../../auto_examples/index.html" /><link rel="prev" title="Integrative analysis: Neural Network (NN) classification" href="../vi-analysis/plot_v_integrative_nn.html" />
 
     <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
-        <title>Generate synthetic endmembers - RamanSPy</title>
+        <title>Generate synthetic spectra - RamanSPy</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=362ab14a" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css?v=7f9a90b1" />
@@ -210,7 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../vi-analysis/plot_iii_unmixing.html">Built-in unmixing methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vi-analysis/plot_iv_integrative_svm.html">Integrative analysis: Support Vector Machine (SVM) classification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vi-analysis/plot_v_integrative_nn.html">Integrative analysis: Neural Network (NN) classification</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Generate synthetic endmembers</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Generate synthetic spectra</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -264,19 +264,19 @@
 <p><a class="reference internal" href="#sphx-glr-download-auto-tutorials-vii-synth-plot-i-endmembers-py"><span class="std std-ref">Go to the end</span></a>
 to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="generate-synthetic-endmembers">
-<span id="sphx-glr-auto-tutorials-vii-synth-plot-i-endmembers-py"></span><h1>Generate synthetic endmembers<a class="headerlink" href="#generate-synthetic-endmembers" title="Link to this heading"></a></h1>
-<p>In this example, we will use <cite>RamanSPy</cite> to generate synthetic endmember signatures.</p>
+<section class="sphx-glr-example-title" id="generate-synthetic-spectra">
+<span id="sphx-glr-auto-tutorials-vii-synth-plot-i-endmembers-py"></span><h1>Generate synthetic spectra<a class="headerlink" href="#generate-synthetic-spectra" title="Link to this heading"></a></h1>
+<p>In this example, we will use <cite>RamanSPy</cite> to generate synthetic spectra.</p>
 <img src="../../_images/sphx_glr_plot_i_endmembers_001.png" srcset="../../_images/sphx_glr_plot_i_endmembers_001.png" alt="Raman spectra" class = "sphx-glr-single-img"/><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
 
-<span class="c1"># Generate synthetic endmembers</span>
-<span class="n">endmembers</span> <span class="o">=</span> <span class="n">rp</span><span class="o">.</span><span class="n">synth</span><span class="o">.</span><span class="n">generate_endmembers</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">realistic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Generate synthetic spectra</span>
+<span class="n">spectra</span> <span class="o">=</span> <span class="n">rp</span><span class="o">.</span><span class="n">synth</span><span class="o">.</span><span class="n">generate_spectra</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">realistic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">rp</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">spectra</span><span class="p">(</span><span class="n">endmembers</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s1">&#39;single stacked&#39;</span><span class="p">)</span>
+<span class="n">rp</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">spectra</span><span class="p">(</span><span class="n">spectra</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s1">&#39;single stacked&#39;</span><span class="p">)</span>
 <span class="n">rp</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.117 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.115 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-tutorials-vii-synth-plot-i-endmembers-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/7b8fbe32fb15db2865867f06aebc31e1/plot_i_endmembers.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_i_endmembers.py</span></code></a></p>

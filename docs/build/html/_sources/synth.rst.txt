@@ -4,9 +4,9 @@ Synthetic data
 .. currentmodule:: ramanspy.synth
 
 
-Synthetic endmembers
+Synthetic spectra
 ====================
-.. autofunction:: generate_endmembers
+.. autofunction:: generate_spectra
 
 
 Synthetic mixtures
@@ -14,6 +14,6 @@ Synthetic mixtures
 .. autofunction:: mix
 
 
-Synthetic datasets
+Synthetic mixture datasets
 ==================
-.. autofunction:: generate_image_dataset
+.. autofunction:: generate_mixture_image

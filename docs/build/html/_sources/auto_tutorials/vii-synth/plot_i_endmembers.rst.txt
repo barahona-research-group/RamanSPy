@@ -18,10 +18,10 @@
 .. _sphx_glr_auto_tutorials_vii-synth_plot_i_endmembers.py:
 
 
-Generate synthetic endmembers
+Generate synthetic spectra
 ================================
 
-In this example, we will use `RamanSPy` to generate synthetic endmember signatures.
+In this example, we will use `RamanSPy` to generate synthetic spectra.
 
 .. GENERATED FROM PYTHON SOURCE LINES 7-17
 
@@ -42,17 +42,17 @@ In this example, we will use `RamanSPy` to generate synthetic endmember signatur
 
     import ramanspy as rp
 
-    # Generate synthetic endmembers
-    endmembers = rp.synth.generate_endmembers(5, 1000, realistic=True)
+    # Generate synthetic spectra
+    spectra = rp.synth.generate_spectra(5, 1000, realistic=True)
 
-    rp.plot.spectra(endmembers, plot_type='single stacked')
+    rp.plot.spectra(spectra, plot_type='single stacked')
     rp.plot.show()
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.117 seconds)
+   **Total running time of the script:** (0 minutes 0.115 seconds)
 
 
 .. _sphx_glr_download_auto_tutorials_vii-synth_plot_i_endmembers.py:

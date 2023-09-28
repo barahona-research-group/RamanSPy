@@ -1,22 +1,21 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Built-in methods" href="../v-preprocessing/plot_i_predefined_methods.html" /><link rel="prev" title="Visualising peak distributions" href="plot_v_peak_dist.html" />
 
-    <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Customising plots - RamanSPy</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
-    <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css?v=7f9a90b1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -179,6 +178,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../plot.html">Data visualisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../preprocessing.html">Preprocessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../synth.html">Synthetic data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
 <ul class="current">
@@ -210,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../vi-analysis/plot_iii_unmixing.html">Built-in unmixing methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vi-analysis/plot_iv_integrative_svm.html">Integrative analysis: Support Vector Machine (SVM) classification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vi-analysis/plot_v_integrative_nn.html">Integrative analysis: Neural Network (NN) classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vii-synth/plot_i_endmembers.html">Generate synthetic spectra</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -264,7 +265,7 @@
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="customising-plots">
-<span id="sphx-glr-auto-tutorials-iv-viz-plot-vi-customisation-py"></span><h1>Customising plots<a class="headerlink" href="#customising-plots" title="Permalink to this heading"></a></h1>
+<span id="sphx-glr-auto-tutorials-iv-viz-plot-vi-customisation-py"></span><h1>Customising plots<a class="headerlink" href="#customising-plots" title="Link to this heading"></a></h1>
 <p><cite>RamanSPy’s</cite> plotting methods are built on top of <a class="reference external" href="https://matplotlib.org">matplotlib</a> and so inherit most of <cite>matplotlib’s</cite>
 customisability.</p>
 <p>Below, we will highlight some of that customisability.</p>
@@ -296,7 +297,7 @@ customisability.</p>
 </pre></div>
 </div>
 <section id="default-behaviour">
-<h2>Default behaviour<a class="headerlink" href="#default-behaviour" title="Permalink to this heading"></a></h2>
+<h2>Default behaviour<a class="headerlink" href="#default-behaviour" title="Link to this heading"></a></h2>
 <p>By default, <cite>RamanSPy</cite> inherits <cite>matplotlib’s</cite> default <a class="reference external" href="https://matplotlib.org/stable/users/prev_whats_new/dflt_style_changes.html">settings</a>.</p>
 <p>This looks as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># spectra plots</span>
@@ -337,7 +338,7 @@ customisability.</p>
 </div>
 </section>
 <section id="parameter-control">
-<h2>Parameter control<a class="headerlink" href="#parameter-control" title="Permalink to this heading"></a></h2>
+<h2>Parameter control<a class="headerlink" href="#parameter-control" title="Link to this heading"></a></h2>
 <p>Users can control plot characteristics by changing the parameters of the plotting methods in <cite>RamanSPy</cite>. As these extend
 <cite>matplotlib</cite> methods, we can control them just as we control the underlying <cite>matplotlib</cite> methods.</p>
 <p>For instance:</p>
@@ -396,11 +397,11 @@ of the <a class="reference internal" href="../../plot.html#ramanspy.plot.spectra
 </div>
 </section>
 <section id="settings-control">
-<h2>Settings control<a class="headerlink" href="#settings-control" title="Permalink to this heading"></a></h2>
+<h2>Settings control<a class="headerlink" href="#settings-control" title="Link to this heading"></a></h2>
 <p>Users can also change the behaviour of <cite>RamanSPy’s</cite> visualisation tools by directly <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.rc.html">changing matplotlib’s settings</a>.</p>
 <p>For instance:</p>
 <section id="changing-the-color-palette">
-<h3>Changing the color palette<a class="headerlink" href="#changing-the-color-palette" title="Permalink to this heading"></a></h3>
+<h3>Changing the color palette<a class="headerlink" href="#changing-the-color-palette" title="Link to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># changing the colormap to &#39;jet&#39;</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">)</span>
 
@@ -433,7 +434,7 @@ of the <a class="reference internal" href="../../plot.html#ramanspy.plot.spectra
 </div>
 </section>
 <section id="changing-other-settings">
-<h3>Changing other settings<a class="headerlink" href="#changing-other-settings" title="Permalink to this heading"></a></h3>
+<h3>Changing other settings<a class="headerlink" href="#changing-other-settings" title="Link to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># changing the size of the plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;figure&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 
@@ -542,13 +543,13 @@ of the <a class="reference internal" href="../../plot.html#ramanspy.plot.spectra
       
     </aside>
   </div>
-</div><script src="../../_static/jquery.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/scripts/furo.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
+</div><script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
     </body>
 </html>

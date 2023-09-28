@@ -1,7 +1,7 @@
-from .mix import generate_endmembers, mix, generate_image_dataset
+from .synth import generate_spectra, mix, generate_mixture_image
 
 __all__ = [
-    "generate_endmembers",
+    "generate_spectra",
     "mix",
-    "generate_image_dataset",
+    "generate_mixture_image",
 ]

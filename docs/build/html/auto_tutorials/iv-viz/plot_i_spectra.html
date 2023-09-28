@@ -1,22 +1,21 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Visualising peaks" href="plot_ii_peaks.html" /><link rel="prev" title="Using built-in metrics" href="../iii-datasets/plot_ii_metrics.html" />
 
-    <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Visualising spectra - RamanSPy</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
-    <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css?v=7f9a90b1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -179,6 +178,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../plot.html">Data visualisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../preprocessing.html">Preprocessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../synth.html">Synthetic data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
 <ul class="current">
@@ -210,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../vi-analysis/plot_iii_unmixing.html">Built-in unmixing methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vi-analysis/plot_iv_integrative_svm.html">Integrative analysis: Support Vector Machine (SVM) classification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vi-analysis/plot_v_integrative_nn.html">Integrative analysis: Neural Network (NN) classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vii-synth/plot_i_endmembers.html">Generate synthetic spectra</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -264,7 +265,7 @@
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="visualising-spectra">
-<span id="sphx-glr-auto-tutorials-iv-viz-plot-i-spectra-py"></span><h1>Visualising spectra<a class="headerlink" href="#visualising-spectra" title="Permalink to this heading"></a></h1>
+<span id="sphx-glr-auto-tutorials-iv-viz-plot-i-spectra-py"></span><h1>Visualising spectra<a class="headerlink" href="#visualising-spectra" title="Link to this heading"></a></h1>
 <p><cite>RamanSPy</cite> provides a broad selection of visualisation tools for the visualisation of Raman spectra and groups of Raman spectra.</p>
 <p>This is enabled through the <a class="reference internal" href="../../plot.html#ramanspy.plot.spectra" title="ramanspy.plot.spectra"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ramanspy.plot.spectra()</span></code></a> method, which can automatically produce informative,
 highly-customisable visualisations with minimal software readjustments.</p>
@@ -295,7 +296,7 @@ training dataset of the <a class="reference internal" href="../../datasets.html#
 </div>
 <p>Then, we can use <cite>RamanSPy</cite> to  visualise spectra in 4 different types of plots.</p>
 <section id="separate-plots">
-<h2>Separate plots<a class="headerlink" href="#separate-plots" title="Permalink to this heading"></a></h2>
+<h2>Separate plots<a class="headerlink" href="#separate-plots" title="Link to this heading"></a></h2>
 <p>The first type of plots supported by the <a class="reference internal" href="../../plot.html#ramanspy.plot.spectra" title="ramanspy.plot.spectra"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ramanspy.plot.spectra()</span></code></a> method is where the spectra of each group is
 plotted in a separate plot.</p>
 <p>This can be achieved by using <code class="docutils literal notranslate"><span class="pre">plot_type=&quot;separate&quot;</span></code> when calling the method (default behaviour).</p>
@@ -335,7 +336,7 @@ plotted in a separate plot.</p>
 </div>
 </section>
 <section id="single-plots">
-<h2>Single plots<a class="headerlink" href="#single-plots" title="Permalink to this heading"></a></h2>
+<h2>Single plots<a class="headerlink" href="#single-plots" title="Link to this heading"></a></h2>
 <p>If we want to compare the groups of spectra provided, we may wish to visualise them within the same plot.</p>
 <p>This can be achieved by setting <code class="docutils literal notranslate"><span class="pre">plot_type=&quot;single&quot;</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># a list of 3 spectra =&gt; treated as 3 separate groups, each containing a single spectrum</span>
@@ -358,7 +359,7 @@ plotted in a separate plot.</p>
 </div>
 </section>
 <section id="stacked-plots">
-<h2>Stacked plots<a class="headerlink" href="#stacked-plots" title="Permalink to this heading"></a></h2>
+<h2>Stacked plots<a class="headerlink" href="#stacked-plots" title="Link to this heading"></a></h2>
 <p>Plotting spectra in the same plot usually ends up in plots which are too jammed. To make plots more compact and readable,
 users can stack individual plots on top of each other. In this way, it becomes easier to compare different graphs and
 inspect their behaviour.</p>
@@ -382,7 +383,7 @@ inspect their behaviour.</p>
 </div>
 </section>
 <section id="single-stacked-plots">
-<h2>Single stacked plots<a class="headerlink" href="#single-stacked-plots" title="Permalink to this heading"></a></h2>
+<h2>Single stacked plots<a class="headerlink" href="#single-stacked-plots" title="Link to this heading"></a></h2>
 <p>We can also visualise the stacked plots within the same plot by setting <code class="docutils literal notranslate"><span class="pre">plot_type='single</span> <span class="pre">stacked'</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># a list of 3 spectra =&gt; treated as 3 separate groups, each containing a single spectrum</span>
 <span class="n">ramanspy</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">spectra</span><span class="p">(</span><span class="n">species_1_sample</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Replicate 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Replicate 2&quot;</span><span class="p">,</span> <span class="s2">&quot;Replicate 3&quot;</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Bacteria species 1&#39;</span><span class="p">,</span>
@@ -483,13 +484,13 @@ inspect their behaviour.</p>
       
     </aside>
   </div>
-</div><script src="../../_static/jquery.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/scripts/furo.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
+</div><script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
     </body>
 </html>

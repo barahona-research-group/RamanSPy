@@ -1,22 +1,21 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Loading Renishaw data" href="ii_renishaw.html" /><link rel="prev" title="Storing volumetric data" href="../i-classes/plot_iv_volume_container.html" />
 
-    <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Loading WITec data - RamanSPy</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
-    <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css?v=7f9a90b1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -179,6 +178,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../plot.html">Data visualisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../preprocessing.html">Preprocessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../synth.html">Synthetic data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
 <ul class="current">
@@ -210,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../vi-analysis/plot_iii_unmixing.html">Built-in unmixing methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vi-analysis/plot_iv_integrative_svm.html">Integrative analysis: Support Vector Machine (SVM) classification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vi-analysis/plot_v_integrative_nn.html">Integrative analysis: Neural Network (NN) classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vii-synth/plot_i_endmembers.html">Generate synthetic spectra</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -264,7 +265,7 @@
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="loading-witec-data">
-<span id="sphx-glr-auto-tutorials-ii-instrumental-i-witec-py"></span><h1>Loading WITec data<a class="headerlink" href="#loading-witec-data" title="Permalink to this heading"></a></h1>
+<span id="sphx-glr-auto-tutorials-ii-instrumental-i-witec-py"></span><h1>Loading WITec data<a class="headerlink" href="#loading-witec-data" title="Link to this heading"></a></h1>
 <p>Users can use <cite>RamanSPy</cite> to load MATLAB files as exported from <a class="reference external" href="https://raman.oxinst.com/products/software/witec-software-suite">WITec’s Suite FIVE</a> software.</p>
 <p>This can be done through the <a class="reference internal" href="../../loading.html#ramanspy.load.witec" title="ramanspy.load.witec"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ramanspy.load.witec()</span></code></a> method by simply providing the name of the file of interest.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span>
@@ -285,7 +286,7 @@ to download the full example code</p>
 <span class="n">raman_volume</span> <span class="o">=</span> <span class="n">ramanspy</span><span class="o">.</span><span class="n">SpectralVolume</span><span class="o">.</span><span class="n">from_image_stack</span><span class="p">(</span><span class="n">raman_image_stack</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.000 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-tutorials-ii-instrumental-i-witec-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/148e7a9ddb0bd31b193a6d294612c3d4/i_witec.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">i_witec.py</span></code></a></p>
@@ -344,13 +345,13 @@ to download the full example code</p>
       
     </aside>
   </div>
-</div><script src="../../_static/jquery.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/scripts/furo.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
+</div><script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
     </body>
 </html>

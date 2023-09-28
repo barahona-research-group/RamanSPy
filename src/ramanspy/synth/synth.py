@@ -28,25 +28,27 @@ def _generate_peak(n_bands, *, amplitude_coef=1, width_coef=1):
     return peak
 
 
-def generate_endmembers(num_endmembers, n_bands, *, realistic=False, seed=None):
+def generate_spectra(num_spectra, n_bands, *, realistic=False, spectral_axis=None, seed=None):
     """
-    Generate synthetic endmembers.
+    Generate synthetic spectra.
 
     Parameters
     ----------
-    num_endmembers : int
-        The number of endmembers to generate.
+    num_spectra : int
+        The number of spectra to generate.
     n_bands : int
         The number of bands to generate.
     realistic : bool, optional
-        Whether to generate 'more realistic' endmembers by adding many smaller/noise peaks.
+        Whether to generate 'more realistic' spectra by adding smaller noise peaks.
+    spectral_axis : array_like, optional
+        The spectral axis to use for the spectra. Should match the number of bands.
     seed : int, optional
         The seed to use for the random number generator.
 
     Returns
     -------
-    endmembers : list[ramanspy.Spectrum]
-        The generated endmembers.
+    spectra : list[ramanspy.Spectrum]
+        The generated spectra.
 
 
     Examples
@@ -56,39 +58,42 @@ def generate_endmembers(num_endmembers, n_bands, *, realistic=False, seed=None):
 
         import ramanspy as rp
 
-        # Generate synthetic endmembers
-        endmembers = rp.synth.generate_endmembers(5, 100, realistic=True)
+        # Generate synthetic spectra
+        spectra = rp.synth.generate_spectra(5, 100, realistic=True)
 
-        rp.plot.spectra(endmembers)
+        rp.plot.spectra(spectra)
         rp.plot.show()
 
     """
+    if spectral_axis is not None:
+        assert len(spectral_axis) == n_bands, 'The spectral axis should match the number of bands.'
+    else:
+        spectral_axis = np.arange(n_bands)
+
     np.random.seed(seed)
 
-    endmembers = np.zeros((num_endmembers, n_bands))
+    spectra = np.zeros((num_spectra, n_bands))
 
     # generate random peaks
-    for i in range(num_endmembers):
+    for i in range(num_spectra):
         # add main peaks
         num_peaks = np.random.randint(5, 10)
         amplitude_coef = 1 + np.random.beta(1, 3) * 5
         for j in range(num_peaks):
             peak = _generate_peak(n_bands, amplitude_coef=amplitude_coef)
-            endmembers[i, :] += peak
+            spectra[i, :] += peak
 
     if realistic:
-        for i in range(num_endmembers):
+        for i in range(num_spectra):
             # add noise peaks
             num_peaks = np.random.randint(50, 100)
             for j in range(num_peaks):
-                peak = _generate_peak(n_bands, amplitude_coef=1 / 3, width_coef=2)
-                endmembers[i, :] += peak
+                peak = _generate_peak(n_bands, amplitude_coef=1/3, width_coef=2)
+                spectra[i, :] += peak
 
-    spectral_axis = np.arange(n_bands)
+    spectra = [core.Spectrum(spectrum, spectral_axis) for spectrum in spectra]
 
-    endmembers = [core.Spectrum(endmember, spectral_axis) for endmember in endmembers]
-
-    return endmembers
+    return spectra
 
 
 def mix(
@@ -140,6 +145,8 @@ def mix(
     mixtures : array_like
         The mixed spectra.
     """
+    spectral_axis = endmembers[0].spectral_axis
+
     endmembers = np.array([endmember.spectral_data for endmember in endmembers])
     assert abundances.shape[-1] == endmembers.shape[
         0], 'The number of endmembers and the number of abundance maps must match.'
@@ -185,7 +192,7 @@ def mix(
 
     mixtures = mixtures + noise_to_add + baseline_to_add + cosmic_spikes_to_add
 
-    mixtures = core._create_data(mixtures, endmembers[0].spectral_axis)
+    mixtures = core._create_data(mixtures, spectral_axis)
 
     return mixtures
 
@@ -243,7 +250,7 @@ def _generate_abundance_image(size, num_endmembers, scene_type, *, seed=None):
     return image
 
 
-def generate_image_dataset(
+def generate_mixture_image(
         num_endmembers,
         num_spectral_bands,
         image_size,
@@ -318,7 +325,7 @@ def generate_image_dataset(
 
     """
 
-    endmebers = generate_endmembers(num_endmembers, num_spectral_bands, realistic=realistic_endmembers, seed=seed)
+    endmebers = generate_spectra(num_endmembers, num_spectral_bands, realistic=realistic_endmembers, seed=seed)
     abundance_image = _generate_abundance_image(image_size, num_endmembers, image_type, seed=seed)
 
     mixture = mix(endmebers, abundance_image, mixture_mode=mixture_mode, noise=noise, noise_amplitude=noise_amplitude,

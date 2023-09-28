@@ -73,7 +73,7 @@ Loading volumetric Raman data from a list of Raman image files by stacking them 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.000 seconds)
+   **Total running time of the script:** (0 minutes 0.000 seconds)
 
 
 .. _sphx_glr_download_auto_tutorials_ii-instrumental_i_witec.py:
