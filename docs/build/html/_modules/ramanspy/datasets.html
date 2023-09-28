@@ -1,21 +1,16 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
-    <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>ramanspy.datasets - RamanSPy</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -178,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../plot.html">Data visualisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../preprocessing.html">Preprocessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../synth.html">Synthetic data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
 <ul>
@@ -209,6 +205,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../auto_tutorials/vi-analysis/plot_iii_unmixing.html">Built-in unmixing methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../auto_tutorials/vi-analysis/plot_iv_integrative_svm.html">Integrative analysis: Support Vector Machine (SVM) classification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../auto_tutorials/vi-analysis/plot_v_integrative_nn.html">Integrative analysis: Neural Network (NN) classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../auto_tutorials/vii%20-%20synth/plot_i_generate_endmembers.html">Generate synthetic endmembers</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -222,6 +219,7 @@
 <p class="caption" role="heading"><span class="caption-text">Links</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/barahona-research-group/RamanSPy">GitHub repository</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://chemrxiv.org/engage/chemrxiv/article-details/64a53861ba3e99daef8c9c51">Paper</a></li>
 </ul>
 
 </div>
@@ -271,7 +269,9 @@
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">load</span>
 
 
-<div class="viewcode-block" id="bacteria"><a class="viewcode-back" href="../../datasets.html#ramanspy.datasets.bacteria">[docs]</a><span class="k">def</span> <span class="nf">bacteria</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">SpectralContainer</span> <span class="ow">or</span> <span class="nb">list</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="ow">or</span> <span class="nb">list</span><span class="p">]:</span>
+<div class="viewcode-block" id="bacteria">
+<a class="viewcode-back" href="../../datasets.html#ramanspy.datasets.bacteria">[docs]</a>
+<span class="k">def</span> <span class="nf">bacteria</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">SpectralContainer</span> <span class="ow">or</span> <span class="nb">list</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="ow">or</span> <span class="nb">list</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Raman spectra acquired from different bacterial and yeast isolates.</span>
 
@@ -368,7 +368,10 @@
     <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span></div>
 
 
-<div class="viewcode-block" id="covid19"><a class="viewcode-back" href="../../datasets.html#ramanspy.datasets.covid19">[docs]</a><span class="k">def</span> <span class="nf">covid19</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">SpectralContainer</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+
+<div class="viewcode-block" id="covid19">
+<a class="viewcode-back" href="../../datasets.html#ramanspy.datasets.covid19">[docs]</a>
+<span class="k">def</span> <span class="nf">covid19</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">SpectralContainer</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Raman spectra acquired from patients with COVID-19 and healthy controls.</span>
 
@@ -418,7 +421,10 @@
     <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span></div>
 
 
-<div class="viewcode-block" id="wheat_lines"><a class="viewcode-back" href="../../datasets.html#ramanspy.datasets.wheat_lines">[docs]</a><span class="k">def</span> <span class="nf">wheat_lines</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">SpectralContainer</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+
+<div class="viewcode-block" id="wheat_lines">
+<a class="viewcode-back" href="../../datasets.html#ramanspy.datasets.wheat_lines">[docs]</a>
+<span class="k">def</span> <span class="nf">wheat_lines</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">SpectralContainer</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Raman spectra acquired from groups of wheat lines:</span>
 
@@ -490,7 +496,10 @@
     <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span></div>
 
 
-<div class="viewcode-block" id="adenine"><a class="viewcode-back" href="../../datasets.html#ramanspy.datasets.adenine">[docs]</a><span class="k">def</span> <span class="nf">adenine</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">SpectralContainer</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+
+<div class="viewcode-block" id="adenine">
+<a class="viewcode-back" href="../../datasets.html#ramanspy.datasets.adenine">[docs]</a>
+<span class="k">def</span> <span class="nf">adenine</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">SpectralContainer</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Raman spectra acquired from samples representing different levels of adenine concentrations.</span>
 
@@ -547,7 +556,10 @@
     <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">y</span></div>
 
 
-<div class="viewcode-block" id="volumetric_cells"><a class="viewcode-back" href="../../datasets.html#ramanspy.datasets.volumetric_cells">[docs]</a><span class="k">def</span> <span class="nf">volumetric_cells</span><span class="p">(</span><span class="n">cell_type</span><span class="o">=</span><span class="s1">&#39;THP-1&#39;</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">SpectralVolume</span><span class="p">]:</span>
+
+<div class="viewcode-block" id="volumetric_cells">
+<a class="viewcode-back" href="../../datasets.html#ramanspy.datasets.volumetric_cells">[docs]</a>
+<span class="k">def</span> <span class="nf">volumetric_cells</span><span class="p">(</span><span class="n">cell_type</span><span class="o">=</span><span class="s1">&#39;THP-1&#39;</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">SpectralVolume</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A single volumetric scan of hiPSC cells.</span>
 
@@ -597,7 +609,10 @@
     <span class="k">return</span> <span class="n">volumes</span></div>
 
 
-<div class="viewcode-block" id="MDA_MB_231_cells"><a class="viewcode-back" href="../../datasets.html#ramanspy.datasets.MDA_MB_231_cells">[docs]</a><span class="k">def</span> <span class="nf">MDA_MB_231_cells</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">SpectralContainer</span><span class="p">,</span> <span class="n">core</span><span class="o">.</span><span class="n">SpectralContainer</span><span class="p">]:</span>
+
+<div class="viewcode-block" id="MDA_MB_231_cells">
+<a class="viewcode-back" href="../../datasets.html#ramanspy.datasets.MDA_MB_231_cells">[docs]</a>
+<span class="k">def</span> <span class="nf">MDA_MB_231_cells</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">SpectralContainer</span><span class="p">,</span> <span class="n">core</span><span class="o">.</span><span class="n">SpectralContainer</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    170k pairs of low- and high-SNR data. I</span>
 
@@ -672,7 +687,10 @@
     <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span></div>
 
 
-<div class="viewcode-block" id="rruff"><a class="viewcode-back" href="../../datasets.html#ramanspy.datasets.rruff">[docs]</a><span class="k">def</span> <span class="nf">rruff</span><span class="p">(</span><span class="n">dataset</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">download</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">SpectralContainer</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]:</span>
+
+<div class="viewcode-block" id="rruff">
+<a class="viewcode-back" href="../../datasets.html#ramanspy.datasets.rruff">[docs]</a>
+<span class="k">def</span> <span class="nf">rruff</span><span class="p">(</span><span class="n">dataset</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">download</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">SpectralContainer</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Raman spectra acquired from various minerals.</span>
 
@@ -724,6 +742,7 @@
         <span class="n">dir_</span> <span class="o">=</span> <span class="n">dataset</span> <span class="k">if</span> <span class="n">folder</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">dataset</span><span class="p">)</span>
         <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dir_</span><span class="si">}</span><span class="s2">/*.txt&quot;</span><span class="p">)]</span>
         <span class="k">return</span> <span class="n">_parse_rruff_files</span><span class="p">(</span><span class="n">files</span><span class="p">)</span></div>
+
 
 
 <span class="k">def</span> <span class="nf">_download_rruff</span><span class="p">(</span><span class="n">dataset</span><span class="p">):</span>
@@ -813,13 +832,11 @@
       
     </aside>
   </div>
-</div><script src="../../_static/jquery.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/scripts/furo.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
+</div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
     </body>
 </html>

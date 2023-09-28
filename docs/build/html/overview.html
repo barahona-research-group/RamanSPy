@@ -1,22 +1,17 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="./">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Installation" href="installation.html" /><link rel="prev" title="RamanSPy" href="index.html" />
 
-    <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Overview - RamanSPy</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -179,6 +174,7 @@
 <li class="toctree-l1"><a class="reference internal" href="plot.html">Data visualisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="preprocessing.html">Preprocessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="synth.html">Synthetic data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
 <ul>
@@ -210,6 +206,7 @@
 <li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_iii_unmixing.html">Built-in unmixing methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_iv_integrative_svm.html">Integrative analysis: Support Vector Machine (SVM) classification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_v_integrative_nn.html">Integrative analysis: Neural Network (NN) classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vii%20-%20synth/plot_i_generate_endmembers.html">Generate synthetic endmembers</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -259,9 +256,9 @@
         </div>
         <article role="main">
           <section id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h1>
+<h1>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h1>
 <section id="code-example">
-<h2>Code example<a class="headerlink" href="#code-example" title="Permalink to this heading"></a></h2>
+<h2>Code example<a class="headerlink" href="#code-example" title="Link to this heading">#</a></h2>
 <p>Below is a simple example of how <cite>RamanSPy</cite> can be used to load, preprocess and analyse Raman spectroscopic data. Here,
 we load a data file from a commercial Raman instrument; apply a preprocessing pipeline consisting of spectral cropping,
 cosmic ray removal, denoising, baseline correction and normalisation; perform spectral unmixing; and visualise the results.</p>
@@ -296,10 +293,10 @@ cosmic ray removal, denoising, baseline correction and normalisation; perform sp
 </div>
 </section>
 <section id="features">
-<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h2>
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading">#</a></h2>
 <p><cite>RamanSPy</cite> offers a range of features to support Raman research and analysis. This includes the following:</p>
 <section id="complete-workflow-support">
-<h3>Complete workflow support<a class="headerlink" href="#complete-workflow-support" title="Permalink to this heading"></a></h3>
+<h3>Complete workflow support<a class="headerlink" href="#complete-workflow-support" title="Link to this heading">#</a></h3>
 <p><cite>RamanSPy</cite> streamlines the entire Raman spectroscopic data analysis lifecycle by providing accessible, easy-to-use tools for
 loading, preprocessing, analysing and visualising diverse Raman spectroscopic data. All functionalities of
 <cite>RamanSPy</cite> are completely application-agnostic and work equally well on any data loaded into the framework, regardless of
@@ -308,7 +305,7 @@ to construct entire analysis workflows with minimal software requirements which 
 different datasets and projects.</p>
 </section>
 <section id="preprocessing-pipelines">
-<h3>Preprocessing pipelines<a class="headerlink" href="#preprocessing-pipelines" title="Permalink to this heading"></a></h3>
+<h3>Preprocessing pipelines<a class="headerlink" href="#preprocessing-pipelines" title="Link to this heading">#</a></h3>
 <p>The package also improves the availability, consistency and reproducibility of preprocessing processes by
 providing a pipelining infrastructure that streamlines the compilation, customisation and execution of complex preprocessing
 pipelines, as well as provides a library of already established and validated preprocessing protocols. This not only improves
@@ -316,7 +313,7 @@ preprocessing automation, but also ensures that the same preprocessing pipeline 
 as well as that users can easily access and reproduce the preprocessing steps used in published research.</p>
 </section>
 <section id="integrative-analysis">
-<h3>Integrative analysis<a class="headerlink" href="#integrative-analysis" title="Permalink to this heading"></a></h3>
+<h3>Integrative analysis<a class="headerlink" href="#integrative-analysis" title="Link to this heading">#</a></h3>
 <p>Furthermore, <cite>RamanSPy</cite> has been designed such that it offers direct integration with the entire Python ecosystem, thereby
 allowing smooth incorporation with other Python packages for spectroscopic research (e.g. <a class="reference external" href="https://pysptools.sourceforge.io/">pysptools</a>), statistical modelling
 and machine learning (e.g. <a class="reference external" href="https://scikit-learn.org/">scikit-learn</a>), deep learning (e.g. <a class="reference external" href="https://pytorch.org/">pytorch</a>, <a class="reference external" href="https://www.tensorflow.org/">tensorflow</a>) and many others.
@@ -324,7 +321,7 @@ With that, we aim to facilitate the integration of new (AI-based) methods and ap
 and catalyse the emerging effort to bridge the gap between Raman spectroscopy and AI &amp; ML.</p>
 </section>
 <section id="model-development">
-<h3>Model development<a class="headerlink" href="#model-development" title="Permalink to this heading"></a></h3>
+<h3>Model development<a class="headerlink" href="#model-development" title="Link to this heading">#</a></h3>
 <p>Finally, <cite>RamanSPy</cite> has been equipped with a range of tools for algorithmic development and evaluation, including a library
 of diverse Raman spectroscopic datasets, as well as a set of metrics for the evaluation of model performance. This allows users
 to more efficiently and consistently develop and evaluate new (AI-based) methods and algorithms for Raman spectroscopy applications.</p>
@@ -406,13 +403,11 @@ to more efficiently and consistently develop and evaluate new (AI-based) methods
       
     </aside>
   </div>
-</div><script src="_static/jquery.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/scripts/furo.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+</div><script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
     </body>
 </html>

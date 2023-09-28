@@ -1,22 +1,17 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="./">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Datasets" href="datasets.html" /><link rel="prev" title="Data containers" href="data_classes.html" />
 
-    <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Data loading - RamanSPy</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -179,6 +174,7 @@
 <li class="toctree-l1"><a class="reference internal" href="plot.html">Data visualisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="preprocessing.html">Preprocessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="synth.html">Synthetic data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
 <ul>
@@ -210,6 +206,7 @@
 <li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_iii_unmixing.html">Built-in unmixing methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_iv_integrative_svm.html">Integrative analysis: Support Vector Machine (SVM) classification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_v_integrative_nn.html">Integrative analysis: Neural Network (NN) classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vii%20-%20synth/plot_i_generate_endmembers.html">Generate synthetic endmembers</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -259,16 +256,16 @@
         </div>
         <article role="main">
           <section id="data-loading">
-<h1>Data loading<a class="headerlink" href="#data-loading" title="Permalink to this heading"></a></h1>
+<h1>Data loading<a class="headerlink" href="#data-loading" title="Link to this heading">#</a></h1>
 <p><cite>RamanSPy</cite> can be used to easily load experimental Raman spectroscopic data from different instruments and manufacturers.
 This is enabled through the introduction of custom data loading functions, which can parse and load different data formats
 into the appropriate <a class="reference internal" href="tutorials/i-classes/README.html#data-containers"><span class="std std-ref">Data containers</span></a>.</p>
 <p>Loading methods are available within the <code class="xref py py-mod docutils literal notranslate"><span class="pre">ramanspy.load</span></code> module.</p>
 <section id="witec-suite-witec">
-<h2>WITec Suite (WITec)<a class="headerlink" href="#witec-suite-witec" title="Permalink to this heading"></a></h2>
+<h2>WITec Suite (WITec)<a class="headerlink" href="#witec-suite-witec" title="Link to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ramanspy.load.witec">
-<span class="sig-prename descclassname"><span class="pre">ramanspy.load.</span></span><span class="sig-name descname"><span class="pre">witec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocess</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="preprocessing.html#ramanspy.preprocessing.Pipeline" title="ramanspy.preprocessing.Pipeline.Pipeline"><span class="pre">Pipeline</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">laser_excitation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Number</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">532</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></span><a class="reference internal" href="_modules/ramanspy/load.html#witec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.load.witec" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">ramanspy.load.</span></span><span class="sig-name descname"><span class="pre">witec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocess</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="preprocessing.html#ramanspy.preprocessing.Pipeline" title="ramanspy.preprocessing.Pipeline.Pipeline"><span class="pre">Pipeline</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">laser_excitation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Number</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">532</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></span><a class="reference internal" href="_modules/ramanspy/load.html#witec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.load.witec" title="Link to this definition">#</a></dt>
 <dd><p>Loads MATLAB files exported from <a class="reference external" href="https://raman.oxinst.com/products/software/witec-software-suite">WITec’s WITec Suite software</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -308,10 +305,10 @@ into the appropriate <a class="reference internal" href="tutorials/i-classes/REA
 </div>
 </section>
 <section id="wire-renishaw">
-<h2>WiRE (Renishaw)<a class="headerlink" href="#wire-renishaw" title="Permalink to this heading"></a></h2>
+<h2>WiRE (Renishaw)<a class="headerlink" href="#wire-renishaw" title="Link to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ramanspy.load.renishaw">
-<span class="sig-prename descclassname"><span class="pre">ramanspy.load.</span></span><span class="sig-name descname"><span class="pre">renishaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocess</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="preprocessing.html#ramanspy.preprocessing.Pipeline" title="ramanspy.preprocessing.Pipeline.Pipeline"><span class="pre">Pipeline</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a></span></span><a class="reference internal" href="_modules/ramanspy/load.html#renishaw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.load.renishaw" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">ramanspy.load.</span></span><span class="sig-name descname"><span class="pre">renishaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocess</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="preprocessing.html#ramanspy.preprocessing.Pipeline" title="ramanspy.preprocessing.Pipeline.Pipeline"><span class="pre">Pipeline</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a></span></span><a class="reference internal" href="_modules/ramanspy/load.html#renishaw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.load.renishaw" title="Link to this definition">#</a></dt>
 <dd><p>Loads spectra data from <a class="reference external" href="https://www.renishaw.com/en/raman-software--9450">Ranishaw’s WiRE software</a> .wdf  files.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -345,10 +342,10 @@ into the appropriate <a class="reference internal" href="tutorials/i-classes/REA
 </div>
 </section>
 <section id="oceanview-ocean-insight">
-<h2>OceanView (Ocean Insight)<a class="headerlink" href="#oceanview-ocean-insight" title="Permalink to this heading"></a></h2>
+<h2>OceanView (Ocean Insight)<a class="headerlink" href="#oceanview-ocean-insight" title="Link to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ramanspy.load.ocean_insight">
-<span class="sig-prename descclassname"><span class="pre">ramanspy.load.</span></span><span class="sig-name descname"><span class="pre">ocean_insight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocess</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="preprocessing.html#ramanspy.preprocessing.Pipeline" title="ramanspy.preprocessing.Pipeline.Pipeline"><span class="pre">Pipeline</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">laser_excitation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Number</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">532</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></span><a class="reference internal" href="_modules/ramanspy/load.html#ocean_insight"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.load.ocean_insight" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">ramanspy.load.</span></span><span class="sig-name descname"><span class="pre">ocean_insight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocess</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="preprocessing.html#ramanspy.preprocessing.Pipeline" title="ramanspy.preprocessing.Pipeline.Pipeline"><span class="pre">Pipeline</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">laser_excitation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Number</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">532</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a></span></span><a class="reference internal" href="_modules/ramanspy/load.html#ocean_insight"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.load.ocean_insight" title="Link to this definition">#</a></dt>
 <dd><p>Loads spectra data from <a class="reference external" href="https://www.oceaninsight.com/products/software/">Ocean Insight’s OceanView software</a> .txt files.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -380,10 +377,10 @@ into the appropriate <a class="reference internal" href="tutorials/i-classes/REA
 </div>
 </section>
 <section id="labspec-horiba">
-<h2>LabSpec (HORIBA)<a class="headerlink" href="#labspec-horiba" title="Permalink to this heading"></a></h2>
+<h2>LabSpec (HORIBA)<a class="headerlink" href="#labspec-horiba" title="Link to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ramanspy.load.labspec">
-<span class="sig-prename descclassname"><span class="pre">ramanspy.load.</span></span><span class="sig-name descname"><span class="pre">labspec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocess</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="preprocessing.html#ramanspy.preprocessing.Pipeline" title="ramanspy.preprocessing.Pipeline.Pipeline"><span class="pre">Pipeline</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a></span></span><a class="reference internal" href="_modules/ramanspy/load.html#labspec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.load.labspec" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">ramanspy.load.</span></span><span class="sig-name descname"><span class="pre">labspec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocess</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="preprocessing.html#ramanspy.preprocessing.Pipeline" title="ramanspy.preprocessing.Pipeline.Pipeline"><span class="pre">Pipeline</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a></span></span><a class="reference internal" href="_modules/ramanspy/load.html#labspec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.load.labspec" title="Link to this definition">#</a></dt>
 <dd><p>Loads spectra data from <a class="reference external" href="https://www.horiba.com/int/scientific/products/detail/action/show/Product/labspec-6-spectroscopy-suite-software-1843/">HORIBA’s LabSpec software</a> .txt files.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -410,7 +407,7 @@ into the appropriate <a class="reference internal" href="tutorials/i-classes/REA
 
 </section>
 <section id="other">
-<h2>Other<a class="headerlink" href="#other" title="Permalink to this heading"></a></h2>
+<h2>Other<a class="headerlink" href="#other" title="Link to this heading">#</a></h2>
 <p>To allow the loading of other data file formats, simply define an appropriate data loading function, which parses the
 specific spectroscopic files of interest into <a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.SpectralContainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralContainer</span></code></a> objects (e.g. <a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.SpectralContainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralContainer</span></code></a>, <a class="reference internal" href="data_classes.html#ramanspy.Spectrum" title="ramanspy.Spectrum"><code class="xref py py-class docutils literal notranslate"><span class="pre">Spectrum</span></code></a>,
 <a class="reference internal" href="data_classes.html#ramanspy.SpectralImage" title="ramanspy.SpectralImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralImage</span></code></a> or <a class="reference internal" href="data_classes.html#ramanspy.SpectralVolume" title="ramanspy.SpectralVolume"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralVolume</span></code></a>).</p>
@@ -506,13 +503,11 @@ all its preprocessing, analysis and data visualisation functionalities as usual.
       
     </aside>
   </div>
-</div><script src="_static/jquery.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/scripts/furo.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+</div><script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
     </body>
 </html>

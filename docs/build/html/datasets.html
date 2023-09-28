@@ -1,22 +1,17 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="./">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Metrics" href="metrics.html" /><link rel="prev" title="Data loading" href="loading.html" />
 
-    <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Datasets - RamanSPy</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -179,6 +174,7 @@
 <li class="toctree-l1"><a class="reference internal" href="plot.html">Data visualisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="preprocessing.html">Preprocessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="synth.html">Synthetic data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
 <ul>
@@ -210,6 +206,7 @@
 <li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_iii_unmixing.html">Built-in unmixing methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_iv_integrative_svm.html">Integrative analysis: Support Vector Machine (SVM) classification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vi-analysis/plot_v_integrative_nn.html">Integrative analysis: Neural Network (NN) classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vii%20-%20synth/plot_i_generate_endmembers.html">Generate synthetic endmembers</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -259,7 +256,7 @@
         </div>
         <article role="main">
           <section id="datasets">
-<h1>Datasets<a class="headerlink" href="#datasets" title="Permalink to this heading"></a></h1>
+<h1>Datasets<a class="headerlink" href="#datasets" title="Link to this heading">#</a></h1>
 <p>There is an increasing need for new data-driven approaches to solve problems in the field of Raman spectroscopy. Yet,
 the lack of large, high-quality datasets has been a major bottleneck in the development and validation of new algorithms and pipelines.</p>
 <p>To accelerate algorithmic and pipeline development, <cite>RamanSPy</cite> provides several big, well-curated Raman spectroscopic datasets
@@ -267,10 +264,10 @@ acquired from researchers around the world for different modelling and predictiv
 access these datasets via established data loading methods and experiment with them in a variety of applications.</p>
 <p>Datasets are available in the <cite>ramanspy.datasets</cite> module.</p>
 <section id="bacteria-data">
-<h2>Bacteria data<a class="headerlink" href="#bacteria-data" title="Permalink to this heading"></a></h2>
+<h2>Bacteria data<a class="headerlink" href="#bacteria-data" title="Link to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ramanspy.datasets.bacteria">
-<span class="sig-prename descclassname"><span class="pre">ramanspy.datasets.</span></span><span class="sig-name descname"><span class="pre">bacteria</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'train'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ramanspy/datasets.html#bacteria"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.datasets.bacteria" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">ramanspy.datasets.</span></span><span class="sig-name descname"><span class="pre">bacteria</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'train'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ramanspy/datasets.html#bacteria"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.datasets.bacteria" title="Link to this definition">#</a></dt>
 <dd><p>Raman spectra acquired from different bacterial and yeast isolates.</p>
 <p>&gt;80k spectra across 30+ isolates. Ideal for classification modelling.</p>
 <p>Data from <a class="reference external" href="https://www.nature.com/articles/s41467-019-12898-9">Ho, CS. et al. (2019)</a>.</p>
@@ -303,7 +300,7 @@ access these datasets via established data loading methods and experiment with t
 <p class="rubric">References</p>
 <p>Ho, CS., Jean, N., Hogan, C.A. et al. Rapid identification of pathogenic bacteria using Raman spectroscopy and deep learning. Nat Commun 10, 4927 (2019).</p>
 <section id="examples">
-<h3>Examples:<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h3>
+<h3>Examples:<a class="headerlink" href="#examples" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
 
 <span class="c1"># Load training and testing datasets</span>
@@ -319,10 +316,10 @@ access these datasets via established data loading methods and experiment with t
 
 </section>
 <section id="volumetric-cell-data">
-<h2>Volumetric cell data<a class="headerlink" href="#volumetric-cell-data" title="Permalink to this heading"></a></h2>
+<h2>Volumetric cell data<a class="headerlink" href="#volumetric-cell-data" title="Link to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ramanspy.datasets.volumetric_cells">
-<span class="sig-prename descclassname"><span class="pre">ramanspy.datasets.</span></span><span class="sig-name descname"><span class="pre">volumetric_cells</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cell_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'THP-1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralVolume" title="ramanspy.core.SpectralVolume"><span class="pre">SpectralVolume</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ramanspy/datasets.html#volumetric_cells"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.datasets.volumetric_cells" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">ramanspy.datasets.</span></span><span class="sig-name descname"><span class="pre">volumetric_cells</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cell_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'THP-1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralVolume" title="ramanspy.core.SpectralVolume"><span class="pre">SpectralVolume</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ramanspy/datasets.html#volumetric_cells"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.datasets.volumetric_cells" title="Link to this definition">#</a></dt>
 <dd><p>A single volumetric scan of hiPSC cells.</p>
 <p>Data from <a class="reference external" href="https://www.nature.com/articles/ncomms14843">Kallepitis et al. (2017)</a>.</p>
 <p>Must be downloaded first. Provided by authors on <a class="reference external" href="https://zenodo.org/record/256329#.Y7wpc3bP1D_">Zenodo</a>.</p>
@@ -347,7 +344,7 @@ access these datasets via established data loading methods and experiment with t
 <p class="rubric">References</p>
 <p>Kallepitis, C., Bergholt, M., Mazo, M. et al. Quantitative volumetric Raman imaging of three dimensional cell cultures. Nat Commun 8, 14843 (2017).</p>
 <section id="id1">
-<h3>Examples:<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<h3>Examples:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
 
 <span class="n">cells_volume</span> <span class="o">=</span> <span class="n">rp</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">volumetric_cells</span><span class="p">(</span><span class="n">cell_type</span><span class="o">=</span><span class="s1">&#39;THP-1&#39;</span><span class="p">,</span> <span class="n">path_to_data</span><span class="o">=</span><span class="s2">&quot;path/to/data&quot;</span><span class="p">)</span>
@@ -358,10 +355,10 @@ access these datasets via established data loading methods and experiment with t
 
 </section>
 <section id="mda-mb-231-cells-data">
-<h2>MDA-MB-231 cells data<a class="headerlink" href="#mda-mb-231-cells-data" title="Permalink to this heading"></a></h2>
+<h2>MDA-MB-231 cells data<a class="headerlink" href="#mda-mb-231-cells-data" title="Link to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ramanspy.datasets.MDA_MB_231_cells">
-<span class="sig-prename descclassname"><span class="pre">ramanspy.datasets.</span></span><span class="sig-name descname"><span class="pre">MDA_MB_231_cells</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'train'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ramanspy/datasets.html#MDA_MB_231_cells"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.datasets.MDA_MB_231_cells" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">ramanspy.datasets.</span></span><span class="sig-name descname"><span class="pre">MDA_MB_231_cells</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'train'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ramanspy/datasets.html#MDA_MB_231_cells"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.datasets.MDA_MB_231_cells" title="Link to this definition">#</a></dt>
 <dd><p>170k pairs of low- and high-SNR data. I</p>
 <p>Ideal for developing and validating denoising models and algorithms.</p>
 <p>Data from <a class="reference external" href="https://pubs.acs.org/doi/full/10.1021/acs.analchem.1c02178">Horgan, C.C. et al. (2021)</a>.</p>
@@ -391,7 +388,7 @@ access these datasets via established data loading methods and experiment with t
 <p class="rubric">References</p>
 <p>Horgan, C.C., Jensen, M., Nagelkerke, A., St-Pierre, J.P., Vercauteren, T., Stevens, M.M. and Bergholt, M.S., 2021. High-Throughput Molecular Imaging via Deep-Learning-Enabled Raman Spectroscopy. Analytical Chemistry, 93(48), pp.15850-15860.</p>
 <section id="id2">
-<h3>Examples:<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<h3>Examples:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
 
 <span class="nb">input</span><span class="p">,</span> <span class="n">output</span> <span class="o">=</span> <span class="n">rp</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">MDA_MB_231_cells</span><span class="p">(</span><span class="n">path_to_data</span><span class="o">=</span><span class="s2">&quot;path/to/data&quot;</span><span class="p">)</span>
@@ -402,10 +399,10 @@ access these datasets via established data loading methods and experiment with t
 
 </section>
 <section id="covid-19-data">
-<h2>COVID-19 data<a class="headerlink" href="#covid-19-data" title="Permalink to this heading"></a></h2>
+<h2>COVID-19 data<a class="headerlink" href="#covid-19-data" title="Link to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ramanspy.datasets.covid19">
-<span class="sig-prename descclassname"><span class="pre">ramanspy.datasets.</span></span><span class="sig-name descname"><span class="pre">covid19</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ramanspy/datasets.html#covid19"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.datasets.covid19" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">ramanspy.datasets.</span></span><span class="sig-name descname"><span class="pre">covid19</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ramanspy/datasets.html#covid19"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.datasets.covid19" title="Link to this definition">#</a></dt>
 <dd><p>Raman spectra acquired from patients with COVID-19 and healthy controls.</p>
 <p>Data from <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/33821082/">Yin G. et al. (2021)</a>.</p>
 <p>Must be downloaded first. Available on <a class="reference external" href="https://www.kaggle.com/datasets/sfran96/raman-spectroscopy-for-detecting-covid19">Kaggle</a>.</p>
@@ -426,7 +423,7 @@ access these datasets via established data loading methods and experiment with t
 <p>Yin G, Li L, Lu S, Yin Y, Su Y, Zeng Y, Luo M, Ma M, Zhou H, Orlandini L, Yao D. An efficient primary screening of COVID‐19 by serum Raman spectroscopy. Journal of Raman Spectroscopy. 2021 May;52(5):949-58.</p>
 <p>Yin G, Li L, Lu S, Yin Y, Su Y, Zeng Y, Luo M, Ma M, Zhou H, Yao D, Liu G, Lang J. Data and code on serum Raman spectroscopy as an efficient primary screening of coronavirus disease in 2019 (COVID-19). figshare; 2020.</p>
 <section id="id3">
-<h3>Examples:<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<h3>Examples:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
 
 <span class="c1"># Load training dataset</span>
@@ -438,10 +435,10 @@ access these datasets via established data loading methods and experiment with t
 
 </section>
 <section id="adenine-data">
-<h2>Adenine data<a class="headerlink" href="#adenine-data" title="Permalink to this heading"></a></h2>
+<h2>Adenine data<a class="headerlink" href="#adenine-data" title="Link to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ramanspy.datasets.adenine">
-<span class="sig-prename descclassname"><span class="pre">ramanspy.datasets.</span></span><span class="sig-name descname"><span class="pre">adenine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ramanspy/datasets.html#adenine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.datasets.adenine" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">ramanspy.datasets.</span></span><span class="sig-name descname"><span class="pre">adenine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ramanspy/datasets.html#adenine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.datasets.adenine" title="Link to this definition">#</a></dt>
 <dd><p>Raman spectra acquired from samples representing different levels of adenine concentrations.</p>
 <p>Data from <a class="reference external" href="https://pubs.acs.org/doi/10.1021/acs.analchem.9b05658">Fornasaro, Stefano, et al. (2020)</a>.</p>
 <p>Can be downloaded directly through the function or downloaded separately. In the latter case, users just need to
@@ -467,7 +464,7 @@ Note that if <code class="docutils literal notranslate"><span class="pre">downlo
 <p class="rubric">References</p>
 <p>Fornasaro S, Alsamad F, Baia M, Batista de Carvalho LA, Beleites C, Byrne HJ, Chiadò A, Chis M, Chisanga M, Daniel A, Dybas J. Surface enhanced Raman spectroscopy for quantitative analysis: results of a large-scale European multi-instrument interlaboratory study. Analytical chemistry. 2020 Feb 11;92(5):4053-64.</p>
 <section id="id5">
-<h3>Examples:<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+<h3>Examples:<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
 
 <span class="c1"># Load dataset</span>
@@ -479,10 +476,10 @@ Note that if <code class="docutils literal notranslate"><span class="pre">downlo
 
 </section>
 <section id="wheat-lines-data">
-<h2>Wheat lines data<a class="headerlink" href="#wheat-lines-data" title="Permalink to this heading"></a></h2>
+<h2>Wheat lines data<a class="headerlink" href="#wheat-lines-data" title="Link to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ramanspy.datasets.wheat_lines">
-<span class="sig-prename descclassname"><span class="pre">ramanspy.datasets.</span></span><span class="sig-name descname"><span class="pre">wheat_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ramanspy/datasets.html#wheat_lines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.datasets.wheat_lines" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">ramanspy.datasets.</span></span><span class="sig-name descname"><span class="pre">wheat_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ramanspy/datasets.html#wheat_lines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.datasets.wheat_lines" title="Link to this definition">#</a></dt>
 <dd><p>Raman spectra acquired from groups of wheat lines:</p>
 <blockquote>
 <div><ul class="simple">
@@ -516,7 +513,7 @@ Note that if <code class="docutils literal notranslate"><span class="pre">downlo
 <p class="rubric">References</p>
 <p>ŞEN A, Kecoglu I, Ahmed M, Parlatan U, Unlu M. Differentiation of advanced generation mutant wheat lines: Conventional techniques versus Raman spectroscopy. Frontiers in Plant Science. 2023;14.</p>
 <section id="id7">
-<h3>Examples:<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<h3>Examples:<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
 
 <span class="c1"># Load training dataset</span>
@@ -528,10 +525,10 @@ Note that if <code class="docutils literal notranslate"><span class="pre">downlo
 
 </section>
 <section id="rruff-data">
-<h2>RRUFF data<a class="headerlink" href="#rruff-data" title="Permalink to this heading"></a></h2>
+<h2>RRUFF data<a class="headerlink" href="#rruff-data" title="Link to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ramanspy.datasets.rruff">
-<span class="sig-prename descclassname"><span class="pre">ramanspy.datasets.</span></span><span class="sig-name descname"><span class="pre">rruff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ramanspy/datasets.html#rruff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.datasets.rruff" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">ramanspy.datasets.</span></span><span class="sig-name descname"><span class="pre">rruff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_classes.html#ramanspy.SpectralContainer" title="ramanspy.core.SpectralContainer"><span class="pre">SpectralContainer</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ramanspy/datasets.html#rruff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.datasets.rruff" title="Link to this definition">#</a></dt>
 <dd><p>Raman spectra acquired from various minerals.</p>
 <p>Data from the <a class="reference external" href="https://rruff.info/">RRUFF database</a>.</p>
 <p>Can be downloaded directly through the function or downloaded separately. In the latter case, users just need to
@@ -556,7 +553,7 @@ from the directory provided via <cite>dataset</cite> will be loaded.</p></li>
 <p class="rubric">References</p>
 <p>Lafuente B, Downs R T, Yang H, Stone N (2015) The power of databases: the RRUFF project. In: Highlights in Mineralogical Crystallography, T Armbruster and R M Danisi, eds. Berlin, Germany, W. De Gruyter, pp 1-30.</p>
 <section id="id10">
-<h3>Examples:<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
+<h3>Examples:<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ramanspy</span> <span class="k">as</span> <span class="nn">rp</span>
 
 <span class="c1"># downloaded from the Internet</span>
@@ -670,13 +667,11 @@ from the directory provided via <cite>dataset</cite> will be loaded.</p></li>
       
     </aside>
   </div>
-</div><script src="_static/jquery.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/scripts/furo.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+</div><script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
     </body>
 </html>

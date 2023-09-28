@@ -68,6 +68,7 @@ Also, if you find *RamanSPy* useful, please consider leaving a star on GitHub:
    plot
    preprocessing
    analysis
+   synth
 
 
 .. toctree::

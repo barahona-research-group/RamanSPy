@@ -1,21 +1,16 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="../../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
-    <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
-        <title>ramanspy.preprocessing.Step - ramanspy 0.0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+        <title>ramanspy.preprocessing.Step - RamanSPy</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -131,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../index.html"><div class="brand">ramanspy 0.0.1 documentation</div></a>
+      <a href="../../../index.html"><div class="brand">RamanSPy</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -178,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../plot.html">Data visualisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../preprocessing.html">Preprocessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../synth.html">Synthetic data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
 <ul>
@@ -209,6 +205,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../auto_tutorials/vi-analysis/plot_iii_unmixing.html">Built-in unmixing methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../auto_tutorials/vi-analysis/plot_iv_integrative_svm.html">Integrative analysis: Support Vector Machine (SVM) classification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../auto_tutorials/vi-analysis/plot_v_integrative_nn.html">Integrative analysis: Neural Network (NN) classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../auto_tutorials/vii%20-%20synth/plot_i_generate_endmembers.html">Generate synthetic endmembers</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -222,6 +219,7 @@
 <p class="caption" role="heading"><span class="caption-text">Links</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/barahona-research-group/RamanSPy">GitHub repository</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://chemrxiv.org/engage/chemrxiv/article-details/64a53861ba3e99daef8c9c51">Paper</a></li>
 </ul>
 
 </div>
@@ -263,7 +261,9 @@
 <span class="kn">from</span> <span class="nn">..core</span> <span class="kn">import</span> <span class="n">SpectralObject</span>
 
 
-<div class="viewcode-block" id="PreprocessingStep"><a class="viewcode-back" href="../../../preprocessing.html#ramanspy.preprocessing.PreprocessingStep">[docs]</a><span class="k">class</span> <span class="nc">PreprocessingStep</span><span class="p">:</span>
+<div class="viewcode-block" id="PreprocessingStep">
+<a class="viewcode-back" href="../../../preprocessing.html#ramanspy.preprocessing.PreprocessingStep">[docs]</a>
+<span class="k">class</span> <span class="nc">PreprocessingStep</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class that defines preprocessing logic.</span>
 
@@ -328,7 +328,9 @@
 
         <span class="k">return</span> <span class="n">new_raman_object</span>
 
-<div class="viewcode-block" id="PreprocessingStep.apply"><a class="viewcode-back" href="../../../preprocessing.html#ramanspy.preprocessing.PreprocessingStep.apply">[docs]</a>    <span class="nd">@final</span>
+<div class="viewcode-block" id="PreprocessingStep.apply">
+<a class="viewcode-back" href="../../../preprocessing.html#ramanspy.preprocessing.PreprocessingStep.apply">[docs]</a>
+    <span class="nd">@final</span>
     <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raman_objects</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">SpectralObject</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">SpectralObject</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">SpectralObject</span><span class="p">]]]])</span> <span class="o">-&gt;</span> \
             <span class="n">Union</span><span class="p">[</span><span class="n">SpectralObject</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">SpectralObject</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">SpectralObject</span><span class="p">]]]]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -367,7 +369,9 @@
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raman_objects</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
             <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">raman_object</span><span class="p">)</span> <span class="k">for</span> <span class="n">raman_object</span> <span class="ow">in</span> <span class="n">raman_objects</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_object</span><span class="p">(</span><span class="n">raman_objects</span><span class="p">)</span></div></div>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_object</span><span class="p">(</span><span class="n">raman_objects</span><span class="p">)</span></div>
+</div>
+
 </pre></div>
         </article>
       </div>
@@ -399,13 +403,11 @@
       
     </aside>
   </div>
-</div><script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/sphinx_highlight.js"></script>
-    <script src="../../../_static/scripts/furo.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
+</div><script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
     </body>
 </html>
