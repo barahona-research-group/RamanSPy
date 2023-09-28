@@ -56,7 +56,7 @@ def generate_endmembers(num_endmembers, n_bands, *, realistic=False, seed=None):
 
         import ramanspy as rp
 
-        # Load dataset
+        # Generate synthetic endmembers
         endmembers = rp.synth.generate_endmembers(5, 100, realistic=True)
 
         rp.plot.spectra(endmembers)
@@ -313,7 +313,7 @@ def generate_image_dataset(
 
         import ramanspy as rp
 
-        # Load dataset
+        # Generate synthetic data
         mixture, endmebers, abundance_image = rp.synth.generate_image_dataset(5, 1000, 100, 'chessboard', mixture_mode='linear')
 
     """
