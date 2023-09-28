@@ -18,7 +18,7 @@ Key features
 - AI integration
 - Datasets
 - Metrics
-- Synthetic data generator
+- Synthetic data generator (**new in versions >= 2.0.0**)
 
 |
 
