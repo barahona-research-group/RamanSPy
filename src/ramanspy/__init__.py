@@ -8,6 +8,7 @@ from . import analysis
 from . import datasets
 from .core import Spectrum, SpectralImage, SpectralVolume, SpectralContainer
 from . import metrics
+from . import synth
 
 __all__ = [
     "utils",
@@ -21,4 +22,5 @@ __all__ = [
     "SpectralVolume",
     "SpectralContainer",
     "metrics",
+    "synth"
 ]
