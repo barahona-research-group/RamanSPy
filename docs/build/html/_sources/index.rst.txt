@@ -8,15 +8,17 @@ day-to-day analyses, research applications, as well as the development and valid
 
 Key features
 -----------------
-- Extensible, loosely coupled and fully open-source
-- End-to-end workflow support
-- Comprehensive toolbox of data loading, preprocessing, analysis and visualisation tools
-- Broad data compatibility
-- Data- and application-agnostic processes
-- Effortless preprocessing pipelining
-- Library of established preprocessing protocols
-- Smooth integration with frameworks for data science, statistical modelling and ML, and deep learning
-- Diverse datasets and metrics for benchmarking and validation
+- Common data format
+- Data loaders
+- Preprocessing methods
+- Preprocessing pipelining
+- Preprocessing protocols
+- Analysis methods
+- Visualisation tools
+- AI integration
+- Datasets
+- Metrics
+- Synthetic data generator
 
 |
 
