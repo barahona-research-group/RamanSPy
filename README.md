@@ -6,6 +6,21 @@
 *RamanSPy* is an open-source Python package for integrative
 Raman spectroscopy data analysis.
 
+## Key features
+
+- Common data format
+- Data loaders
+- Preprocessing methods
+- Preprocessing pipelining
+- Preprocessing protocols
+- Analysis methods
+- Visualisation tools
+- AI integration
+- Datasets
+- Metrics
+- Synthetic data generator (***new in versions >= 2.0.0***)
+  
+
 ## Installation
 
 *RamanSPy* has been published on PyPI and can be installed
