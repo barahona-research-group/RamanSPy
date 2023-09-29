@@ -197,12 +197,12 @@ def mix(
     return mixtures
 
 
-def _generate_abundance_image(size, num_endmembers, scene_type, *, seed=None):
+def generate_abundance_scene(size, num_endmembers, scene_type, *, seed=None):
     """
     Parameters
     ----------
     size : int
-        The size of the abundance image. Assumes a square image.
+        The size of the abundance scene. Assumes a square scene (i.e. size x size).
     num_endmembers : int
         The number of endmembers to use.
     scene_type : {'chessboard', 'gaussian', 'dirichlet'}
@@ -326,7 +326,7 @@ def generate_mixture_image(
     """
 
     endmebers = generate_spectra(num_endmembers, num_spectral_bands, realistic=realistic_endmembers, seed=seed)
-    abundance_image = _generate_abundance_image(image_size, num_endmembers, image_type, seed=seed)
+    abundance_image = generate_abundance_scene(image_size, num_endmembers, image_type, seed=seed)
 
     mixture = mix(endmebers, abundance_image, mixture_mode=mixture_mode, noise=noise, noise_amplitude=noise_amplitude,
                   baseline=baseline, baseline_amplitude=baseline_amplitude, baseline_probability=baseline_probability,

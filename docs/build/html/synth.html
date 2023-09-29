@@ -297,6 +297,30 @@
 </dd></dl>
 
 </section>
+<section id="synthetic-fractional-abundance-scenes">
+<h2>Synthetic fractional abundance scenes<a class="headerlink" href="#synthetic-fractional-abundance-scenes" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ramanspy.synth.generate_abundance_scene">
+<span class="sig-prename descclassname"><span class="pre">ramanspy.synth.</span></span><span class="sig-name descname"><span class="pre">generate_abundance_scene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_endmembers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scene_type</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ramanspy/synth/synth.html#generate_abundance_scene"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.synth.generate_abundance_scene" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>size</strong> (<em>int</em>) – The size of the abundance scene. Assumes a square scene (i.e. size x size).</p></li>
+<li><p><strong>num_endmembers</strong> (<em>int</em>) – The number of endmembers to use.</p></li>
+<li><p><strong>scene_type</strong> (<em>{'chessboard'</em><em>, </em><em>'gaussian'</em><em>, </em><em>'dirichlet'}</em>) – The type of scene to generate.</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em>, </em><em>optional</em>) – The seed to use for the random number generator.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>image</strong> – The generated abundance image.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array_like, shape (size, size, num_endmembers)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 <section id="synthetic-mixtures">
 <h2>Synthetic mixtures<a class="headerlink" href="#synthetic-mixtures" title="Link to this heading"></a></h2>
 <dl class="py function">
@@ -434,6 +458,10 @@
 <li><a class="reference internal" href="#">Synthetic data</a><ul>
 <li><a class="reference internal" href="#synthetic-spectra">Synthetic spectra</a><ul>
 <li><a class="reference internal" href="#ramanspy.synth.generate_spectra"><code class="docutils literal notranslate"><span class="pre">generate_spectra()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#synthetic-fractional-abundance-scenes">Synthetic fractional abundance scenes</a><ul>
+<li><a class="reference internal" href="#ramanspy.synth.generate_abundance_scene"><code class="docutils literal notranslate"><span class="pre">generate_abundance_scene()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#synthetic-mixtures">Synthetic mixtures</a><ul>
