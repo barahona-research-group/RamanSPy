@@ -104,10 +104,10 @@ def mix(
         noise=False,
         noise_amplitude=0.1,
         baseline=False,
-        baseline_amplitude=1,
-        baseline_probability=0.5,
+        baseline_amplitude=2,
+        baseline_probability=0.25,
         cosmic_spikes=False,
-        cosmic_spike_amplitude=1,
+        cosmic_spike_amplitude=5,
         cosmic_spikes_probability=0.1,
         seed=None):
     """
@@ -128,13 +128,13 @@ def mix(
     baseline : bool, optional
         Whether to add a baseline to the image. Default is False.
     baseline_amplitude : float, optional
-        The amplitude of the baseline to add. Default is 1.
+        The amplitude of the baseline to add. Default is 2.
     baseline_probability : float, optional
-        The probability of adding a baseline to a pixel. Default is 0.5.
+        The probability of adding a baseline to a pixel. Default is 0.25.
     cosmic_spikes : bool, optional
         Whether to add cosmic spikes to the image. Default is False.
     cosmic_spike_amplitude : float, optional
-        The amplitude of the cosmic spikes to add. Default is 1.
+        The amplitude of the cosmic spikes to add. Default is 5.
     cosmic_spikes_probability : float, optional
         The probability of adding a cosmic spike to a pixel. Default is 0.1.
     seed : int, optional
@@ -261,10 +261,10 @@ def generate_mixture_image(
         noise=False,
         noise_amplitude=0.1,
         baseline=False,
-        baseline_amplitude=1,
-        baseline_probability=0.5,
+        baseline_amplitude=2,
+        baseline_probability=0.25,
         cosmic_spikes=False,
-        cosmic_spike_amplitude=1,
+        cosmic_spike_amplitude=5,
         cosmic_spikes_probability=0.1,
         seed=None):
     """
@@ -291,13 +291,13 @@ def generate_mixture_image(
     baseline : bool, optional
         Whether to add a baseline to the image. Default is False.
     baseline_amplitude : float, optional
-        The amplitude of the baseline to add. Default is 1.
+        The amplitude of the baseline to add. Default is 2.
     baseline_probability : float, optional
-        The probability of adding a baseline to a pixel. Default is 0.5.
+        The probability of adding a baseline to a pixel. Default is 0.25.
     cosmic_spikes : bool, optional
         Whether to add cosmic spikes to the image. Default is False.
     cosmic_spike_amplitude : float, optional
-        The amplitude of the cosmic spikes to add. Default is 1.
+        The amplitude of the cosmic spikes to add. Default is 5.
     cosmic_spikes_probability : float, optional
         The probability of adding a cosmic spike to a pixel. Default is 0.1.
     seed : int, optional
