@@ -113,8 +113,7 @@ def _kernel_spectrum(intensity_values_array, method, kernel_size):
 
     denoised_spectrum = np.convolve(kernel_window / kernel_window.sum(), padded_spectrum, mode='valid')
 
-    denoised_spectrum = denoised_spectrum[int(kernel_size / 2):-int(kernel_size / 2)].astype(
-        np.float32)  # TODO: check conversions
+    denoised_spectrum = denoised_spectrum[int(kernel_size / 2):-int(kernel_size / 2)]
 
     return denoised_spectrum
 

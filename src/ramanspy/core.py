@@ -58,8 +58,8 @@ class SpectralContainer:
         raman_object = rp.SpectralContainer(spectral_data, spectral_axis)
     """
     def __init__(self, spectral_data, spectral_axis):
-        self.spectral_data = np.asarray(spectral_data, np.float32)
-        self.spectral_axis = np.asarray(spectral_axis, np.float32)
+        self.spectral_data = np.asarray(spectral_data)
+        self.spectral_axis = np.asarray(spectral_axis)
 
         # Order data and axis by shift number values
         sorted_indices = self.spectral_axis.argsort()
