@@ -410,10 +410,15 @@ def image(
     if ax is None:
         fig, ax = plt.subplots()
 
-    white = [1, 1, 1, 0]
-    cmap = LinearSegmentedColormap.from_list('', [white, color])
+    extra_kwargs = dict()
+    if "cmap" in plt_kwargs:
+        cmap = plt_kwargs["cmap"]
+    else:
+        white = [1, 1, 1, 0]
+        cmap = LinearSegmentedColormap.from_list('', [white, color])
+        extra_kwargs["cmap"] = cmap
 
-    im = ax.imshow(image, cmap=cmap, **plt_kwargs)
+    im = ax.imshow(image, **extra_kwargs, **plt_kwargs)
 
     if cbar:
         divider = make_axes_locatable(ax)
