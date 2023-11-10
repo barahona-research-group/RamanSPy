@@ -371,7 +371,7 @@ def image(
         Will be ignored if cmap is provided.
     cmap : Union[str, Colormap, None], optional
         The colormap to use for each plot. Default is ``None``
-        It is passed to the matplotlib functions and expect one of the available colormap <https://matplotlib.org/stable/gallery/color/colormap_reference.html>
+        It is passed to the matplotlib functions and expect one of the `available colormap <https://matplotlib.org/stable/gallery/color/colormap_reference.html>`
         Will override the color parameter.
     **plt_kwargs : keyword arguments, optional
         Additional parameters. Will be passed to the `matplotlib.pyplot.imshow <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html>`_ method.
@@ -492,7 +492,7 @@ def volume(
         Will be ignored if cmap is provided.
     cmap : Union[str, Colormap, None], optional
         The colormap to use for each plot. Default is ``None``
-        It is passed to the matplotlib functions and expect one of the available colormap <https://matplotlib.org/stable/gallery/color/colormap_reference.html>
+        It is passed to the matplotlib functions and expect one of the `available colormap <https://matplotlib.org/stable/gallery/color/colormap_reference.html>`
         Will override the color parameter.
     **plt_kwargs : keyword arguments, optional
         Additional parameters. Will be passed to the `matplotlib.pyplot.scatter <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html>`_ method.
