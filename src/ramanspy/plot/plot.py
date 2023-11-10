@@ -7,7 +7,7 @@ from numbers import Number
 from typing import List, get_args, Union, TYPE_CHECKING
 import numpy as np
 from matplotlib import pyplot as plt
-from matplotlib.colors import LinearSegmentedColormap
+from matplotlib.colors import LinearSegmentedColormap, Colormap
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from numpy.typing import NDArray
 
@@ -341,6 +341,7 @@ def image(
         cbar: Union[bool, List[bool]] = True,
         cbar_label: Union[str, List[str]] = "Peak intensity",
         color=None,
+        cmap: Union[str, Colormap, None] = None,
         **plt_kwargs
 ):
     """
@@ -367,6 +368,11 @@ def image(
     color : Union[Matplotlib color, List[Matplotlib color]], optional
         The color(s) to use for each plot. Default is ``None``, i.e. the default matplotlib's colormap will be used,
         which is the ``veridis`` colormap.
+        Will be ignored if cmap is provided.
+    cmap : Union[str, Colormap, None], optional
+        The colormap to use for each plot. Default is ``None``
+        It is passed to the matplotlib functions and expect one of the available colormap <https://matplotlib.org/stable/gallery/color/colormap_reference.html>
+        Will override the color parameter.
     **plt_kwargs : keyword arguments, optional
         Additional parameters. Will be passed to the `matplotlib.pyplot.imshow <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html>`_ method.
         Each parameter can be given by single instance or as a list of instances for each plot.
@@ -410,23 +416,17 @@ def image(
     if ax is None:
         fig, ax = plt.subplots()
 
-    extra_kwargs = dict()
-    if "cmap" in plt_kwargs:
-        cmap = plt_kwargs["cmap"]
-    else:
+    _cmap = cmap
+    if _cmap is None:
         white = [1, 1, 1, 0]
-        cmap = LinearSegmentedColormap.from_list('', [white, color])
-        extra_kwargs["cmap"] = cmap
+        _cmap = LinearSegmentedColormap.from_list('', [white, color])
 
-    im = ax.imshow(image, **extra_kwargs, **plt_kwargs)
+    im = ax.imshow(image, cmap=_cmap, **plt_kwargs)
 
     if cbar:
         divider = make_axes_locatable(ax)
         cax = divider.append_axes("right", size="5%", pad=0.05)
-        ax.figure.colorbar(im, cax=cax, ticks=[image.min(), image.max()], cmap=cmap, label=cbar_label)
-
-    # draw box around volume
-    edges_kw = dict(color='black', linewidth=.5)
+        ax.figure.colorbar(im, cax=cax, ticks=[image.min(), image.max()], cmap=_cmap, label=cbar_label)
 
     # draw box around volume
     edges_kw = dict(color='black', linewidth=.5)
@@ -460,6 +460,7 @@ def volume(
         zlabel: Union[str, List[str]] = None,
         cbar: Union[bool, List[bool]] = True,
         cbar_label: Union[str, List[str]] = "Peak intensity",
+        cmap: Union[str, Colormap, None] = None,
         **plt_kwargs
 ):
     """
@@ -488,6 +489,11 @@ def volume(
     color : Union[Matplotlib color, List[Matplotlib color]], optional
         The color(s) to use for each plot. Default is ``None``, i.e. the default matplotlib's colormap will be used,
         which is the ``veridis`` colormap.
+        Will be ignored if cmap is provided.
+    cmap : Union[str, Colormap, None], optional
+        The colormap to use for each plot. Default is ``None``
+        It is passed to the matplotlib functions and expect one of the available colormap <https://matplotlib.org/stable/gallery/color/colormap_reference.html>
+        Will override the color parameter.
     **plt_kwargs : keyword arguments, optional
         Additional parameters. Will be passed to the `matplotlib.pyplot.scatter <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html>`_ method.
         Each parameter can be given by single instance or as a list of instances for each plot.
@@ -530,7 +536,9 @@ def volume(
 
     # get colormap
     white = [1, 1, 1, 0]
-    cmap = LinearSegmentedColormap.from_list('', [white, color])
+    _cmap = cmap
+    if _cmap is None:
+        _cmap = LinearSegmentedColormap.from_list('', [white, color])
 
     X, Y, Z = np.mgrid[:volume.shape[0], :volume.shape[1], :volume.shape[2]]
 
@@ -540,11 +548,11 @@ def volume(
         volume[volume < threshold] = np.min(volume)
 
     # plot
-    plot = ax.scatter(X, Y, Z, c=volume, cmap=cmap, **plt_kwargs)
+    plot = ax.scatter(X, Y, Z, c=volume, cmap=_cmap, **plt_kwargs)
 
     # add colorbar
     if cbar:
-        ax.figure.colorbar(plot, ax=ax, shrink=0.5, ticks=[volume.min(), volume.max()], cmap=cmap, label=cbar_label)
+        ax.figure.colorbar(plot, ax=ax, shrink=0.5, ticks=[volume.min(), volume.max()], cmap=_cmap, label=cbar_label)
 
     # draw box around volume
     edges_kw = dict(color='black', linewidth=.5)
