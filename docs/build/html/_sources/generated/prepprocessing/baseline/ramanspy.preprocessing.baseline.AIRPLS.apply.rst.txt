@@ -1,0 +1,6 @@
+ramanspy.preprocessing.baseline.AIRPLS.apply
+============================================
+
+.. currentmodule:: ramanspy.preprocessing.baseline
+
+.. automethod:: AIRPLS.apply

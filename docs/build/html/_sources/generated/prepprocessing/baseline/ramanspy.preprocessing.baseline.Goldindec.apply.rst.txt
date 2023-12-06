@@ -1,0 +1,6 @@
+ramanspy.preprocessing.baseline.Goldindec.apply
+===============================================
+
+.. currentmodule:: ramanspy.preprocessing.baseline
+
+.. automethod:: Goldindec.apply

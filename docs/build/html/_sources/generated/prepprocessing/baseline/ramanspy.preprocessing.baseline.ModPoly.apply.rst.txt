@@ -1,0 +1,6 @@
+ramanspy.preprocessing.baseline.ModPoly.apply
+=============================================
+
+.. currentmodule:: ramanspy.preprocessing.baseline
+
+.. automethod:: ModPoly.apply

@@ -1,0 +1,6 @@
+ramanspy.preprocessing.normalise.MinMax.apply
+=============================================
+
+.. currentmodule:: ramanspy.preprocessing.normalise
+
+.. automethod:: MinMax.apply

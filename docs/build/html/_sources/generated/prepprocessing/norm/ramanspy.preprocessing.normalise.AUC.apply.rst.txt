@@ -1,0 +1,6 @@
+ramanspy.preprocessing.normalise.AUC.apply
+==========================================
+
+.. currentmodule:: ramanspy.preprocessing.normalise
+
+.. automethod:: AUC.apply

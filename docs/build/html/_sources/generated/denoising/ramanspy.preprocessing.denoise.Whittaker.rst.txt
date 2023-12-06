@@ -1,0 +1,23 @@
+﻿:github_url: ramanspy.preprocessing.denoise.Whittaker
+
+ramanspy.preprocessing.denoise.Whittaker
+========================================
+
+.. currentmodule:: ramanspy.preprocessing.denoise
+
+.. autoclass:: Whittaker
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :toctree: .
+   
+      ~ramanspy.preprocessing.denoise.Whittaker.apply
+   
+   
