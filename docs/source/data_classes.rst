@@ -19,6 +19,7 @@ which correspond to single spectra, Raman imaging data and volumetric Raman data
 For the most part, the construction of these classes is automated through the various :ref:`data loading` and :ref:`datasets`
 methods in `RamanSPy`. However, the containers can be populated manually as well, if required.
 
+.. note:: While these data containers provide a common data format that facilitates the integration of data across acquisition modalities, instruments, vendors, labs and applications, it is important to note this must be done while respecting the inherent differences and scientific contexts of different data sources.
 
 Generic container
 ========================
