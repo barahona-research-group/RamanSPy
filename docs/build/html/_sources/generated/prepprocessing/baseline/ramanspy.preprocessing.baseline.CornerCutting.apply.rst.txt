@@ -1,0 +1,6 @@
+ramanspy.preprocessing.baseline.CornerCutting.apply
+===================================================
+
+.. currentmodule:: ramanspy.preprocessing.baseline
+
+.. automethod:: CornerCutting.apply

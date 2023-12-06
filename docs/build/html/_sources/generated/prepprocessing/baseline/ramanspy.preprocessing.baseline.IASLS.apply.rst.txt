@@ -1,0 +1,6 @@
+ramanspy.preprocessing.baseline.IASLS.apply
+===========================================
+
+.. currentmodule:: ramanspy.preprocessing.baseline
+
+.. automethod:: IASLS.apply

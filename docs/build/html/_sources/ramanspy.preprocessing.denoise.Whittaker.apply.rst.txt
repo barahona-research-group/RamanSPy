@@ -1,0 +1,6 @@
+ramanspy.preprocessing.denoise.Whittaker.apply
+==============================================
+
+.. currentmodule:: ramanspy.preprocessing.denoise
+
+.. automethod:: Whittaker.apply

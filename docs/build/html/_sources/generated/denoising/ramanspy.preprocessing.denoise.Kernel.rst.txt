@@ -1,0 +1,23 @@
+﻿:github_url: ramanspy.preprocessing.denoise.Kernel
+
+ramanspy.preprocessing.denoise.Kernel
+=====================================
+
+.. currentmodule:: ramanspy.preprocessing.denoise
+
+.. autoclass:: Kernel
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :toctree: .
+   
+      ~ramanspy.preprocessing.denoise.Kernel.apply
+   
+   

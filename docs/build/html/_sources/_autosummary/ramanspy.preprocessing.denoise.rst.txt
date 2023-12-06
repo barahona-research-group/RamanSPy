@@ -1,0 +1,32 @@
+﻿ramanspy.preprocessing.denoise
+==============================
+
+.. automodule:: ramanspy.preprocessing.denoise
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Gaussian
+      Kernel
+      SavGol
+      Whittaker
+   
+   
+
+   
+   
+   
+
+
+

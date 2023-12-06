@@ -1,0 +1,6 @@
+ramanspy.preprocessing.baseline.IRSQR.apply
+===========================================
+
+.. currentmodule:: ramanspy.preprocessing.baseline
+
+.. automethod:: IRSQR.apply

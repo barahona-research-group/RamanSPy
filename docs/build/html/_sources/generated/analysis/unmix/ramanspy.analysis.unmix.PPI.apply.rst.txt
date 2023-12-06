@@ -1,0 +1,6 @@
+ramanspy.analysis.unmix.PPI.apply
+=================================
+
+.. currentmodule:: ramanspy.analysis.unmix
+
+.. automethod:: PPI.apply

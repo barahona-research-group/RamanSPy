@@ -1,0 +1,6 @@
+ramanspy.analysis.unmix.VCA.apply
+=================================
+
+.. currentmodule:: ramanspy.analysis.unmix
+
+.. automethod:: VCA.apply
