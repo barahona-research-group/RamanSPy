@@ -154,8 +154,9 @@ These can be accessed through the following methods:
 .. autosummary::
     :toctree: generated/prepprocessing/protocols/
 
-    protocols.default
-    protocols.default_fingerprint
-    protocols.articular_cartilage
+    protocols.georgiev2023_P1
+    protocols.georgiev2023_P3
+    protocols.georgiev2023_P3
+    protocols.bergholt2016
 
 .. seealso:: Check the :ref:`Built-in protocols` tutorial for more information about how to access and use the preprocessing protocols built into `RamanSPy`.

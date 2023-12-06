@@ -203,9 +203,10 @@
 <li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/norm/ramanspy.preprocessing.normalise.MinMax.html">ramanspy.preprocessing.normalise.MinMax</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/norm/ramanspy.preprocessing.normalise.MaxIntensity.html">ramanspy.preprocessing.normalise.MaxIntensity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/norm/ramanspy.preprocessing.normalise.AUC.html">ramanspy.preprocessing.normalise.AUC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.default.html">ramanspy.preprocessing.protocols.default</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.default_fingerprint.html">ramanspy.preprocessing.protocols.default_fingerprint</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.articular_cartilage.html">ramanspy.preprocessing.protocols.articular_cartilage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.georgiev2023_P1.html">ramanspy.preprocessing.protocols.georgiev2023_P1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.georgiev2023_P3.html">ramanspy.preprocessing.protocols.georgiev2023_P3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.georgiev2023_P3.html">ramanspy.preprocessing.protocols.georgiev2023_P3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.bergholt2016.html">ramanspy.preprocessing.protocols.bergholt2016</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="analysis.html">Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Analysis</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -667,14 +668,17 @@ These can be accessed through the following methods:</p>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.default.html#ramanspy.preprocessing.protocols.default" title="ramanspy.preprocessing.protocols.default"><code class="xref py py-obj docutils literal notranslate"><span class="pre">protocols.default</span></code></a>([normalisation_pixelwise])</p></td>
-<td><p>A basic preprocessing protocol.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.georgiev2023_P1.html#ramanspy.preprocessing.protocols.georgiev2023_P1" title="ramanspy.preprocessing.protocols.georgiev2023_P1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">protocols.georgiev2023_P1</span></code></a>([...])</p></td>
+<td><p>The first preprocessing protocol used in the paper by Georgiev et al. <a href="#id5"><span class="problematic" id="id1">[1]_</span></a>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.default_fingerprint.html#ramanspy.preprocessing.protocols.default_fingerprint" title="ramanspy.preprocessing.protocols.default_fingerprint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">protocols.default_fingerprint</span></code></a>([...])</p></td>
-<td><p>Same as <a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.default.html#ramanspy.preprocessing.protocols.default" title="ramanspy.preprocessing.protocols.default"><code class="xref py py-meth docutils literal notranslate"><span class="pre">default()</span></code></a> but starting with spectral cropping.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.georgiev2023_P3.html#ramanspy.preprocessing.protocols.georgiev2023_P3" title="ramanspy.preprocessing.protocols.georgiev2023_P3"><code class="xref py py-obj docutils literal notranslate"><span class="pre">protocols.georgiev2023_P3</span></code></a>([...])</p></td>
+<td><p>The third preprocessing protocol used in the paper by Georgiev et al. <a href="#id6"><span class="problematic" id="id2">[1]_</span></a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.articular_cartilage.html#ramanspy.preprocessing.protocols.articular_cartilage" title="ramanspy.preprocessing.protocols.articular_cartilage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">protocols.articular_cartilage</span></code></a>()</p></td>
-<td><p>A basic preprocessing protocol approximating the one adopted in Bergholt MS et al (2016).</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.georgiev2023_P3.html#ramanspy.preprocessing.protocols.georgiev2023_P3" title="ramanspy.preprocessing.protocols.georgiev2023_P3"><code class="xref py py-obj docutils literal notranslate"><span class="pre">protocols.georgiev2023_P3</span></code></a>([...])</p></td>
+<td><p>The third preprocessing protocol used in the paper by Georgiev et al. <a href="#id7"><span class="problematic" id="id3">[1]_</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.bergholt2016.html#ramanspy.preprocessing.protocols.bergholt2016" title="ramanspy.preprocessing.protocols.bergholt2016"><code class="xref py py-obj docutils literal notranslate"><span class="pre">protocols.bergholt2016</span></code></a>()</p></td>
+<td><p>A basic preprocessing protocol approximating the one adopted in Bergholt MS et al (2016) <a href="#id8"><span class="problematic" id="id4">[1]_</span></a>.</p></td>
 </tr>
 </tbody>
 </table>

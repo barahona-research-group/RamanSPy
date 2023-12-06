@@ -4,7 +4,7 @@ from . import denoise, baseline, despike, normalise, misc
 
 def georgiev2023_P1(normalisation_pixelwise: bool = True, fingerprint: bool = True) -> Pipeline:
     """
-    The first preprocessing protocol used in the paper by Georgiev et al. [1]_.
+    The first preprocessing protocol used in the paper by Georgiev et al. (2023) [1]_.
 
     Consists of the following steps:
 
@@ -49,7 +49,7 @@ def georgiev2023_P1(normalisation_pixelwise: bool = True, fingerprint: bool = Tr
 
 def georgiev2023_P2(normalisation_pixelwise: bool = True, fingerprint: bool = True) -> Pipeline:
     """
-    The second preprocessing protocol used in the paper by Georgiev et al. [1]_.
+    The second preprocessing protocol used in the paper by Georgiev et al. (2023) [1]_.
 
     Consists of the following steps:
 
@@ -94,7 +94,7 @@ def georgiev2023_P2(normalisation_pixelwise: bool = True, fingerprint: bool = Tr
 
 def georgiev2023_P3(normalisation_pixelwise: bool = True, fingerprint: bool = True) -> Pipeline:
     """
-    The third preprocessing protocol used in the paper by Georgiev et al. [1]_.
+    The third preprocessing protocol used in the paper by Georgiev et al. (2023) [1]_.
 
     Consists of the following steps:
 
@@ -137,7 +137,7 @@ def georgiev2023_P3(normalisation_pixelwise: bool = True, fingerprint: bool = Tr
 
 def bergholt2016() -> Pipeline:
     """
-    A basic preprocessing protocol approximating the one adopted in Bergholt MS et al (2016) [1]_.
+    A basic preprocessing protocol approximating the one adopted in Bergholt MS et al. (2016) [1]_.
 
     Consists of the following steps:
 
