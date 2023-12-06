@@ -1,0 +1,6 @@
+ramanspy.preprocessing.denoise.Gaussian.apply
+=============================================
+
+.. currentmodule:: ramanspy.preprocessing.denoise
+
+.. automethod:: Gaussian.apply

@@ -8,7 +8,7 @@ from ..core import Spectrum
 
 class BackgroundSubtractor(PreprocessingStep):
     """
-    Subtract a fixed reference background.\
+    Subtract a fixed reference background.
 
     Parameters
     ----------
@@ -28,10 +28,12 @@ class Cropper(PreprocessingStep):
     ----------
     region : tuple of two elements
         The band intervals to crop (in cm^{-1}).
-        Examples:
-            [(None, 300)] - keeps the bands < 300cm-1
-            [(3000, None)] - keeps the bands > 3000cm-1
-            [(700, 1800)] - keeps the bands between 700 and 1800 (i.e. the "fingerprint" region)
+
+        For instance:
+
+            - [(None, 300)] - keeps the bands < 300cm-1
+            - [(3000, None)] - keeps the bands > 3000cm-1
+            - [(700, 1800)] - keeps the bands between 700 and 1800 (i.e. the "fingerprint" region)
     """
 
     def __init__(self, *, region: Tuple[Number or None, Number or None]):

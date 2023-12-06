@@ -1,0 +1,6 @@
+ramanspy.preprocessing.misc.Cropper.apply
+=========================================
+
+.. currentmodule:: ramanspy.preprocessing.misc
+
+.. automethod:: Cropper.apply

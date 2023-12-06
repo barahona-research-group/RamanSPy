@@ -1,0 +1,6 @@
+ramanspy.analysis.decompose.ICA.apply
+=====================================
+
+.. currentmodule:: ramanspy.analysis.decompose
+
+.. automethod:: ICA.apply

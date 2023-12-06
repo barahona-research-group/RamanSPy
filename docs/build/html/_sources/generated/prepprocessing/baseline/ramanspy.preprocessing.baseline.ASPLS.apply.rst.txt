@@ -1,0 +1,6 @@
+ramanspy.preprocessing.baseline.ASPLS.apply
+===========================================
+
+.. currentmodule:: ramanspy.preprocessing.baseline
+
+.. automethod:: ASPLS.apply

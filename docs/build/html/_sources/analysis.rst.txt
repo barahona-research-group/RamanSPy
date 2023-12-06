@@ -21,6 +21,7 @@ interfaced through their ``apply()`` method.
 Decomposition
 ^^^^^^^^^^^^^^^^^^^
 .. autosummary::
+    :toctree: generated/analysis/decompose/
 
     decompose.PCA
     decompose.NMF
@@ -33,6 +34,7 @@ Decomposition
 Clustering
 ^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
+    :toctree: generated/analysis/cluster/
 
     cluster.KMeans
 
@@ -43,6 +45,7 @@ Clustering
 Spectral unmixing
 ^^^^^^^^^^^^^^^^^^^
 .. autosummary::
+    :toctree: generated/analysis/unmix/
 
     unmix.PPI
     unmix.FIPPI

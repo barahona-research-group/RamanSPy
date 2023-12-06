@@ -1,0 +1,6 @@
+ramanspy.preprocessing.misc.BackgroundSubtractor.apply
+======================================================
+
+.. currentmodule:: ramanspy.preprocessing.misc
+
+.. automethod:: BackgroundSubtractor.apply

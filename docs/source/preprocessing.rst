@@ -36,6 +36,7 @@ These are built into `RamanSPy` as classes extending :class:`PreprocessingStep` 
 Miscellaneous
 ^^^^^^^^^^^^^^^^^^^
 .. autosummary::
+    :toctree: generated/prepprocessing/misc/
 
     misc.Cropper
     misc.BackgroundSubtractor
@@ -43,12 +44,14 @@ Miscellaneous
 Cosmic rays removal
 ^^^^^^^^^^^^^^^^^^^^
 .. autosummary::
+    :toctree: generated/prepprocessing/despiking/
 
     despike.WhitakerHayes
 
 Denoising
 ^^^^^^^^^^^^^^^^^^^
 .. autosummary::
+    :toctree: generated/prepprocessing/denoising/
 
     denoise.SavGol
     denoise.Whittaker
@@ -58,9 +61,10 @@ Denoising
 Baseline correction
 ^^^^^^^^^^^^^^^^^^^
 
-Least squares
-"""""""""""""""""""""""""
+Least squares:
+
 .. autosummary::
+    :toctree: generated/prepprocessing/baseline/
 
     baseline.ASLS
     baseline.IASLS
@@ -71,10 +75,10 @@ Least squares
     baseline.ASPLS
 
 
-Polynomial fitting
-""""""""""""""""""""""""""""
+Polynomial fitting:
 
 .. autosummary::
+    :toctree: generated/prepprocessing/baseline/
 
     baseline.Poly
     baseline.ModPoly
@@ -82,10 +86,10 @@ Polynomial fitting
     baseline.ModPoly
 
 
-Other
-""""""
+Other:
 
 .. autosummary::
+    :toctree: generated/prepprocessing/baseline/
 
     baseline.Goldindec
     baseline.IRSQR
@@ -96,6 +100,7 @@ Other
 Normalisation/Scaling
 ^^^^^^^^^^^^^^^^^^^
 .. autosummary::
+    :toctree: generated/prepprocessing/norm/
 
     normalise.Vector
     normalise.MinMax
@@ -147,9 +152,11 @@ to select pre-configured preprocessing pipelines without having to worry about t
 These can be accessed through the following methods:
 
 .. autosummary::
+    :toctree: generated/prepprocessing/protocols/
 
-    protocols.default
-    protocols.default_fingerprint
-    protocols.articular_cartilage
+    protocols.georgiev2023_P1
+    protocols.georgiev2023_P3
+    protocols.georgiev2023_P3
+    protocols.bergholt2016
 
 .. seealso:: Check the :ref:`Built-in protocols` tutorial for more information about how to access and use the preprocessing protocols built into `RamanSPy`.

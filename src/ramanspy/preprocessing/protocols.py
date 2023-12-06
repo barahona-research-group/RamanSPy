@@ -2,71 +2,142 @@ from . import Pipeline
 from . import denoise, baseline, despike, normalise, misc
 
 
-def default(normalisation_pixelwise: bool = True) -> Pipeline:
+def georgiev2023_P1(normalisation_pixelwise: bool = True, fingerprint: bool = True) -> Pipeline:
     """
-    A basic preprocessing protocol.
+    The first preprocessing protocol used in the paper by Georgiev et al. (2023) [1]_.
 
     Consists of the following steps:
 
+    - optional: spectral cropping to the fingerprint region (700-1800 cm-1);
     - cosmic ray removal with Whitaker-Hayes algorithm;
-    - denoising with Savitzky-Golay filter with window length 9 and polynomial order 3;
-    - baseline correction with Adaptive Smoothness Penalized Least Squares (asPLS);
-    - MinMax normalisation (pixelwise).
+    - denoising with a Gaussian filter;
+    - baseline correction with Asymmetric Least Squares;
+    - Area under the curve normalisation.
 
     Parameters
     ----------
     normalisation_pixelwise: bool, optional
         Whether to apply normalisation for each pixel individually or not. Default is ``True``.
+    fingerprint: bool, optional
+        Whether to crop the spectra to the fingerprint region (700-1800 cm-1) or not. Default is ``True``.
+
+    References
+    ----------
+
+    .. [1] Georgiev, D., Pedersen, S.V., Xie, R., Fernández-Galiana, A., Stevens, M.M. and Barahona, M., 2023. RamanSPy: An open-source Python package for integrative Raman spectroscopy data analysis. arXiv preprint arXiv:2307.13650.
 
     Example
     ----------
 
     .. code::
 
-        pipeline = preprocessing.protocols.default()
+        pipeline = preprocessing.protocols.georgiev2023_P1()
         preprocessed_data = pipeline.apply(data)
     """
-    return Pipeline([
+    pipe = Pipeline([
+        despike.WhitakerHayes(),
+        denoise.Gaussian(),
+        baseline.ASLS(),
+        normalise.AUC(pixelwise=normalisation_pixelwise),
+    ])
+
+    if fingerprint:
+        pipe.insert(0, misc.Cropper(region=(700, 1800)))
+
+    return pipe
+
+
+def georgiev2023_P2(normalisation_pixelwise: bool = True, fingerprint: bool = True) -> Pipeline:
+    """
+    The second preprocessing protocol used in the paper by Georgiev et al. (2023) [1]_.
+
+    Consists of the following steps:
+
+    - optional: spectral cropping to the fingerprint region (700-1800 cm-1);
+    - cosmic ray removal with Whitaker-Hayes algorithm;
+    - denoising with Savitzky-Golay filter with window length 9 and polynomial order 3;
+    - baseline correction with Adaptive Smoothness Penalized Least Squares (asPLS);
+    - MinMax normalisation.
+
+    Parameters
+    ----------
+    normalisation_pixelwise: bool, optional
+        Whether to apply normalisation for each pixel individually or not. Default is ``True``.
+    fingerprint: bool, optional
+        Whether to crop the spectra to the fingerprint region (700-1800 cm-1) or not. Default is ``True``.
+
+    References
+    ----------
+
+    .. [1] Georgiev, D., Pedersen, S.V., Xie, R., Fernández-Galiana, A., Stevens, M.M. and Barahona, M., 2023. RamanSPy: An open-source Python package for integrative Raman spectroscopy data analysis. arXiv preprint arXiv:2307.13650.
+
+    Example
+    ----------
+
+    .. code::
+
+        pipeline = preprocessing.protocols.georgiev2023_P2()
+        preprocessed_data = pipeline.apply(data)
+    """
+    pipe = Pipeline([
         despike.WhitakerHayes(),
         denoise.SavGol(window_length=9, polyorder=3),
         baseline.ASPLS(),
         normalise.MinMax(pixelwise=normalisation_pixelwise),
     ])
 
+    if fingerprint:
+        pipe.insert(0, misc.Cropper(region=(700, 1800)))
 
-def default_fingerprint(normalisation_pixelwise: bool = True) -> Pipeline:
+    return pipe
+
+
+def georgiev2023_P3(normalisation_pixelwise: bool = True, fingerprint: bool = True) -> Pipeline:
     """
-    Same as :meth:`~ramanspy.preprocessing.protocols.default` but starting with spectral cropping.
+    The third preprocessing protocol used in the paper by Georgiev et al. (2023) [1]_.
 
     Consists of the following steps:
 
-    - spectral cropping to the fingerprint region (700-1800 cm-1);
+    - optional: spectral cropping to the fingerprint region (700-1800 cm-1);
     - cosmic ray removal with Whitaker-Hayes algorithm;
-    - denoising with Savitzky-Golay filter with window length 9 and polynomial order 3;
-    - baseline correction with Adaptive Smoothness Penalized Least Squares (asPLS);
-    - MinMax normalisation (pixelwise).
+    - baseline correction with polynomial fitting of order 3;
+    - Vector normalisation.
 
     Parameters
     ----------
     normalisation_pixelwise: bool, optional
         Whether to apply normalisation for each pixel individually or not. Default is ``True``.
+    fingerprint: bool, optional
+        Whether to crop the spectra to the fingerprint region (700-1800 cm-1) or not. Default is ``True``.
+
+    References
+    ----------
+
+    .. [1] Georgiev, D., Pedersen, S.V., Xie, R., Fernández-Galiana, A., Stevens, M.M. and Barahona, M., 2023. RamanSPy: An open-source Python package for integrative Raman spectroscopy data analysis. arXiv preprint arXiv:2307.13650.
 
     Example
     ----------
 
     .. code::
 
-        pipeline = preprocessing.protocols.default_fingerprint()
+        pipeline = preprocessing.protocols.georgiev2023_P3()
         preprocessed_data = pipeline.apply(data)
     """
-    pipe = default(normalisation_pixelwise)
-    pipe.insert(0, misc.Cropper(region=(700, 1800)))
+    pipe = Pipeline([
+        despike.WhitakerHayes(),
+        baseline.Poly(poly_order=3),
+        normalise.Vector(pixelwise=normalisation_pixelwise),
+    ])
+
+    if fingerprint:
+        pipe.insert(0, misc.Cropper(region=(700, 1800)))
+
     return pipe
 
 
-def articular_cartilage() -> Pipeline:
+def bergholt2016() -> Pipeline:
     """
-    A basic preprocessing protocol approximating the one adopted in Bergholt MS et al (2016).
+    A basic preprocessing protocol approximating the one adopted in Bergholt MS et al. (2016) [1]_.
 
     Consists of the following steps:
 
@@ -77,7 +148,8 @@ def articular_cartilage() -> Pipeline:
 
     References
     ----------
-    Bergholt MS, St-Pierre JP, Offeddu GS, Parmar PA, Albro MB, Puetzer JL, Oyen ML, Stevens MM. Raman spectroscopy reveals new insights into the zonal organization of native and tissue-engineered articular cartilage. ACS central science. 2016 Dec 28;2(12):885-95.
+
+    .. [1] Bergholt MS, St-Pierre JP, Offeddu GS, Parmar PA, Albro MB, Puetzer JL, Oyen ML, Stevens MM. Raman spectroscopy reveals new insights into the zonal organization of native and tissue-engineered articular cartilage. ACS central science. 2016 Dec 28;2(12):885-95.
 
 
     Example

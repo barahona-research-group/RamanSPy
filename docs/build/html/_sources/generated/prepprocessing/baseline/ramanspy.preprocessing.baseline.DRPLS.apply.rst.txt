@@ -1,0 +1,6 @@
+ramanspy.preprocessing.baseline.DRPLS.apply
+===========================================
+
+.. currentmodule:: ramanspy.preprocessing.baseline
+
+.. automethod:: DRPLS.apply

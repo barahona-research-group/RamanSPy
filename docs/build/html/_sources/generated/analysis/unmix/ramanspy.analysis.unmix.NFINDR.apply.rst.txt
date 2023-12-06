@@ -1,0 +1,6 @@
+ramanspy.analysis.unmix.NFINDR.apply
+====================================
+
+.. currentmodule:: ramanspy.analysis.unmix
+
+.. automethod:: NFINDR.apply

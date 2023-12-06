@@ -45,7 +45,6 @@ class Gaussian(PreprocessingStep):
         super().__init__(_gauss, sigma=sigma, order=order, output=output, mode=mode, cval=cval, truncate=truncate, radius=radius)
 
 
-# TODO: Check implementation
 class Whittaker(PreprocessingStep):
     """
     Denoising based on Discrete Penalised Least Squares (a.k.a Whittaker−Henderson smoothing).
@@ -72,14 +71,14 @@ class Kernel(PreprocessingStep):
 
     Parameters
     ----------
-    method : {'flat', 'hanning', 'hamming', 'bartlett', 'blackman'}
+    kernel_type : str, {'flat', 'hanning', 'hamming', 'bartlett', 'blackman'}
         The type of kernel to use.
     kernel_size : int, optional, default=11
-        The size of the window/kernel to use.
+        The size of the window/kernel to use. Must be an odd integer.
     """
 
-    def __init__(self, *, method, kernel_size: int = 11):
-        super().__init__(_kernel, method=method, kernel_size=kernel_size)
+    def __init__(self, *, kernel_type, kernel_size: int = 11):
+        super().__init__(_kernel, kernel_type=kernel_type, kernel_size=kernel_size)
 
 
 def _savgol(intensity_data, spectral_axis, **kwargs):
@@ -93,8 +92,8 @@ def _whittaker(intensity_data, spectral_axis, lam, d):
     return intensity_data @ np.linalg.inv(I + lam * D.T @ D).T, spectral_axis
 
 
-def _kernel(intensity_data, spectral_axis, method, kernel_size):
-    return np.apply_along_axis(_kernel_spectrum, axis=-1, arr=intensity_data, method=method, kernel_size=kernel_size), spectral_axis
+def _kernel(intensity_data, spectral_axis, kernel_type, kernel_size):
+    return np.apply_along_axis(_kernel_spectrum, axis=-1, arr=intensity_data, method=kernel_type, kernel_size=kernel_size), spectral_axis
 
 
 def _kernel_spectrum(intensity_values_array, method, kernel_size):

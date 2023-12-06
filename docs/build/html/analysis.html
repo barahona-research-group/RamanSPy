@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Synthetic data" href="synth.html" /><link rel="prev" title="Preprocessing" href="preprocessing.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="ramanspy.analysis.decompose.PCA" href="generated/analysis/decompose/ramanspy.analysis.decompose.PCA.html" /><link rel="prev" title="ramanspy.preprocessing.protocols.bergholt2016" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.bergholt2016.html" />
 
     <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Analysis - RamanSPy</title>
@@ -176,13 +176,55 @@
 <li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="metrics.html">Metrics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot.html">Data visualisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="preprocessing.html">Preprocessing</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Analysis</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="preprocessing.html">Preprocessing</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Preprocessing</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/misc/ramanspy.preprocessing.misc.Cropper.html">ramanspy.preprocessing.misc.Cropper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/misc/ramanspy.preprocessing.misc.BackgroundSubtractor.html">ramanspy.preprocessing.misc.BackgroundSubtractor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/despiking/ramanspy.preprocessing.despike.WhitakerHayes.html">ramanspy.preprocessing.despike.WhitakerHayes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/denoising/ramanspy.preprocessing.denoise.SavGol.html">ramanspy.preprocessing.denoise.SavGol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/denoising/ramanspy.preprocessing.denoise.Whittaker.html">ramanspy.preprocessing.denoise.Whittaker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/denoising/ramanspy.preprocessing.denoise.Kernel.html">ramanspy.preprocessing.denoise.Kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/denoising/ramanspy.preprocessing.denoise.Gaussian.html">ramanspy.preprocessing.denoise.Gaussian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.ASLS.html">ramanspy.preprocessing.baseline.ASLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.IASLS.html">ramanspy.preprocessing.baseline.IASLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.AIRPLS.html">ramanspy.preprocessing.baseline.AIRPLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.ARPLS.html">ramanspy.preprocessing.baseline.ARPLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.DRPLS.html">ramanspy.preprocessing.baseline.DRPLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.IARPLS.html">ramanspy.preprocessing.baseline.IARPLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.ASPLS.html">ramanspy.preprocessing.baseline.ASPLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.Poly.html">ramanspy.preprocessing.baseline.Poly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.ModPoly.html">ramanspy.preprocessing.baseline.ModPoly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.Poly.html">ramanspy.preprocessing.baseline.Poly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.ModPoly.html">ramanspy.preprocessing.baseline.ModPoly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.Goldindec.html">ramanspy.preprocessing.baseline.Goldindec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.IRSQR.html">ramanspy.preprocessing.baseline.IRSQR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.CornerCutting.html">ramanspy.preprocessing.baseline.CornerCutting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.FABC.html">ramanspy.preprocessing.baseline.FABC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/norm/ramanspy.preprocessing.normalise.Vector.html">ramanspy.preprocessing.normalise.Vector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/norm/ramanspy.preprocessing.normalise.MinMax.html">ramanspy.preprocessing.normalise.MinMax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/norm/ramanspy.preprocessing.normalise.MaxIntensity.html">ramanspy.preprocessing.normalise.MaxIntensity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/norm/ramanspy.preprocessing.normalise.AUC.html">ramanspy.preprocessing.normalise.AUC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.georgiev2023_P1.html">ramanspy.preprocessing.protocols.georgiev2023_P1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.georgiev2023_P3.html">ramanspy.preprocessing.protocols.georgiev2023_P3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.georgiev2023_P3.html">ramanspy.preprocessing.protocols.georgiev2023_P3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.bergholt2016.html">ramanspy.preprocessing.protocols.bergholt2016</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Analysis</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/analysis/decompose/ramanspy.analysis.decompose.PCA.html">ramanspy.analysis.decompose.PCA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/analysis/decompose/ramanspy.analysis.decompose.NMF.html">ramanspy.analysis.decompose.NMF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/analysis/decompose/ramanspy.analysis.decompose.ICA.html">ramanspy.analysis.decompose.ICA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/analysis/cluster/ramanspy.analysis.cluster.KMeans.html">ramanspy.analysis.cluster.KMeans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/analysis/unmix/ramanspy.analysis.unmix.PPI.html">ramanspy.analysis.unmix.PPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/analysis/unmix/ramanspy.analysis.unmix.FIPPI.html">ramanspy.analysis.unmix.FIPPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/analysis/unmix/ramanspy.analysis.unmix.NFINDR.html">ramanspy.analysis.unmix.NFINDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/analysis/unmix/ramanspy.analysis.unmix.VCA.html">ramanspy.analysis.unmix.VCA</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="synth.html">Synthetic data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="auto_tutorials/index.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="auto_tutorials/index.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="auto_tutorials/i-classes/plot_i_generic_container.html">Storing generic data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_tutorials/i-classes/plot_ii_spectrum_container.html">Storing spectra</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_tutorials/i-classes/plot_iii_image_container.html">Storing imaging data</a></li>
@@ -213,7 +255,7 @@
 <li class="toctree-l2"><a class="reference internal" href="auto_tutorials/vii-synth/plot_i_endmembers.html">Generate synthetic spectra</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="auto_examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="auto_examples/plot_i_package_overview.html">Cell phenotyping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_examples/plot_i_preprocessing_pipelines.html">Preprocessing pipelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_examples/plot_ii_dl_denoising.html">AI-based denoising</a></li>
@@ -275,13 +317,13 @@ interfaced through their <code class="docutils literal notranslate"><span class=
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">decompose.PCA</span></code>(*, n_components, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/analysis/decompose/ramanspy.analysis.decompose.PCA.html#ramanspy.analysis.decompose.PCA" title="ramanspy.analysis.decompose.PCA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decompose.PCA</span></code></a>(*, n_components, **kwargs)</p></td>
 <td><p>Principal component analysis (PCA).</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">decompose.NMF</span></code>(*, n_components, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/analysis/decompose/ramanspy.analysis.decompose.NMF.html#ramanspy.analysis.decompose.NMF" title="ramanspy.analysis.decompose.NMF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decompose.NMF</span></code></a>(*, n_components, **kwargs)</p></td>
 <td><p>Non-negative matrix factorisation (NMF).</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">decompose.ICA</span></code>(*, n_components, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/analysis/decompose/ramanspy.analysis.decompose.ICA.html#ramanspy.analysis.decompose.ICA" title="ramanspy.analysis.decompose.ICA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decompose.ICA</span></code></a>(*, n_components, **kwargs)</p></td>
 <td><p>Independent component analysis (ICA).</p></td>
 </tr>
 </tbody>
@@ -298,7 +340,7 @@ the decomposition algorithms built into <cite>RamanSPy</cite>.</p>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">cluster.KMeans</span></code>(*, n_clusters, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/analysis/cluster/ramanspy.analysis.cluster.KMeans.html#ramanspy.analysis.cluster.KMeans" title="ramanspy.analysis.cluster.KMeans"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cluster.KMeans</span></code></a>(*, n_clusters, **kwargs)</p></td>
 <td><p>k-means clustering.</p></td>
 </tr>
 </tbody>
@@ -315,16 +357,16 @@ clustering algorithms built into <cite>RamanSPy</cite>.</p>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">unmix.PPI</span></code>(*, n_endmembers[, abundance_method])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/analysis/unmix/ramanspy.analysis.unmix.PPI.html#ramanspy.analysis.unmix.PPI" title="ramanspy.analysis.unmix.PPI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unmix.PPI</span></code></a>(*, n_endmembers[, abundance_method])</p></td>
 <td><p>Pixel Purity Index (PPI).</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">unmix.FIPPI</span></code>(*, n_endmembers[, abundance_method])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/analysis/unmix/ramanspy.analysis.unmix.FIPPI.html#ramanspy.analysis.unmix.FIPPI" title="ramanspy.analysis.unmix.FIPPI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unmix.FIPPI</span></code></a>(*, n_endmembers[, abundance_method])</p></td>
 <td><p>Fast Iterative Pixel Purity Index (FIPPI).</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">unmix.NFINDR</span></code>(*, n_endmembers[, abundance_method])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/analysis/unmix/ramanspy.analysis.unmix.NFINDR.html#ramanspy.analysis.unmix.NFINDR" title="ramanspy.analysis.unmix.NFINDR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unmix.NFINDR</span></code></a>(*, n_endmembers[, abundance_method])</p></td>
 <td><p>N-FINDR.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">unmix.VCA</span></code>(*, n_endmembers[, abundance_method])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/analysis/unmix/ramanspy.analysis.unmix.VCA.html#ramanspy.analysis.unmix.VCA" title="ramanspy.analysis.unmix.VCA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unmix.VCA</span></code></a>(*, n_endmembers[, abundance_method])</p></td>
 <td><p>Vertex Component Analysis (VCA).</p></td>
 </tr>
 </tbody>
@@ -356,23 +398,23 @@ tutorials for more information about how to integrate <cite>RamanSPy</cite> with
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="synth.html">
+          <a class="next-page" href="generated/analysis/decompose/ramanspy.analysis.decompose.PCA.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Synthetic data</div>
+                <div class="title">ramanspy.analysis.decompose.PCA</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="preprocessing.html">
+          <a class="prev-page" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.bergholt2016.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Preprocessing</div>
+                <div class="title">ramanspy.preprocessing.protocols.bergholt2016</div>
                 
               </div>
             </a>

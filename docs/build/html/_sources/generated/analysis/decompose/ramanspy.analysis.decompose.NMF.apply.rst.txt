@@ -1,0 +1,6 @@
+ramanspy.analysis.decompose.NMF.apply
+=====================================
+
+.. currentmodule:: ramanspy.analysis.decompose
+
+.. automethod:: NMF.apply

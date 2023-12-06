@@ -1,0 +1,23 @@
+﻿:github_url: ramanspy.preprocessing.denoise.Gaussian
+
+ramanspy.preprocessing.denoise.Gaussian
+=======================================
+
+.. currentmodule:: ramanspy.preprocessing.denoise
+
+.. autoclass:: Gaussian
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :toctree: .
+   
+      ~ramanspy.preprocessing.denoise.Gaussian.apply
+   
+   

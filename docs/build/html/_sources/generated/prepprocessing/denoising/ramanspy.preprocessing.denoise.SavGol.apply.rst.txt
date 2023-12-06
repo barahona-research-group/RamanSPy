@@ -1,0 +1,6 @@
+ramanspy.preprocessing.denoise.SavGol.apply
+===========================================
+
+.. currentmodule:: ramanspy.preprocessing.denoise
+
+.. automethod:: SavGol.apply

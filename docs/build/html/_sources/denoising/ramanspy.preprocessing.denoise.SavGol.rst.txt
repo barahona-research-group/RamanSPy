@@ -1,0 +1,23 @@
+﻿:github_url: ramanspy.preprocessing.denoise.SavGol
+
+ramanspy.preprocessing.denoise.SavGol
+=====================================
+
+.. currentmodule:: ramanspy.preprocessing.denoise
+
+.. autoclass:: SavGol
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :toctree: .
+   
+      ~ramanspy.preprocessing.denoise.SavGol.apply
+   
+   
