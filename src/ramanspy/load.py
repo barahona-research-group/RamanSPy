@@ -6,53 +6,54 @@ from renishawWiRE import WDFReader
 
 from . import core
 from . import utils
-
-# Helper functions copied from mergen's answer at:
-# https://stackoverflow.com/questions/7008608/scipy-io-loadmat-nested-structures-i-e-dictionaries
 from .preprocessing import Pipeline
 
 
 def _loadmat(filename):
-    """
-    this function should be called instead of direct spio.loadmat
-    as it cures the problem of not properly recovering python dictionaries
-    from mat files. It calls the function check keys to cure all entries
-    which are still mat-objects.
-    """
     data = spio.loadmat(filename, struct_as_record=False, squeeze_me=True)
-    return _check_keys(data)
+
+    for key in data:
+        if isinstance(data[key], spio.matlab.mat_struct):
+            data[key] = _todict(data[key])
+
+    return data
 
 
-# Helper functions copied from mergen's answer at:
-# https://stackoverflow.com/questions/7008608/scipy-io-loadmat-nested-structures-i-e-dictionaries
-def _check_keys(dict):
-    """
-    checks if entries in dictionary are mat-objects. If yes
-    todict is called to change them to nested dictionaries
-    """
-    for key in dict:
-        if isinstance(dict[key], spio.matlab.mio5_params.mat_struct):
-            dict[key] = _todict(dict[key])
-    return dict
-
-
-# Helper functions copied from mergen's answer at:
-# https://stackoverflow.com/questions/7008608/scipy-io-loadmat-nested-structures-i-e-dictionaries
 def _todict(matobj):
     """
-    A recursive function which constructs from matobjects nested dictionaries
+    A recursive function which constructs from matobjects nested dictionaries.
+
+    From: https://stackoverflow.com/questions/7008608/scipy-io-loadmat-nested-structures-i-e-dictionaries
     """
     dict = {}
     for strg in matobj._fieldnames:
         elem = matobj.__dict__[strg]
-        if isinstance(elem, spio.matlab.mio5_params.mat_struct):
+        if isinstance(elem, spio.matlab.mat_struct):
             dict[strg] = _todict(elem)
         else:
             dict[strg] = elem
     return dict
 
 
-def witec(filename: str, *, preprocess: Pipeline = None, laser_excitation: numbers.Number = 532) -> core.Spectrum or core.SpectralImage:
+def get_value(nested_dict, key):
+    """
+    A recursive function to get the value of a key in a nested dictionary.
+    """
+    for k, v in nested_dict.items():
+        if k == key:
+            return v
+        elif isinstance(v, dict):
+            p = get_value(v, key)
+            if p is not None:
+                return p
+
+
+def witec(
+        filename: str,
+        *,
+        preprocess: Pipeline = None,
+        laser_excitation: numbers.Number = 532
+) -> core.Spectrum or core.SpectralImage:
     """
     Loads MATLAB files exported from `WITec's WITec Suite software <https://raman.oxinst.com/products/software/witec-software-suite>`_.
 
@@ -72,17 +73,17 @@ def witec(filename: str, *, preprocess: Pipeline = None, laser_excitation: numbe
 
     Example
     ----------
-    
-    .. code:: 
-    
+
+    .. code::
+
         import ramanspy as rp
-       
+
         # Loading a single spectrum
         raman_spectrum = rp.load.witec("path/to/file/witec_spectrum.mat")
-       
+
         # Loading Raman image data
         raman_image = rp.load.witec("path/to/file/witec_image.mat")
-       
+
         # Loading volumetric Raman data from a list of Raman image files by stacking them as layers along the z-axis
         image_layer_files = ["path/to/file/witec_image_1.mat", ..., "path/to/file/witec_image_n.mat"]
         raman_image_stack = [rp.load.witec(image_layer_file) for image_layer_file in image_layer_files]
@@ -90,39 +91,23 @@ def witec(filename: str, *, preprocess: Pipeline = None, laser_excitation: numbe
     """
     matlab_dict = _loadmat(filename)
 
-    # metadata = matlab_dict
-    # metadata["filename"] = file_name
-
-    struct_key = next(key for key in matlab_dict.keys() if 'Struct' in key)
-    raman_matlab_struct = matlab_dict[struct_key]
-
-    axis = raman_matlab_struct['axisscale'][1]
+    axis = get_value(matlab_dict, 'axisscale')[1]
     shift_values = utils.wavelength_to_wavenumber(axis[0], laser_excitation) if axis[1] != 'rel. 1/cm' else axis[0]
 
-    spectral_data = raman_matlab_struct['data']
+    spectral_data = get_value(matlab_dict, 'data')
 
     if len(spectral_data.shape) == 1:  # i.e. single spectrum
         obj = core.Spectrum(spectral_data, shift_values)
 
     elif len(spectral_data.shape) == 2:
-        # (y_size, x_size) = raman_matlab_struct['imagesize']
-        # image_axis = raman_matlab_struct['imageaxisscale']
-        # pixel_scale_y = image_axis[0][0][1] - image_axis[0][0][0]
-        # pixel_scale_x = image_axis[1][0][1] - image_axis[1][0][0]
-
-        # spectra = np.ndarray(shape=(y_size, x_size,))
-        # for i in range(x_size):
-        #     for j in range(y_size):
-        #         spectra[j, i] = spectral_data[i * y_size + j]
-
-        spectral_data = spectral_data.reshape(raman_matlab_struct['imagesize'][1], raman_matlab_struct['imagesize'][0],
-                                              -1).transpose(1, 0, 2)
+        imagesize = get_value(matlab_dict, 'imagesize')
+        spectral_data = spectral_data.reshape(imagesize[1], imagesize[0], -1).transpose(1, 0, 2)
 
         obj = core.SpectralImage(spectral_data, shift_values)
 
     else:
         raise ValueError(
-            f'Raman Matlab type {raman_matlab_struct["type"]} and dimension {len(spectral_data.shape)} is unknown')
+            f"Raman Matlab type {get_value(matlab_dict, 'type')} and dimension {len(spectral_data.shape)} is unknown")
 
     if preprocess is not None:
         obj = preprocess.apply(obj)

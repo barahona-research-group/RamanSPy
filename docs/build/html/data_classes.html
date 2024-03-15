@@ -313,7 +313,7 @@ regardless of the data of interest.</p>
 <p>This includes a generic spectral container class <a class="reference internal" href="#ramanspy.SpectralContainer" title="ramanspy.SpectralContainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralContainer</span></code></a>, as well as
 the more specialised <a class="reference internal" href="#ramanspy.Spectrum" title="ramanspy.Spectrum"><code class="xref py py-class docutils literal notranslate"><span class="pre">Spectrum</span></code></a>, <a class="reference internal" href="#ramanspy.SpectralImage" title="ramanspy.SpectralImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralImage</span></code></a> and <a class="reference internal" href="#ramanspy.SpectralVolume" title="ramanspy.SpectralVolume"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpectralVolume</span></code></a> classes,
 which correspond to single spectra, Raman imaging data and volumetric Raman data respectively.</p>
-<p>For the most part, the construction of these classes is automated through the various <a class="reference internal" href="tutorials/ii-instrumental/README.html#data-loading"><span class="std std-ref">Data loading</span></a> and <a class="reference internal" href="datasets.html#datasets"><span class="std std-ref">Datasets</span></a>
+<p>For the most part, the construction of these classes is automated through the various <a class="reference internal" href="loading.html#data-loading"><span class="std std-ref">Data loading</span></a> and <a class="reference internal" href="datasets.html#datasets"><span class="std std-ref">Datasets</span></a>
 methods in <cite>RamanSPy</cite>. However, the containers can be populated manually as well, if required.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -420,6 +420,12 @@ to the working directory. If not provided (default), the file will be saved in t
 <dt class="sig sig-object py" id="ramanspy.SpectralContainer.spectral_length">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">spectral_length</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#ramanspy.SpectralContainer.spectral_length" title="Link to this definition"></a></dt>
 <dd><p>Returns the spectral length B of the spectral object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ramanspy.SpectralContainer.tolist">
+<span class="sig-name descname"><span class="pre">tolist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ramanspy.Spectrum" title="ramanspy.core.Spectrum"><span class="pre">Spectrum</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ramanspy/core.html#SpectralContainer.tolist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ramanspy.SpectralContainer.tolist" title="Link to this definition"></a></dt>
+<dd><p>Returns the spectral object as a list of Spectrum objects.</p>
 </dd></dl>
 
 </dd></dl>
@@ -599,7 +605,7 @@ band(s) in the spectral axis of the image to the one(s) given).</p>
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2023, Dimitar Georgiev
+                Copyright &#169; 2024, Dimitar Georgiev
             </div>
             Made with 
             <a href="https://github.com/pradyunsg/furo">Furo</a>
@@ -635,6 +641,7 @@ band(s) in the spectral axis of the image to the one(s) given).</p>
 <li><a class="reference internal" href="#ramanspy.SpectralContainer.save"><code class="docutils literal notranslate"><span class="pre">SpectralContainer.save()</span></code></a></li>
 <li><a class="reference internal" href="#ramanspy.SpectralContainer.shape"><code class="docutils literal notranslate"><span class="pre">SpectralContainer.shape</span></code></a></li>
 <li><a class="reference internal" href="#ramanspy.SpectralContainer.spectral_length"><code class="docutils literal notranslate"><span class="pre">SpectralContainer.spectral_length</span></code></a></li>
+<li><a class="reference internal" href="#ramanspy.SpectralContainer.tolist"><code class="docutils literal notranslate"><span class="pre">SpectralContainer.tolist()</span></code></a></li>
 </ul>
 </li>
 </ul>

@@ -172,6 +172,14 @@ class SpectralContainer:
         # Return the slice across that band
         return self.spectral_data[..., closest_band_index]
 
+    def tolist(self) -> list[Spectrum]:
+        """
+        Returns the spectral object as a list of Spectrum objects.
+        """
+        unfolded_spectral_data = self.spectral_data.reshape(-1, self.spectral_length)
+
+        return [Spectrum(spectral_data, self.spectral_axis) for spectral_data in unfolded_spectral_data]
+
 
 class Spectrum(SpectralContainer):
     """
