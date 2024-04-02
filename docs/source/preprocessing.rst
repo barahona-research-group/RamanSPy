@@ -82,8 +82,6 @@ Polynomial fitting:
 
     baseline.Poly
     baseline.ModPoly
-    baseline.Poly
-    baseline.ModPoly
 
 
 Other:
