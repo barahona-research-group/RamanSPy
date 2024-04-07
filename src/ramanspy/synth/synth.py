@@ -64,6 +64,10 @@ def generate_spectra(num_spectra, n_bands, *, realistic=False, spectral_axis=Non
         rp.plot.spectra(spectra)
         rp.plot.show()
 
+
+    References
+    ----------
+    Georgiev, D., Fernández-Galiana, A., Pedersen, S.V., Papadopoulos, G., Xie, R., Stevens, M.M. and Barahona, M., 2024. Hyperspectral unmixing for Raman spectroscopy via physics-constrained autoencoders. arXiv preprint arXiv:2403.04526.
     """
     if spectral_axis is not None:
         assert len(spectral_axis) == n_bands, 'The spectral axis should match the number of bands.'
@@ -144,6 +148,11 @@ def mix(
     -------
     mixtures : array_like
         The mixed spectra.
+
+
+    References
+    ----------
+    Georgiev, D., Fernández-Galiana, A., Pedersen, S.V., Papadopoulos, G., Xie, R., Stevens, M.M. and Barahona, M., 2024. Hyperspectral unmixing for Raman spectroscopy via physics-constrained autoencoders. arXiv preprint arXiv:2403.04526.
     """
     spectral_axis = endmembers[0].spectral_axis
 
@@ -214,6 +223,11 @@ def generate_abundance_scene(size, num_endmembers, scene_type, *, seed=None):
     -------
     image : array_like, shape (size, size, num_endmembers)
         The generated abundance image.
+
+
+    References
+    ----------
+    Georgiev, D., Fernández-Galiana, A., Pedersen, S.V., Papadopoulos, G., Xie, R., Stevens, M.M. and Barahona, M., 2024. Hyperspectral unmixing for Raman spectroscopy via physics-constrained autoencoders. arXiv preprint arXiv:2403.04526.
     """
     assert scene_type in SCENES, 'The mode must be one of {}'.format(SCENES)
 
@@ -323,6 +337,10 @@ def generate_mixture_image(
         # Generate synthetic data
         mixture, endmebers, abundance_image = rp.synth.generate_image_dataset(5, 1000, 100, 'chessboard', mixture_mode='linear')
 
+
+    References
+    ----------
+    Georgiev, D., Fernández-Galiana, A., Pedersen, S.V., Papadopoulos, G., Xie, R., Stevens, M.M. and Barahona, M., 2024. Hyperspectral unmixing for Raman spectroscopy via physics-constrained autoencoders. arXiv preprint arXiv:2403.04526.
     """
 
     endmebers = generate_spectra(num_endmembers, num_spectral_bands, realistic=realistic_endmembers, seed=seed)

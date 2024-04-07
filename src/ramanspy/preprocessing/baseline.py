@@ -290,6 +290,11 @@ class PenalisedPoly(PybaselinesCorrector):
 
 
     .. note :: Implementation based on `pybaselines <https://pybaselines.readthedocs.io>`_.
+
+
+    References
+    ----------
+    Mazet, V., et al. Background removal from spectra by designing and minimising a non-quadratic cost function. Chemometrics and Intelligent Laboratory Systems, 2005, 76(2), 121-133.
     """
     def __init__(self, *, poly_order=2, tol=0.001, max_iter=250, weights=None, cost_function='asymmetric_truncated_quadratic', threshold=None, alpha_factor=0.99):
         super().__init__(pybaselines.polynomial.penalized_poly, poly_order=poly_order, tol=tol, max_iter=max_iter, weights=weights, cost_function=cost_function, threshold=threshold, alpha_factor=alpha_factor)
@@ -394,7 +399,7 @@ class FABC(PybaselinesCorrector):
 
     References
     ----------
-    Liu, Y.J., et al. A Concise Iterative Method with Bezier Technique for Baseline Construction. Analyst, 2015, 140(23), 7984-7996.
+    Cobas, J.C., Bernstein, M.A., Martín-Pastor, M. and Tahoces, P.G., 2006. A new general-purpose fully automatic baseline-correction procedure for 1D and 2D NMR data. Journal of Magnetic Resonance, 183(1), pp.145-151.
     """
     def __init__(self, *, lam=1000000.0, scale=None, num_std=3.0, diff_order=2, min_length=2, weights=None, weights_as_mask=False, x_data=None, **pad_kwargs):
         super().__init__(pybaselines.classification.fabc, lam=lam, scale=scale, num_std=num_std, diff_order=diff_order, min_length=min_length, weights=weights, weights_as_mask=weights_as_mask, x_data=x_data, **pad_kwargs)
