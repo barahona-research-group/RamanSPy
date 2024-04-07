@@ -290,6 +290,11 @@ class PenalisedPoly(PybaselinesCorrector):
 
 
     .. note :: Implementation based on `pybaselines <https://pybaselines.readthedocs.io>`_.
+
+
+    References
+    ----------
+    Mazet, V., et al. Background removal from spectra by designing and minimising a non-quadratic cost function. Chemometrics and Intelligent Laboratory Systems, 2005, 76(2), 121-133.
     """
     def __init__(self, *, poly_order=2, tol=0.001, max_iter=250, weights=None, cost_function='asymmetric_truncated_quadratic', threshold=None, alpha_factor=0.99):
         super().__init__(pybaselines.polynomial.penalized_poly, poly_order=poly_order, tol=tol, max_iter=max_iter, weights=weights, cost_function=cost_function, threshold=threshold, alpha_factor=alpha_factor)
