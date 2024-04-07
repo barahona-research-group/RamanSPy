@@ -193,8 +193,8 @@
 <li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.ASPLS.html">ramanspy.preprocessing.baseline.ASPLS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.Poly.html">ramanspy.preprocessing.baseline.Poly</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.ModPoly.html">ramanspy.preprocessing.baseline.ModPoly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.Poly.html">ramanspy.preprocessing.baseline.Poly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.ModPoly.html">ramanspy.preprocessing.baseline.ModPoly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.PenalisedPoly.html">ramanspy.preprocessing.baseline.PenalisedPoly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.IModPoly.html">ramanspy.preprocessing.baseline.IModPoly</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.Goldindec.html">ramanspy.preprocessing.baseline.Goldindec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.IRSQR.html">ramanspy.preprocessing.baseline.IRSQR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.CornerCutting.html">ramanspy.preprocessing.baseline.CornerCutting</a></li>
@@ -479,11 +479,11 @@ methods for cosmic ray removal, denoising, baseline correction, normalisation an
 <tr class="row-even"><td><p><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.ModPoly.html#ramanspy.preprocessing.baseline.ModPoly" title="ramanspy.preprocessing.baseline.ModPoly"><code class="xref py py-obj docutils literal notranslate"><span class="pre">baseline.ModPoly</span></code></a>(*[, poly_order, tol, ...])</p></td>
 <td><p>Baseline correction based on modified polynomial fitting.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.Poly.html#ramanspy.preprocessing.baseline.Poly" title="ramanspy.preprocessing.baseline.Poly"><code class="xref py py-obj docutils literal notranslate"><span class="pre">baseline.Poly</span></code></a>(*[, poly_order, regions])</p></td>
-<td><p>Baseline correction based on polynomial fitting.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.PenalisedPoly.html#ramanspy.preprocessing.baseline.PenalisedPoly" title="ramanspy.preprocessing.baseline.PenalisedPoly"><code class="xref py py-obj docutils literal notranslate"><span class="pre">baseline.PenalisedPoly</span></code></a>(*[, poly_order, tol, ...])</p></td>
+<td><p>Baseline correction based on penalised polynomial fitting.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.ModPoly.html#ramanspy.preprocessing.baseline.ModPoly" title="ramanspy.preprocessing.baseline.ModPoly"><code class="xref py py-obj docutils literal notranslate"><span class="pre">baseline.ModPoly</span></code></a>(*[, poly_order, tol, ...])</p></td>
-<td><p>Baseline correction based on modified polynomial fitting.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/prepprocessing/baseline/ramanspy.preprocessing.baseline.IModPoly.html#ramanspy.preprocessing.baseline.IModPoly" title="ramanspy.preprocessing.baseline.IModPoly"><code class="xref py py-obj docutils literal notranslate"><span class="pre">baseline.IModPoly</span></code></a>(*[, poly_order, tol, ...])</p></td>
+<td><p>Baseline correction based on improved modified polynomial fitting.</p></td>
 </tr>
 </tbody>
 </table>
@@ -669,16 +669,16 @@ These can be accessed through the following methods:</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.georgiev2023_P1.html#ramanspy.preprocessing.protocols.georgiev2023_P1" title="ramanspy.preprocessing.protocols.georgiev2023_P1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">protocols.georgiev2023_P1</span></code></a>([...])</p></td>
-<td><p>The first preprocessing protocol used in the paper by Georgiev et al. <a href="#id5"><span class="problematic" id="id1">[1]_</span></a>.</p></td>
+<td><p>The first preprocessing protocol used in the paper by Georgiev et al. (2023) <a href="#id5"><span class="problematic" id="id1">[1]_</span></a>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.georgiev2023_P3.html#ramanspy.preprocessing.protocols.georgiev2023_P3" title="ramanspy.preprocessing.protocols.georgiev2023_P3"><code class="xref py py-obj docutils literal notranslate"><span class="pre">protocols.georgiev2023_P3</span></code></a>([...])</p></td>
-<td><p>The third preprocessing protocol used in the paper by Georgiev et al. <a href="#id6"><span class="problematic" id="id2">[1]_</span></a>.</p></td>
+<td><p>The third preprocessing protocol used in the paper by Georgiev et al. (2023) <a href="#id6"><span class="problematic" id="id2">[1]_</span></a>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.georgiev2023_P3.html#ramanspy.preprocessing.protocols.georgiev2023_P3" title="ramanspy.preprocessing.protocols.georgiev2023_P3"><code class="xref py py-obj docutils literal notranslate"><span class="pre">protocols.georgiev2023_P3</span></code></a>([...])</p></td>
-<td><p>The third preprocessing protocol used in the paper by Georgiev et al. <a href="#id7"><span class="problematic" id="id3">[1]_</span></a>.</p></td>
+<td><p>The third preprocessing protocol used in the paper by Georgiev et al. (2023) <a href="#id7"><span class="problematic" id="id3">[1]_</span></a>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/prepprocessing/protocols/ramanspy.preprocessing.protocols.bergholt2016.html#ramanspy.preprocessing.protocols.bergholt2016" title="ramanspy.preprocessing.protocols.bergholt2016"><code class="xref py py-obj docutils literal notranslate"><span class="pre">protocols.bergholt2016</span></code></a>()</p></td>
-<td><p>A basic preprocessing protocol approximating the one adopted in Bergholt MS et al (2016) <a href="#id8"><span class="problematic" id="id4">[1]_</span></a>.</p></td>
+<td><p>A basic preprocessing protocol approximating the one adopted in Bergholt MS et al. (2016) <a href="#id8"><span class="problematic" id="id4">[1]_</span></a>.</p></td>
 </tr>
 </tbody>
 </table>
