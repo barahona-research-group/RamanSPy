@@ -6,12 +6,6 @@ day-to-day analyses, research applications, as well as the development and valid
 
 |
 
-.. image:: images/ramanspy_graphical_abstract.png
-  :width: 600
-  :align: center
-  :alt: Overview of RamanSPy's functionalities
-
-|
 
 Key features
 -----------------
