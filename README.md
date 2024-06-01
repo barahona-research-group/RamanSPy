@@ -1,10 +1,18 @@
-# RamanSPy
+<p align="center">
+  <a href="https://ramanspy.readthedocs.io/">
+    <img src="https://github.com/barahona-research-group/RamanSPy/blob/1121738ca4b8b64d938b81eefe32059ac33ace8e/docs/source/images/raman_logo_transparent.png" alt="RamanSPy logo"  width="360">
+  </a>
+</p>
+
+##
 
 [![Downloads](https://static.pepy.tech/badge/ramanspy)](https://pepy.tech/project/ramanspy)   [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)]([https://github.com/dwyl/esta/issues](https://github.com/barahona-research-group/RamanSPy/issues))
 
 
-*RamanSPy* is an open-source Python package for integrative
-Raman spectroscopy data analysis.
+#### *RamanSPy* is an open-source Python package for integrative Raman spectroscopy data analysis.
+
+
+![Overview of RamanSPy](docs/source/images/ramanspy_graphical_abstract.png)
 
 ## Key features
 
@@ -14,11 +22,11 @@ Raman spectroscopy data analysis.
 - Preprocessing pipelining
 - Preprocessing protocols
 - Analysis methods
+- AI & ML integration
 - Visualisation tools
-- AI integration
 - Datasets
+- Synthetic data generator
 - Metrics
-- Synthetic data generator (***new in versions >= 0.2.0***)
   
 
 ## Installation
