@@ -1,12 +1,17 @@
-# RamanSPy
+<p align="center">
+  <a href="https://ramanspy.readthedocs.io/">
+    <img src="https://github.com/barahona-research-group/RamanSPy/blob/1121738ca4b8b64d938b81eefe32059ac33ace8e/docs/source/images/raman_logo_transparent.png" alt="RamanSPy logo"  width="300">
+  </a>
+</p>
+
+## *RamanSPy*: An open-source package for <ins>Raman</ins> <ins>S</ins>pectroscopy analytics in <ins>Py</ins>thon.
 
 [![Downloads](https://static.pepy.tech/badge/ramanspy)](https://pepy.tech/project/ramanspy)   [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)]([https://github.com/dwyl/esta/issues](https://github.com/barahona-research-group/RamanSPy/issues))
 
 
-*RamanSPy* is an open-source Python package for integrative
-Raman spectroscopy data analysis.
-
 ## Key features
+
+![Overview of RamanSPy](docs/source/images/ramanspy_graphical_abstract.png)
 
 - Common data format
 - Data loaders
@@ -14,11 +19,11 @@ Raman spectroscopy data analysis.
 - Preprocessing pipelining
 - Preprocessing protocols
 - Analysis methods
+- AI & ML integration
 - Visualisation tools
-- AI integration
 - Datasets
+- Synthetic data generator
 - Metrics
-- Synthetic data generator (***new in versions >= 0.2.0***)
   
 
 ## Installation
@@ -68,11 +73,11 @@ rp.plot.show()
 ## Documentation
 
 For more information about the functionalities of the package, refer to
-the [documentation](https://ramanspy.readthedocs.io).
+the [online documentation](https://ramanspy.readthedocs.io).
 
 ## Credits
 
-If you use this package for your research, please cite our paper:
+If you use *RamanSPy* for your research, please cite our paper:
 
 [Georgiev, D.; Pedersen, S. V.; Xie, R.; Fernández-Galiana, Á.; Stevens, M. M.; Barahona, M. *RamanSPy: An open-source Python package for integrative Raman spectroscopy data analysis*. ACS Analytical Chemistry **2024**, 96(21), 8492-8500, DOI: 10.1021/acs.analchem.4c00383](https://pubs.acs.org/doi/10.1021/acs.analchem.4c00383)
 
