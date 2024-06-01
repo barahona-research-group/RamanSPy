@@ -42,6 +42,19 @@ If you use this package for your research, please cite our paper:
 
 `Georgiev, D.; Pedersen, S. V.; Xie, R.; Fernández-Galiana, Á.; Stevens, M. M.; Barahona, M. RamanSPy: An open-source Python package for integrative Raman spectroscopy data analysis. ACS Analytical Chemistry 2024, 96(21), 8492-8500, DOI: 10.1021/acs.analchem.4c00383 <https://pubs.acs.org/doi/10.1021/acs.analchem.4c00383>`_
 
+.. code-block:: latex
+
+    @article{georgiev2024ramanspy,
+        title={RamanSPy: An open-source Python package for integrative Raman spectroscopy data analysis},
+        author={Georgiev, Dimitar and Pedersen, Simon Vilms and Xie, Ruoxiao and Fern{\'a}ndez-Galiana, Alvaro and Stevens, Molly M and Barahona, Mauricio},
+        journal={Analytical Chemistry},
+        volume={96},
+        number={21},
+        pages={8492-8500},
+        year={2024},
+        doi={10.1021/acs.analchem.4c00383}
+    }
+
 |
 
 
