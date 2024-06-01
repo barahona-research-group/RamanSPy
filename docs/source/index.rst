@@ -88,4 +88,4 @@ Also, if you find *RamanSPy* useful, please consider leaving a star on GitHub:
    :hidden:
 
    GitHub repository <https://github.com/barahona-research-group/RamanSPy>
-   Paper <https://chemrxiv.org/engage/chemrxiv/article-details/64a53861ba3e99daef8c9c51>
+   Paper <https://pubs.acs.org/doi/10.1021/acs.analchem.4c00383>
