@@ -7,7 +7,7 @@ from numbers import Number
 from typing import List, get_args, Union, TYPE_CHECKING
 import numpy as np
 from matplotlib import pyplot as plt
-from matplotlib.colors import LinearSegmentedColormap
+from matplotlib.colors import LinearSegmentedColormap, Colormap
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from numpy.typing import NDArray
 
@@ -341,6 +341,7 @@ def image(
         cbar: Union[bool, List[bool]] = True,
         cbar_label: Union[str, List[str]] = "Peak intensity",
         color=None,
+        cmap: Union[str, Colormap, None] = None,
         **plt_kwargs
 ):
     """
@@ -364,9 +365,14 @@ def image(
         Whether to include a colorbar or not in each plot. Default is ``True``.
     cbar_label : Union[str, List[str]], optional
         If ``cbar=True``, the colorbar label(s) to use for each plot. Default is ``'Peak intensity'``.
+    cmap : Union[str, Colormap, None], optional
+        Specifies the colormap for the plots. Accepts a colormap name (as a ``string``), a ``Colormap`` object, or ``None``.
+        The default is ``None``, which uses Matplotlib's default colormap.
+        For available options, refer to Matplotlib's `colormap reference <https://matplotlib.org/stable/gallery/color/colormap_reference.html>`.
     color : Union[Matplotlib color, List[Matplotlib color]], optional
-        The color(s) to use for each plot. Default is ``None``, i.e. the default matplotlib's colormap will be used,
-        which is the ``veridis`` colormap.
+        Specifies the color(s) for the plots. Accepts a single ``Matplotlib color`` or a ``list`` of colors.
+        If provided, this overrides the cmap parameter. The default is ``None``.
+        For available options, refer to Matplotlib's `color reference <https://matplotlib.org/stable/gallery/color/named_colors.html>`.
     **plt_kwargs : keyword arguments, optional
         Additional parameters. Will be passed to the `matplotlib.pyplot.imshow <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html>`_ method.
         Each parameter can be given by single instance or as a list of instances for each plot.
@@ -410,8 +416,9 @@ def image(
     if ax is None:
         fig, ax = plt.subplots()
 
-    white = [1, 1, 1, 0]
-    cmap = LinearSegmentedColormap.from_list('', [white, color])
+    if color is not None:
+        white = [1, 1, 1, 0]
+        cmap = LinearSegmentedColormap.from_list('', [white, color])
 
     im = ax.imshow(image, cmap=cmap, **plt_kwargs)
 
@@ -455,6 +462,7 @@ def volume(
         zlabel: Union[str, List[str]] = None,
         cbar: Union[bool, List[bool]] = True,
         cbar_label: Union[str, List[str]] = "Peak intensity",
+        cmap: Union[str, Colormap, None] = None,
         **plt_kwargs
 ):
     """
@@ -480,9 +488,14 @@ def volume(
         Whether to include a colorbar or not in each plot. Default is ``True``.
     cbar_label : Union[str, List[str]], optional
         If ``cbar=True``, the colorbar label(s) to use for each plot. Default is ``'Peak intensity'``.
+    cmap : Union[str, Colormap, None], optional
+        Specifies the colormap for the plots. Accepts a colormap name (as a ``string``), a ``Colormap`` object, or ``None``.
+        The default is ``None``, which uses Matplotlib's default colormap.
+        For available options, refer to Matplotlib's `colormap reference <https://matplotlib.org/stable/gallery/color/colormap_reference.html>`.
     color : Union[Matplotlib color, List[Matplotlib color]], optional
-        The color(s) to use for each plot. Default is ``None``, i.e. the default matplotlib's colormap will be used,
-        which is the ``veridis`` colormap.
+        Specifies the color(s) for the plots. Accepts a single ``Matplotlib color`` or a ``list`` of colors.
+        If provided, this overrides the cmap parameter. The default is ``None``.
+        For available options, refer to Matplotlib's `color reference <https://matplotlib.org/stable/gallery/color/named_colors.html>`.
     **plt_kwargs : keyword arguments, optional
         Additional parameters. Will be passed to the `matplotlib.pyplot.scatter <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html>`_ method.
         Each parameter can be given by single instance or as a list of instances for each plot.
@@ -523,9 +536,9 @@ def volume(
     if ax is None:
         fig, ax = plt.subplots(subplot_kw=dict(projection='3d'))
 
-    # get colormap
     white = [1, 1, 1, 0]
-    cmap = LinearSegmentedColormap.from_list('', [white, color])
+    if color is not None:
+        cmap = LinearSegmentedColormap.from_list('', [white, color])
 
     X, Y, Z = np.mgrid[:volume.shape[0], :volume.shape[1], :volume.shape[2]]
 

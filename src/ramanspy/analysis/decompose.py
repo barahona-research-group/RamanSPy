@@ -67,7 +67,7 @@ def scikit_learn_wrapper(scikit_learn_model):
     def wrap(data, *args, **kwargs):
         model = scikit_learn_model(*args, **kwargs)
         spectra_transformed = model.fit_transform(data)
-
+        wrap.fitted_model = model
         return spectra_transformed, model.components_
 
     return wrap

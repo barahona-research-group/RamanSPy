@@ -295,7 +295,8 @@ def volumetric_cells(cell_type='THP-1', folder=None) -> List[core.SpectralVolume
 
     Data from `Kallepitis et al. (2017) <https://www.nature.com/articles/ncomms14843>`_.
 
-    Must be downloaded first. Provided by authors on `Zenodo <https://zenodo.org/record/256329#.Y7wpc3bP1D_>`_.
+    Must be downloaded and converted first. Provided by authors on `Zenodo <https://zenodo.org/record/256329#.Y7wpc3bP1D_>`_. 
+    The data is in the .wip format which RamanSPy cannot at this moment parse, conversion to .mat requires Witec Software Suite. 
 
     Parameters
     ----------
@@ -347,7 +348,7 @@ def MDA_MB_231_cells(dataset="train", folder=None) -> Tuple[core.SpectralContain
 
     Data from `Horgan, C.C. et al. (2021) <https://pubs.acs.org/doi/full/10.1021/acs.analchem.1c02178>`_.
 
-    Must be downloaded first. Provided by authors on `Google Drive <https://drive.google.com/drive/folders/1590Zqr56txK5_hVlrfe7oEIdcKoUTEIH>`_.
+    Must be downloaded first. Provided by authors on `OneDrive <https://emckclac-my.sharepoint.com/personal/k1919691_kcl_ac_uk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fk1919691%5Fkcl%5Fac%5Fuk%2FDocuments%2FDeepeR%2FRaman%20Spectral%20Denoising%2FDataset&fromShare=true&ga=1>`_.
 
     All data has spectral dimensionality of 500, in the range (500, 1800) cm:sup:`-1`.
 

@@ -401,5 +401,5 @@ class FABC(PybaselinesCorrector):
     ----------
     Cobas, J.C., Bernstein, M.A., Martín-Pastor, M. and Tahoces, P.G., 2006. A new general-purpose fully automatic baseline-correction procedure for 1D and 2D NMR data. Journal of Magnetic Resonance, 183(1), pp.145-151.
     """
-    def __init__(self, *, lam=1000000.0, scale=None, num_std=3.0, diff_order=2, min_length=2, weights=None, weights_as_mask=False, x_data=None, **pad_kwargs):
-        super().__init__(pybaselines.classification.fabc, lam=lam, scale=scale, num_std=num_std, diff_order=diff_order, min_length=min_length, weights=weights, weights_as_mask=weights_as_mask, x_data=x_data, **pad_kwargs)
+    def __init__(self, *, lam=1000000.0, scale=None, num_std=3.0, diff_order=2, min_length=2, weights=None, weights_as_mask=False, **pad_kwargs):
+        super().__init__(pybaselines.classification.fabc, lam=lam, scale=scale, num_std=num_std, diff_order=diff_order, min_length=min_length, weights=weights, weights_as_mask=weights_as_mask, **pad_kwargs)
