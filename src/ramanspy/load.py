@@ -101,8 +101,13 @@ def witec(
 
     elif len(spectral_data.shape) == 2:
         imagesize = get_value(matlab_dict, 'imagesize')
-        spectral_data = spectral_data.reshape(imagesize[1], imagesize[0], -1).transpose(1, 0, 2)
 
+        if imagesize.size > 0:  # i.e. 2D scan
+            spectral_data = spectral_data.reshape(imagesize[1], imagesize[0], -1).transpose(1, 0, 2)
+        
+        else:  # i.e. line scan or timeseries
+            spectral_data = spectral_data[np.newaxis, :]
+            
         obj = core.SpectralImage(spectral_data, shift_values)
 
     else:
